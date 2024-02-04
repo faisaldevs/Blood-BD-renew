@@ -79,7 +79,7 @@ class WelcomePage extends StatelessWidget {
                             backgroundColor: Colors.red,
                           )))
                       : Text(
-                    'Sign up',
+                    'Login',
                     style: GoogleFonts.roboto(
                         color: AppColor.wColor, fontSize: 18),
                   ),
