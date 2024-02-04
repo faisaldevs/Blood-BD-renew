@@ -27,7 +27,7 @@ const mySearchHistory = "/mySearchHistory";
 
 final pages = [
   customPage(name: splashScreen, page:  const SplashScreen()),
-  customPage(name: welcomePage, page:  const WelcomePage()),
+  customPage(name: welcomePage, page:   WelcomePage()),
   // customPage(name: login, page: const LoginScreen()),
   // customPage(name: signupPage, page: const SignupPage()),
   // customPage(name: otpPage, page: const OtpVerificationPage()),

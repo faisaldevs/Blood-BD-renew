@@ -1,47 +1,59 @@
+import 'package:blood_bd/controllers/welcome_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../global/app_colors.dart';
+import '../global_widget/custom_button.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+  WelcomePage({super.key});
+
+  final WelcomeController welcomeController = Get.put(WelcomeController());
 
   @override
   Widget build(BuildContext context) {
 
-    bool isLoading = false;
-    var bdh = Get.height;
-    var bdw = Get.width;
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          height: bdh,
-          width: bdw,
-          decoration: BoxDecoration(
-            color: AppColor.bColor,
-          ),
-
-          child: Column(
-            children: [
-              Text("BLOOD BD",style: GoogleFonts.roboto(color: Colors.white,fontSize: 60,fontWeight: FontWeight.bold,),),
-              SizedBox(
-                width: Get.width * .4,
-                height: Get.height *.06,
-                child: ElevatedButton(
-                  onPressed: () async{
-                    print("object");
-                    // setState(() => isLoading = true);
-                    // welcomePageController.signupForm();
-                    // await Get.to(const SignupPage(),transition: Transition.rightToLeftWithFade,duration: const Duration(milliseconds: 500));
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.redAccent),
-                    foregroundColor: MaterialStateProperty.all(Colors.transparent),
-                  ),
-                  child:  isLoading ?CircularProgressIndicator() :Text("Sign up",style: TextStyle(color: Colors.white),),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  "assets/images/bg.jpg",
                 ),
-              ),
+                fit: BoxFit.cover)),
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              SizedBox(
+                  width: Get.width * .4,
+                  height: Get.height * .06,
+                  child: Obx(
+                    () => CustomButton(
+                      onPressed: () {
+                        // print("pressed");
+                        welcomeController.signupBtn();
+                      },
+                      child: welcomeController.isLoadingSign.value
+                          ? const Center(
+                              child: SizedBox(
+                                  height: 18,
+                                  width: 18,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    backgroundColor: Colors.red,
+                                  )))
+                          : Text(
+                              'Sign up',
+                              style: GoogleFonts.roboto(
+                                  color: AppColor.wColor, fontSize: 18),
+                            ),
+                    ),
+                  )),
               const SizedBox(
                 height: 8,
               ),
@@ -51,22 +63,27 @@ class WelcomePage extends StatelessWidget {
               ),
               SizedBox(
                 width: Get.width * .4,
-                height: Get.height *.06,
-                child: ElevatedButton(
+                height: Get.height * .06,
+                child: Obx(() => CustomButton(
                   onPressed: () {
-                    // Get.toNamed("/login");
-                    // Get.to(const LoginScreen(),transition: Transition.native,duration: Duration(seconds: 1));
+                    // print("pressed");
+                    welcomeController.loginBtn();
                   },
-                  style: ButtonStyle(
-                    // padding: MaterialStateProperty.all(
-                    //   const EdgeInsets.symmetric(
-                    //       vertical: 18.0, horizontal: 35.0),
-                    // ),
-                    backgroundColor: MaterialStateProperty.all(Colors.redAccent),
-                    foregroundColor: MaterialStateProperty.all(Colors.transparent),
+                  child: welcomeController.isLoadingLogin.value
+                      ? const Center(
+                      child: SizedBox(
+                          height: 18,
+                          width: 18,
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                            backgroundColor: Colors.red,
+                          )))
+                      : Text(
+                    'Sign up',
+                    style: GoogleFonts.roboto(
+                        color: AppColor.wColor, fontSize: 18),
                   ),
-                  child:  isLoading ?CircularProgressIndicator() :Text("Login",style: TextStyle(color: Colors.white),),
-                ),
+                ),)
               ),
             ],
           ),
