@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'global/app_routes.dart';
 
@@ -23,8 +24,11 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           title: 'BLOOD BD',
           // theme: ThemeData(
-          //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          //   useMaterial3: true,
+          //   textTheme: TextTheme(
+          //     displayLarge: GoogleFonts.lobster(fontWeight: FontWeight.bold,fontSize: 40,color: color,)
+          //   )
+          //   // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          //   // useMaterial3: true,
           // ),
 
           navigatorKey: navigatorKey,

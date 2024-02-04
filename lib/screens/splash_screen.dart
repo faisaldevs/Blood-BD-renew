@@ -1,3 +1,4 @@
+import 'package:blood_bd/global/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -32,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
           statusBarColor: Colors.black,
         ),
       ),
-      body: Center(child: Text("BLOOD BD",style: GoogleFonts.roboto(color: Colors.red,fontSize: 54,fontWeight: FontWeight.bold),)),
+      body: Center(child: Text("BLOOD BD",style: GoogleFonts.roboto(color: AppColor.bColor,fontSize: 54,fontWeight: FontWeight.bold),)),
     );
   }
 }
