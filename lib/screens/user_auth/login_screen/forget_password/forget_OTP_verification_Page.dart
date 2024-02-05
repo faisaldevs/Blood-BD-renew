@@ -16,7 +16,7 @@ class _ForgetOtpVerificationPageState extends State<ForgetOtpVerificationPage> {
     final forgetOtpFormKey = GlobalKey<FormState>();
 
     final TextEditingController forgetOtpController = TextEditingController();
-    final focusNode = FocusNode();
+    // final focusNode = FocusNode();
     final defaultPinTheme = PinTheme(
       height: 60.0,
       width: 60.0,

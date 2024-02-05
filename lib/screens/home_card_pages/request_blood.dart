@@ -56,7 +56,7 @@ class _RequestBloodState extends State<RequestBlood> {
         margin: const EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Form(
-            // key: _searchDonorKey,
+            key: _searchDonorKey,
             child: Column(
               children: [
                 const SizedBox(height: 10),

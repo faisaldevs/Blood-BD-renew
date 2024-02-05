@@ -17,7 +17,6 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
   @override
   Widget build(BuildContext context) {
     var width = Get.width;
-    var height = Get.height;
     return DrawerHeader(
       margin: EdgeInsets.zero,
       padding: const EdgeInsets.only(left: 10,),
