@@ -2,6 +2,7 @@ import 'package:blood_bd/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../screens/home_screen/home_screen.dart';
 import '../screens/user_auth/welcome_screen.dart';
 
 
@@ -33,7 +34,7 @@ final pages = [
   // customPage(name: otpPage, page: const OtpVerificationPage()),
   // customPage(name: forgetOtpPage, page: const ForgetOtpVerificationPage()),
   // customPage(name: forgetPasswordPage, page: ForgetPasswordPage()),
-  // customPage(name: home, page: const HomePage()),
+  customPage(name: home, page: const HomeScreen()),
   // customPage(name: notificationPage, page: const NotificationPage()),
   // customPage(name: searchDonor, page: const SearchDonor()),
   // customPage(name: bloodHeroes, page: const BloodHeroes()),

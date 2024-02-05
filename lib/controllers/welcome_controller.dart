@@ -14,7 +14,7 @@ class WelcomeController extends GetxController{
     isLoadingSign.value = true;
     await Future.delayed(const Duration(seconds: 2));
     isLoadingSign.value = false;
-    Get.to(const SignupScreen());
+    Get.to( SignupScreen());
 
 
   }

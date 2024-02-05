@@ -4,16 +4,15 @@ import 'package:get/get.dart';
 import '../../../../global/app_routes.dart';
 
 class ForgetPasswordWidget extends StatelessWidget {
-  const ForgetPasswordWidget({super.key});
+  const ForgetPasswordWidget({super.key, required this.onPressed});
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.bottomRight,
       child: TextButton(
-        onPressed: () {
-          Get.toNamed(forgetOtpPage);
-        },
+        onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.transparent),
           foregroundColor: MaterialStateProperty.all(Colors.transparent),

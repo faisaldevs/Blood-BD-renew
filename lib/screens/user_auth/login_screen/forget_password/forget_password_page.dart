@@ -9,7 +9,7 @@ import '../../../global_widget/custom_button.dart';
 class ForgetPasswordPage extends StatelessWidget {
    ForgetPasswordPage({super.key});
 
-ForgetPassController passController = Get.put(ForgetPassController());
+final ForgetPassController passController = Get.put(ForgetPassController());
 
   @override
   Widget build(BuildContext context) {

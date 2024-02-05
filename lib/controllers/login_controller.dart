@@ -48,6 +48,13 @@ class LoginController extends GetxController{
       }
 
     }
+
+
+
+  }
+  forgetButton(){
+
+
   }
 
 }

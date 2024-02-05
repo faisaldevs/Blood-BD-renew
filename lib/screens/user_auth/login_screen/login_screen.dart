@@ -95,7 +95,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelText: 'Password',
                   ),
 
-                  const ForgetPasswordWidget(),
+                   ForgetPasswordWidget(onPressed: (){_loginController.forgetButton;},),
+                  const SizedBox(
+                    height: 20,
+                  ),
 
                   //------- CONTINUE BUTTON ------
 
