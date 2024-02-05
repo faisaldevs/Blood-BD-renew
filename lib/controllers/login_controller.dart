@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:http/http.dart';
 
+import '../global/app_routes.dart';
+
 class LoginController extends GetxController{
 
   final loginFormKey = GlobalKey<FormState>();
@@ -38,6 +40,8 @@ class LoginController extends GetxController{
           var data = jsonDecode(response.body.toString());
           print(response.statusCode.toString());
           isLoginIng.value = false;
+
+          Get.offAllNamed(home);
           // numberController.clear();
           // passwordController.clear();
         } else {

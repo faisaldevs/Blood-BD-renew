@@ -53,8 +53,8 @@ class CustomDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FocusNode searchFocusNode = FocusNode();
-    FocusNode textFieldFocusNode = FocusNode();
+    // FocusNode searchFocusNode = FocusNode();
+    // FocusNode textFieldFocusNode = FocusNode();
     return DropdownButtonFormField(
       style: const TextStyle(color: Colors.red),
       value: dropDownList[0],

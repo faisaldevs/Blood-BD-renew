@@ -1,3 +1,4 @@
+
 class DataList{
   static List<String> genderListData =["Select Gender","Male","Female","Other"];
   static List<String> bloodListData = ["A+","A-","B+","B-","O+","o-","AB+","AB-"];
@@ -12,4 +13,5 @@ class DataList{
 // static List<>
 
 // static List<String> districtListData = ["Dhaka","Faridpur","Gazipur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj"];
+
 }

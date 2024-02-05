@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import '../global/app_routes.dart';
 
-class SignupController extends GetxController{
- RxBool isLoading = false.obs;
+class SignupController extends GetxController {
+  RxBool isLoading = false.obs;
 
   final signupFormKey = GlobalKey<FormState>();
   final TextEditingController nameController = TextEditingController();
@@ -19,15 +19,13 @@ class SignupController extends GetxController{
   final TextEditingController numberController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
 
-
   // final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  signUpForm() async{
-
+  signUpForm() async {
     isLoading.value = true;
 
     print("success");
-    if(signupFormKey.currentState!.validate()){
+    if (signupFormKey.currentState!.validate()) {
       // showDialog(context: context, builder: (context) =>
       // const AlertDialog(
       //   // insetPadding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
@@ -39,12 +37,11 @@ class SignupController extends GetxController{
       // ),
       // );
 
-     print("success");
-
+      print("success");
     }
     await Future.delayed(const Duration(seconds: 2));
 
     isLoading.value = false;
-    await Get.toNamed(home);
+    await Get.offAllNamed(home);
   }
 }

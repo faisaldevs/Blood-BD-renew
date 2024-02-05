@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../../../global/app_routes.dart';
-
 class ForgetPasswordWidget extends StatelessWidget {
   const ForgetPasswordWidget({super.key, required this.onPressed});
   final Function() onPressed;

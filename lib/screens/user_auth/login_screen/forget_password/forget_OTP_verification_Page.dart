@@ -1,18 +1,13 @@
-import 'package:blood_bd/screens/global_widget/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 
-import '../../../../global/app_routes.dart';
-
 class ForgetOtpVerificationPage extends StatefulWidget {
-   const ForgetOtpVerificationPage({super.key});
-
-
+  const ForgetOtpVerificationPage({super.key});
 
   @override
-  State<ForgetOtpVerificationPage> createState() => _ForgetOtpVerificationPageState();
+  State<ForgetOtpVerificationPage> createState() =>
+      _ForgetOtpVerificationPageState();
 }
 
 class _ForgetOtpVerificationPageState extends State<ForgetOtpVerificationPage> {
@@ -54,8 +49,14 @@ class _ForgetOtpVerificationPageState extends State<ForgetOtpVerificationPage> {
               SizedBox(
                 height: height * 0.14,
               ),
-              const Icon(Icons.check_circle,size: 90,color: Colors.red,),
-              SizedBox(height: height*0.04,),
+              const Icon(
+                Icons.check_circle,
+                size: 90,
+                color: Colors.red,
+              ),
+              SizedBox(
+                height: height * 0.04,
+              ),
               Text(
                 'OTP VERIFICATION',
                 style: GoogleFonts.urbanist(
@@ -64,7 +65,9 @@ class _ForgetOtpVerificationPageState extends State<ForgetOtpVerificationPage> {
                   fontSize: 24.0,
                 ),
               ),
-              SizedBox(height: height*0.04,),
+              SizedBox(
+                height: height * 0.04,
+              ),
 
               const Text("Enter the OTP Send To :+88"),
               SizedBox(
@@ -83,7 +86,6 @@ class _ForgetOtpVerificationPageState extends State<ForgetOtpVerificationPage> {
                         if (otp!.isEmpty) {
                           // print(otp);
                           return "Enter OTP pin";
-
                         }
                         return null;
                       },
@@ -138,33 +140,27 @@ class _ForgetOtpVerificationPageState extends State<ForgetOtpVerificationPage> {
         ),
       ),
     );
-
-
-
   }
 }
 
-
-
-  //  void otpValidation() async {
-  //   if (otpFormKey.currentState!.validate()) {
-  // //
-  // //     // ScaffoldMessenger.of(context)
-  // //     //     .showSnackBar(const SnackBar(content: Text("Sign In succeeded")));
-  // //
-  // //     showDialog(context: context, builder: (context) => const AlertDialog(
-  // //       // insetPadding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-  // //       backgroundColor: Colors.white60,
-  // //       content: SizedBox(height:70,width: 0,child: Center(child: CircularProgressIndicator(color: Colors.red,))),
-  // //     ),
-  // //     );
-  // //
-  //     await Future.delayed(const Duration(milliseconds: 400));
-  //     await Get.to(home);
-  //
-  //     // await Navigator.push(context, MaterialPageRoute(builder: (context) =>  const OtpVerificationPage(),));
-  //
-  //    }
-  //
-  //  }
-
+//  void otpValidation() async {
+//   if (otpFormKey.currentState!.validate()) {
+// //
+// //     // ScaffoldMessenger.of(context)
+// //     //     .showSnackBar(const SnackBar(content: Text("Sign In succeeded")));
+// //
+// //     showDialog(context: context, builder: (context) => const AlertDialog(
+// //       // insetPadding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+// //       backgroundColor: Colors.white60,
+// //       content: SizedBox(height:70,width: 0,child: Center(child: CircularProgressIndicator(color: Colors.red,))),
+// //     ),
+// //     );
+// //
+//     await Future.delayed(const Duration(milliseconds: 400));
+//     await Get.to(home);
+//
+//     // await Navigator.push(context, MaterialPageRoute(builder: (context) =>  const OtpVerificationPage(),));
+//
+//    }
+//
+//  }

@@ -1,9 +1,11 @@
+import 'package:blood_bd/screens/home_screen/widgets/banner_widget.dart';
 import 'package:blood_bd/screens/home_screen/widgets/card_sections.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../global/app_routes.dart';
+import '../drawer_profile/drawer_profile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -68,12 +70,12 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 40),
 
-              // const BannerWidget(),
+              const BannerWidget(),
             ],
           ),
         ),
       ),
-      // drawer: const DrawerProfile(),
+      drawer: const DrawerProfile(),
     );
   }
 }
