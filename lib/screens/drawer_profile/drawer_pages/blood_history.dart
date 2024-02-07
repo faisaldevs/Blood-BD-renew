@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class History extends StatelessWidget {
-  const History({super.key});
+class BloodHistory extends StatelessWidget {
+  const BloodHistory({super.key});
 
   @override
   Widget build(BuildContext context) {

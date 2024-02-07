@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 
-import '../../../controllers/signup_OTP_controller.dart';
+import '../../../controllers/signup_otp_controller.dart';
 import '../../global_widget/custom_button.dart';
 
 class SignupOTPVerification extends StatefulWidget {

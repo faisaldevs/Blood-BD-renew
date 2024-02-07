@@ -1,7 +1,14 @@
+
 import 'package:blood_bd/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../screens/drawer_profile/drawer_pages/donation_accepted.dart';
+import '../screens/drawer_profile/drawer_pages/donation_blocked.dart';
+import '../screens/drawer_profile/drawer_pages/blood_history.dart';
+import '../screens/drawer_profile/drawer_pages/medical_history.dart';
+import '../screens/drawer_profile/drawer_pages/mySearch_history.dart';
+import '../screens/drawer_profile/drawer_pages/notification_page.dart';
 import '../screens/home_screen/home_screen.dart';
 import '../screens/user_auth/welcome_screen.dart';
 
@@ -9,10 +16,10 @@ import '../screens/user_auth/welcome_screen.dart';
 
 const splashScreen = "/";
 const welcomePage = "/welcomePage";
-const login = "/login";
-const signupPage = "/signup";
-const otpPage = "/otpPage";
-const forgetOtpPage = "/forgetOtpPage";
+// const login = "/login";
+// const signupPage = "/signup";
+// const otpPage = "/otpPage";
+// const forgetOtpPage = "/forgetOtpPage";
 const home = "/home";
 const forgetPasswordPage = "/forgetPasswordPage";
 const notificationPage = "/notificationPage";
@@ -34,17 +41,27 @@ final pages = [
   // customPage(name: otpPage, page: const OtpVerificationPage()),
   // customPage(name: forgetOtpPage, page: const ForgetOtpVerificationPage()),
   // customPage(name: forgetPasswordPage, page: ForgetPasswordPage()),
+
+  //-------------App Screens---------------------------
+
   customPage(name: home, page: HomeScreen()),
-  // customPage(name: notificationPage, page: const NotificationPage()),
   // customPage(name: searchDonor, page: const SearchDonor()),
   // customPage(name: bloodHeroes, page: const BloodHeroes()),
   // customPage(name: requestBlood, page: const RequestBlood()),
   // customPage(name: feedPage, page: const FeedPage()),
-  // customPage(name: medicalHistory, page: const MedicalHistory()),
-  // customPage(name: donationAccepted, page: const DonationAccepted()),
-  // customPage(name: donationBlocked, page: const DonationBlocked()),
-  // customPage(name: history, page: const History()),
-  // customPage(name: mySearchHistory, page: const MySearchHistory()),
+
+
+        //-------------Drawer Pages---------------------------
+
+
+  customPage(name: notificationPage, page: const NotificationPage()),
+  customPage(name: medicalHistory, page: const MedicalHistory()),
+  customPage(name: donationAccepted, page: const DonationAccepted()),
+  customPage(name: donationBlocked, page: const DonationBlocked()),
+  customPage(name: history, page: const BloodHistory()),
+  customPage(name: mySearchHistory, page: const MySearchHistory()),
+
+
 ];
 
 GetPage customPage({required String name, required Widget page}) {

@@ -1,4 +1,4 @@
-import 'package:blood_bd/controllers/forgetPass_OTP_controller.dart';
+import 'package:blood_bd/controllers/forgetPass_otp_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
