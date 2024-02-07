@@ -4,6 +4,7 @@ import 'package:blood_bd/screens/drawer_profile/widgets/custom_drawer_links.dart
 import 'package:blood_bd/screens/drawer_profile/widgets/drawer_header.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class DrawerProfile extends StatelessWidget {
    const DrawerProfile({super.key});
@@ -11,6 +12,7 @@ class DrawerProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final getStorage = GetStorage();
     return Drawer(
       child: ListView(
         children: [
@@ -25,7 +27,7 @@ class DrawerProfile extends StatelessWidget {
             icon: Icons.medical_information_outlined,
             onTap: () {
               // Get.toNamed(medicalHistory);
-              Get.to(const MedicalHistory(),transition: Transition.rightToLeftWithFade,duration: Duration(milliseconds: 700));
+              Get.to(const MedicalHistory(),transition: Transition.rightToLeftWithFade,duration: const Duration(milliseconds: 700));
             },
           ),
           CustomDrawerLinks(
@@ -82,6 +84,7 @@ class DrawerProfile extends StatelessWidget {
             title: 'Logout',
             icon: Icons.logout_outlined,
             onTap: () {
+              getStorage.erase();
               Get.offAllNamed(welcomePage);
             },
           ),

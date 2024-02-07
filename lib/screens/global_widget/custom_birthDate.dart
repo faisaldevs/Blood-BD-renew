@@ -25,7 +25,6 @@ class _CustomBirthdateState extends State<CustomBirthdate> {
 
       setState(() {
         widget.controller.text = DateFormat.yMMMd().format(pickedDate!);
-        print('Date: ${widget.controller.text}');
       });
     }
     return Expanded(

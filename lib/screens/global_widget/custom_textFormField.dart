@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  CustomTextFormField({
+ const CustomTextFormField({
     super.key,
     required this.controller,
     required this.hintText,
@@ -32,7 +31,7 @@ class CustomTextFormField extends StatelessWidget {
   final int? designNumber;
   final bool? isEnabled;
   final Function(String)? onChanged;
-  String? Function(String?) validate;
+  final String? Function(String?) validate;
 
 //   @override
 //   Widget build(BuildContext context) {

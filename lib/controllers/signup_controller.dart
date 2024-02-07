@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,9 @@ class SignupController extends GetxController {
   signUpForm() async {
     isLoading.value = true;
 
-    print("success");
+    if (kDebugMode) {
+      print("success");
+    }
     if (signupFormKey.currentState!.validate()) {
       // showDialog(context: context, builder: (context) =>
       // const AlertDialog(
@@ -37,7 +40,9 @@ class SignupController extends GetxController {
       // ),
       // );
 
-      print("success");
+      if (kDebugMode) {
+        print("success");
+      }
     }
     await Future.delayed(const Duration(seconds: 2));
 

@@ -34,7 +34,7 @@ final pages = [
   // customPage(name: otpPage, page: const OtpVerificationPage()),
   // customPage(name: forgetOtpPage, page: const ForgetOtpVerificationPage()),
   // customPage(name: forgetPasswordPage, page: ForgetPasswordPage()),
-  customPage(name: home, page: const HomeScreen()),
+  customPage(name: home, page: HomeScreen()),
   // customPage(name: notificationPage, page: const NotificationPage()),
   // customPage(name: searchDonor, page: const SearchDonor()),
   // customPage(name: bloodHeroes, page: const BloodHeroes()),

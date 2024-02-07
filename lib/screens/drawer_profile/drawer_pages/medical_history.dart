@@ -8,8 +8,6 @@ class MedicalHistory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -30,7 +28,6 @@ class MedicalHistory extends StatelessWidget {
           ),
         ),
       ),
-
       body: SizedBox(
         height: Get.height,
         width: Get.width,
@@ -38,18 +35,27 @@ class MedicalHistory extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(Icons.search,size: 120,color: Colors.black26,),
-            const Text("No Notification Found!",style: TextStyle(fontSize: 24,color: Colors.black26),),
-
-            const SizedBox(height: 280,),
-
+            const Icon(
+              Icons.search,
+              size: 120,
+              color: Colors.black26,
+            ),
+            const Text(
+              "No Notification Found!",
+              style: TextStyle(fontSize: 24, color: Colors.black26),
+            ),
+            const SizedBox(
+              height: 280,
+            ),
             Container(
                 width: Get.width,
                 margin: const EdgeInsets.all(16),
-                child: CustomButton(onPressed: (){
-                  Get.snackbar("Faisal", "Medical Report");
-                  
-                }, child: Text("Add New Report"),)),
+                child: CustomButton(
+                  onPressed: () {
+                    Get.snackbar("Faisal", "Medical Report");
+                  },
+                  child: const Text("Add New Report"),
+                )),
           ],
         ),
       ),

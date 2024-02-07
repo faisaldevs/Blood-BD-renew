@@ -26,8 +26,8 @@ class _RequestBloodState extends State<RequestBlood> {
   final TextEditingController _timeController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _numberController = TextEditingController();
-  final TextEditingController _weightController = TextEditingController();
-  final TextEditingController _genderController = TextEditingController();
+  // final TextEditingController _weightController = TextEditingController();
+  // final TextEditingController _genderController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -276,7 +276,7 @@ class _RequestBloodState extends State<RequestBlood> {
                   width: MediaQuery.of(context).size.width,
                   child: CustomButton(onPressed: () {
                     // signUpForm();
-                  }, child: Text("Sign Up")),
+                  }, child: const Text("Sign Up")),
                 ),
               ],
             ),

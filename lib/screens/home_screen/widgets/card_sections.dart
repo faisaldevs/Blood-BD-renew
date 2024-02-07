@@ -24,7 +24,6 @@ class CardSections extends StatelessWidget {
               title: 'Request Blood',
               imageUrl: "assets/images/home_icons/request_blood.png",
               onTap: () {
-                print("object");
                 Get.toNamed(requestBlood);
               },
             ),

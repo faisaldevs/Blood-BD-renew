@@ -3,15 +3,18 @@ import 'package:blood_bd/screens/home_screen/widgets/card_sections.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../global/app_routes.dart';
 import '../drawer_profile/drawer_profile.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+  final getStorage = GetStorage();
 
   @override
   Widget build(BuildContext context) {
+    var name = getStorage.read("name");
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -55,9 +58,9 @@ class HomeScreen extends StatelessWidget {
                           color: Colors.red,
                         )),
                   ),
-                  const Text(
-                    "Faisal",
-                    style: TextStyle(
+                   Text(
+                    name,
+                    style: const TextStyle(
                         fontSize: 21,
                         fontWeight: FontWeight.w500,
                         color: Colors.red),

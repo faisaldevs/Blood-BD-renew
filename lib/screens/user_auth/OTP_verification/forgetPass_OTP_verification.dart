@@ -125,7 +125,7 @@ class ForgetPassOtpVerification extends StatelessWidget {
               SizedBox(width: width,child: CustomButton(onPressed: (){
                 // otpValidation();
                 // Get.toNamed(home);
-              },child : Text("Continue"))),
+              },child : const Text("Continue"))),
               const SizedBox(
                 height: 16.0,
               ),

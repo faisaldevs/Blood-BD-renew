@@ -1,13 +1,15 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart';
 
 import '../global/app_routes.dart';
 
 class LoginController extends GetxController{
+  final getStorage = GetStorage();
 
   final loginFormKey = GlobalKey<FormState>();
 
@@ -18,16 +20,16 @@ class LoginController extends GetxController{
  RxBool isLoginIng = false.obs;
 
 
-  Future<void> loginForm()async {
+  Future<Text> loginForm()async {
 
     if(loginFormKey.currentState!.validate()){
 
        isLoginIng.value = true;
 
 
-      print(numberController.text);
-      print(passwordController.text);
-      print("validation success");
+      if (kDebugMode) {
+        print("validation success");
+      }
 
 
       try {
@@ -37,28 +39,49 @@ class LoginController extends GetxController{
         });
 
         if (response.statusCode == 200) {
-          var data = jsonDecode(response.body.toString());
-          print(response.statusCode.toString());
           isLoginIng.value = false;
+          var data = jsonDecode(response.body.toString());
+          var id = data["user"]["id"];
+          var name = data["user"]["name"].toString();
+          var phone = data["user"]["phone"].toString();
+          String message = data["message"].toString();
+
+          getStorage.write("id", id);
+          getStorage.write("name", name);
+          getStorage.write("phone", phone);
+
+          isLoginIng.value = false;
+          Get.snackbar(
+            "Login Successes",
+            message,
+          );
 
           Get.offAllNamed(home);
           // numberController.clear();
           // passwordController.clear();
         } else {
-          print("failed");
+          if (kDebugMode) {
+            print("failed");
+          }
+          Get.snackbar(
+            "Login failed",
+            "Number or Password was wrong..",
+          );
         }
       } catch (e) {
-        print(e.toString());
+        if (kDebugMode) {
+          print(e.toString());
+        }
       }
 
     }
 
-
-
+  return const Text("data");
   }
   forgetButton(){
 
 
   }
+
 
 }
