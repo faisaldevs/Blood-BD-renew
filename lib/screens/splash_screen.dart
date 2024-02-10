@@ -29,11 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
     }
     else
       {
-        Future.delayed(const Duration(milliseconds: 2), () => Get.offAllNamed(welcomePage));
+        Future.delayed(const Duration(seconds: 2), () => Get.offAllNamed(welcomePage));
       }
-
-
-
 
   }
 
@@ -56,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Text(
         "BLOOD BD",
         style: GoogleFonts.roboto(
-            color: AppColor.bColor, fontSize: 54, fontWeight: FontWeight.bold),
+            color: AppColor.bloodColor, fontSize: 54, fontWeight: FontWeight.bold),
       )),
     );
   }

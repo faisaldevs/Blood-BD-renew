@@ -1,3 +1,4 @@
+import 'package:blood_bd/screens/user_auth/signup_screen/signup_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -127,6 +128,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                         ),
                       )),
+                  const SizedBox(height: 40,),
+
+                  const Text("Don't Have an account?"),
+                  const SizedBox(height: 20,),
+
+                  TextButton(onPressed: (){
+                    Get.to(SignupScreen());
+                  },
+                      style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.red[300]),
+                        padding: MaterialStateProperty.all(
+                          const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
+                        ),
+                      ),
+                      child: const Text("Sign Up",style: TextStyle(color: Colors.white,fontSize: 18),)),
+
                 ],
               ),
             ),

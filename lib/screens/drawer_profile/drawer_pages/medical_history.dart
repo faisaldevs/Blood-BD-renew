@@ -28,25 +28,18 @@ class MedicalHistory extends StatelessWidget {
           ),
         ),
       ),
-      body: SizedBox(
+      body:  SizedBox(
         height: Get.height,
         width: Get.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.search,
-              size: 120,
-              color: Colors.black26,
-            ),
-            const Text(
-              "No Notification Found!",
-              style: TextStyle(fontSize: 24, color: Colors.black26),
-            ),
-            const SizedBox(
-              height: 280,
-            ),
+            const Icon(Icons.search,size: 80,color: Colors.black26,),
+            const Text("No Notification Found!",style: TextStyle(fontSize: 19,color: Colors.black26),),
+
+
+            SizedBox(height: Get.height * .32,),
             Container(
                 width: Get.width,
                 margin: const EdgeInsets.all(16),
@@ -54,7 +47,14 @@ class MedicalHistory extends StatelessWidget {
                   onPressed: () {
                     Get.snackbar("Faisal", "Medical Report");
                   },
-                  child: const Text("Add New Report"),
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.add,color: Colors.white,),
+                      SizedBox(width: 4,),
+                      Text("Add New Report",style: TextStyle(color: Colors.white,fontSize: 18),),
+                    ],
+                  ),
                 )),
           ],
         ),

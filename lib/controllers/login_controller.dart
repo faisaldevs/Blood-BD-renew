@@ -78,6 +78,7 @@ class LoginController extends GetxController{
 
   return const Text("data");
   }
+
   forgetButton(){
 
 

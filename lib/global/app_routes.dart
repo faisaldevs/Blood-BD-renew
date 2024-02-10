@@ -9,6 +9,10 @@ import '../screens/drawer_profile/drawer_pages/blood_history.dart';
 import '../screens/drawer_profile/drawer_pages/medical_history.dart';
 import '../screens/drawer_profile/drawer_pages/mySearch_history.dart';
 import '../screens/drawer_profile/drawer_pages/notification_page.dart';
+import '../screens/home_card_pages/blood_heroes_page.dart';
+import '../screens/home_card_pages/feed_page.dart';
+import '../screens/home_card_pages/request_blood.dart';
+import '../screens/home_card_pages/search_donor_page.dart';
 import '../screens/home_screen/home_screen.dart';
 import '../screens/user_auth/welcome_screen.dart';
 
@@ -45,10 +49,10 @@ final pages = [
   //-------------App Screens---------------------------
 
   customPage(name: home, page: HomeScreen()),
-  // customPage(name: searchDonor, page: const SearchDonor()),
-  // customPage(name: bloodHeroes, page: const BloodHeroes()),
-  // customPage(name: requestBlood, page: const RequestBlood()),
-  // customPage(name: feedPage, page: const FeedPage()),
+  customPage(name: searchDonor, page: const SearchDonor()),
+  customPage(name: bloodHeroes, page: const BloodHeroes()),
+  customPage(name: requestBlood, page: const RequestBlood()),
+  customPage(name: feedPage, page: const FeedPage()),
 
 
         //-------------Drawer Pages---------------------------

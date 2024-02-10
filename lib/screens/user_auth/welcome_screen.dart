@@ -32,28 +32,18 @@ class WelcomePage extends StatelessWidget {
               SizedBox(
                   width: Get.width * .4,
                   height: Get.height * .06,
-                  child: Obx(
-                    () => CustomButton(
+                  child:CustomButton(
                       onPressed: () {
                         // print("pressed");
                         welcomeController.signupBtn();
                       },
-                      child: welcomeController.isLoadingSign.value
-                          ? const Center(
-                              child: SizedBox(
-                                  height: 18,
-                                  width: 18,
-                                  child: CircularProgressIndicator(
-                                    color: Colors.white,
-                                    backgroundColor: Colors.red,
-                                  )))
-                          : Text(
+                      child:  Text(
                               'Sign up',
                               style: GoogleFonts.roboto(
                                   color: AppColor.wColor, fontSize: 16),
                             ),
                     ),
-                  )),
+                  ),
               const SizedBox(
                 height: 8,
               ),
@@ -64,27 +54,17 @@ class WelcomePage extends StatelessWidget {
               SizedBox(
                 width: Get.width * .4,
                 height: Get.height * .06,
-                child: Obx(() => CustomButton(
+                child:CustomButton(
                   onPressed: () {
                     // print("pressed");
                     welcomeController.loginBtn();
                   },
-                  child: welcomeController.isLoadingLogin.value
-                      ? const Center(
-                      child: SizedBox(
-                          height: 18,
-                          width: 18,
-                          child: CircularProgressIndicator(
-                            color: Colors.white,
-                            backgroundColor: Colors.red,
-                          )))
-                      : Text(
+                  child: Text(
                     'Login',
                     style: GoogleFonts.roboto(
                         color: AppColor.wColor, fontSize: 16,),
                   ),
                 ),)
-              ),
             ],
           ),
         ),

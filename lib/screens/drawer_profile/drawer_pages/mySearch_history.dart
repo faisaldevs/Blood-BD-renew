@@ -26,6 +26,18 @@ class MySearchHistory extends StatelessWidget {
           ),
         ),
       ),
+      body:  SizedBox(
+        height: Get.height,
+        width: Get.width,
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(Icons.search,size: 80,color: Colors.black26,),
+            Text("No Notification Found!",style: TextStyle(fontSize: 18,color: Colors.black26),),
+          ],
+        ),
+      ),
     );
   }
 }

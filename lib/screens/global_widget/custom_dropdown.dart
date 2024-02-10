@@ -44,59 +44,56 @@
 import 'package:flutter/material.dart';
 
 class CustomDropdown extends StatelessWidget {
-  const CustomDropdown({super.key, this.controller, required this.dropDownList, required this.label});
+  const CustomDropdown({
+    super.key,
+    required this.dropDownList,
+    required this.label,
+    required this.onChanged,
+    // required this.hint,
+  });
 
-  final TextEditingController? controller;
+  final Function() onChanged;
   final String label;
+  // final Widget hint;
 
   final List dropDownList;
 
   @override
   Widget build(BuildContext context) {
-    // FocusNode searchFocusNode = FocusNode();
-    // FocusNode textFieldFocusNode = FocusNode();
     return DropdownButtonFormField(
+      // hint: hint,
       style: const TextStyle(color: Colors.red),
       value: dropDownList[0],
-      decoration:   InputDecoration(
+      decoration: InputDecoration(
         labelText: label,
         labelStyle: const TextStyle(color: Colors.red),
         contentPadding: const EdgeInsets.only(left: 12),
         counterStyle: const TextStyle(fontWeight: FontWeight.bold),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.zero,
-          borderSide: BorderSide(color: Colors.black54,width: 1),
+          borderSide: BorderSide(color: Colors.black54, width: 1),
         ),
         focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.zero,
-          borderSide: BorderSide(color: Colors.black54,width: 1),
+          borderSide: BorderSide(color: Colors.black54, width: 1),
         ),
       ),
-      // validator: (value) {
-      //   if (value == dropDownList[0]) {
-      //     return "$label required";
-      //   } else {
-      //     return null;
-      //   }
-      // },
-        items: dropDownList.map((e) {
-          return DropdownMenuItem(
+      validator: (value) {
+        if (value == dropDownList[0]) {
+          return "$label required";
+        } else {
+          return null;
+        }
+      },
+      items: dropDownList.map((e) {
+        return DropdownMenuItem(
             value: e,
-            child: Text(e,style: const TextStyle(fontWeight: FontWeight.normal),),
-          );
-        }).toList(),
-      onChanged: (value) {},
+            child: Text(
+              e,
+              style: const TextStyle(fontWeight: FontWeight.normal),
+            ));
+      }).toList(),
+      onChanged: onChanged(),
     );
   }
 }
-
-
-// InputDecoration decoration = const InputDecoration(
-//   labelText: ,
-//   border: OutlineInputBorder(
-//       borderSide: BorderSide(
-//         color: Colors.black,
-//         width: 1,
-//       )),
-//   hintText: "enter your custom hint text here",
-// );
