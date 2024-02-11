@@ -1,5 +1,6 @@
 // import 'package:blood_bd/screens/user_auth/login_screen/login_screen.dart';
 import 'package:blood_bd/controllers/welcome_controller.dart';
+import 'package:blood_bd/screens/user_auth/signup_screen/dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,6 @@ class SignupScreen extends StatelessWidget {
   final SignupController signupController = Get.put(SignupController());
   final WelcomeController welcomeController = Get.put(WelcomeController());
 
-/*Validation ar jonno Snack bar or dialog box use korta hobe????????  Text hobe("Please fill all the fields")*/
 
   @override
   Widget build(BuildContext context) {
@@ -76,12 +76,21 @@ class SignupScreen extends StatelessWidget {
                 //-------Gender Date Field --------------
                 Row(
                   children: [
-                    Expanded(
-                        child: CustomDropdown(
-                      // controller: signupController.genderController,
-                      dropDownList: DataList.genderListData,
-                      label: 'Gender', onChanged: () {},
-                    )),
+
+ // -----------------Dropdown Button OnChanged-------------
+
+                     Expanded(
+                        child: DropDownBtn(onChanged: (value){
+                          print(value);
+                        },)),
+
+                    //CustomDropdown(
+                    //                       // controller: signupController.genderController,
+                    //                       dropDownList: DataList.genderListData,
+                    //                       label: 'Gender', onChanged: () {},
+                    //                     )
+
+
                     const SizedBox(
                       width: 10,
                     ),
