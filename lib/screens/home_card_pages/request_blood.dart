@@ -83,7 +83,11 @@ class _RequestBloodState extends State<RequestBlood> {
                   children: [
                     Expanded(
                       flex: 1,
-                      child: DropDownButton(),
+                      child: CustomDropdown(
+                        dropDownList: DataList.bloodAmount,
+                        label: 'Blood Group',
+                        onChanged: () {},
+                      )
                     ),
                     const SizedBox(
                       width: 10,

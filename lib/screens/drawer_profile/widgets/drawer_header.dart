@@ -25,6 +25,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
   Widget build(BuildContext context) {
     var name = getStorage.read("name");
     var number = getStorage.read("phone");
+    var blood = getStorage.read("blood");
     var width = Get.width;
     return DrawerHeader(
       margin: EdgeInsets.zero,
@@ -90,7 +91,9 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                    onTap: (){},
                    child: const Row(children: [
                     Icon(Icons.star,size: 11,color: Colors.green,),
-                    Text("Basic Donor",style: TextStyle(fontSize: 11),),
+                    Text("Basic"
+                        " "
+                        "Donor",style: TextStyle(fontSize: 11),),
                    ]),
                  ),
                 const SizedBox(width: 8,),
@@ -110,7 +113,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                       color: Color(0xfff9b6b6),),
 
                     padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 8),
-                    child: const Text("A+")),
+                    child: Text("A+")),
                 SizedBox(
                   width: width * .038,
                 ),

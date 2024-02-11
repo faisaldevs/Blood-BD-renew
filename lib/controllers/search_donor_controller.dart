@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,10 +20,27 @@ class SearchDonorController extends GetxController{
 
 
   searchDonor(){
-
+    print("pressend");
       if (searchDonorKey.currentState!.validate()) {
         Get.snackbar("Received", "Donor Data Received");
       }
 
   }
+
+
+  getApibd(){
+
+    print("pressend");
+
+  }
+
 }
+
+// showDialog(context: context, builder: (context) {
+// return Container(
+// color: Colors.white12,
+// height: 400,
+// width: 400,
+// child: Text("data"),
+// );
+// },);

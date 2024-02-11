@@ -41,6 +41,7 @@
 //     );
 //   }
 // }
+
 import 'package:flutter/material.dart';
 
 class CustomDropdown extends StatelessWidget {
@@ -63,8 +64,8 @@ class CustomDropdown extends StatelessWidget {
     return DropdownButtonFormField(
       // hint: hint,
       style: const TextStyle(color: Colors.red),
-      value: dropDownList[0],
       decoration: InputDecoration(
+        // hintText: "hintText",
         labelText: label,
         labelStyle: const TextStyle(color: Colors.red),
         contentPadding: const EdgeInsets.only(left: 12),
@@ -78,13 +79,13 @@ class CustomDropdown extends StatelessWidget {
           borderSide: BorderSide(color: Colors.black54, width: 1),
         ),
       ),
-      validator: (value) {
-        if (value == dropDownList[0]) {
-          return "$label required";
-        } else {
-          return null;
-        }
-      },
+      // validator: (value) {
+      //   if (value == dropDownList[0]) {
+      //     return "$label required";
+      //   } else {
+      //     return null;
+      //   }
+      // },
       items: dropDownList.map((e) {
         return DropdownMenuItem(
             value: e,
@@ -93,7 +94,7 @@ class CustomDropdown extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.normal),
             ));
       }).toList(),
-      onChanged: onChanged(),
+      onChanged: (value){},
     );
   }
 }

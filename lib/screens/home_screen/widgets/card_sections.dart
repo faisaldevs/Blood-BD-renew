@@ -2,11 +2,13 @@ import 'package:blood_bd/global/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../controllers/search_donor_controller.dart';
 import 'card.dart';
 
 class CardSections extends StatelessWidget {
-  const CardSections({super.key});
+   CardSections({super.key});
 
+  SearchDonorController sdController = Get.put(SearchDonorController());
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,12 +20,15 @@ class CardSections extends StatelessWidget {
               imageUrl: "assets/images/home_icons/search donor.png",
               onTap: () {
                 Get.toNamed(searchDonor);
+                sdController.searchDonor();
+
               },
             ),
             CardWidget(
               title: 'Request Blood',
               imageUrl: "assets/images/home_icons/request_blood.png",
               onTap: () {
+
                 Get.toNamed(requestBlood);
               },
             ),

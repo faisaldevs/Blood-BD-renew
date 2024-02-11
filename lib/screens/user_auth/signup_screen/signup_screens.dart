@@ -15,11 +15,10 @@ import '../../global_widget/custom_textFormField.dart';
 import '../login_screen/login_screen.dart';
 
 class SignupScreen extends StatelessWidget {
-   SignupScreen({super.key});
+  SignupScreen({super.key});
 
   final SignupController signupController = Get.put(SignupController());
   final WelcomeController welcomeController = Get.put(WelcomeController());
-
 
 /*Validation ar jonno Snack bar or dialog box use korta hobe????????  Text hobe("Please fill all the fields")*/
 
@@ -79,10 +78,10 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                          // controller: signupController.genderController,
-                          dropDownList: DataList.genderListData,
-                          label: '', onChanged: () {  },
-                        )),
+                      // controller: signupController.genderController,
+                      dropDownList: DataList.genderListData,
+                      label: 'Gender', onChanged: () {},
+                    )),
                     const SizedBox(
                       width: 10,
                     ),
@@ -99,10 +98,10 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                          // controller: signupController.bloodGroupController,
-                          dropDownList: DataList.bloodListData,
-                          label: '', onChanged: () {  },
-                        )),
+                      // controller: signupController.bloodGroupController,
+                      dropDownList: DataList.bloodListData,
+                      label: '', onChanged: () {},
+                    )),
                     const SizedBox(width: 10),
                     Expanded(
                       child: CustomTextFormField(
@@ -128,19 +127,19 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                          // controller: signupController.divisionController,
-                          dropDownList: DataList.divisionListData,
-                          label: 'Division', onChanged: () {  },
-                        )),
+                      // controller: signupController.divisionController,
+                      dropDownList: DataList.divisionListData,
+                      label: 'Division', onChanged: () {},
+                    )),
                     const SizedBox(
                       width: 10,
                     ),
                     Expanded(
                         child: CustomDropdown(
-                          // controller: signupController.districtController,
-                          dropDownList: DataList.districtListData,
-                          label: 'District', onChanged: () {  },
-                        )),
+                      // controller: signupController.districtController,
+                      dropDownList: DataList.districtListData,
+                      label: 'District', onChanged: () {},
+                    )),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -149,18 +148,19 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                          // controller: signupController.upazilaController,
-                          dropDownList: DataList.divisionListData,
-                          label: 'Upazila', onChanged: () {  },
-                        )),
+                      // controller: signupController.upazilaController,
+                      dropDownList: DataList.divisionListData,
+                      label: 'Upazila', onChanged: () {},
+                    )),
                     const SizedBox(
                       width: 10,
                     ),
                     Expanded(
                         child: CustomDropdown(
-                          dropDownList: DataList.districtListData,
-                          label: 'District', onChanged: () {  },
-                        )),
+                      dropDownList: DataList.districtListData,
+                      label: 'District',
+                      onChanged: () {},
+                    )),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -181,8 +181,6 @@ class SignupScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-
-
 
                 //  ------- Mobile Field --------------
                 CustomTextFormField(
@@ -209,9 +207,9 @@ class SignupScreen extends StatelessWidget {
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (pass) {
-                    if (pass!.isEmpty ){
+                    if (pass!.isEmpty) {
                       return "Mobile number is required";
-                    } else if(pass.length < 7){
+                    } else if (pass.length < 7) {
                       return "Password must be 8 Character";
                     }
                     return null;
@@ -233,29 +231,40 @@ class SignupScreen extends StatelessWidget {
                       // print("pressed");
                       signupController.signUpForm();
                     },
-                    child:Text(
+                    child: Text(
                       'Sign Up',
                       style: GoogleFonts.roboto(
-                        color: AppColor.wColor, fontSize: 18,),
-                    ),
-                  ),
-
-                ),
-                const SizedBox(height: 40,),
-
-                const Text("Already Have a account?"),
-                const SizedBox(height: 20,),
-
-                TextButton(onPressed: (){
-                  Get.to(const LoginScreen());
-                },
-                    style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.red[300]),
-                      padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
+                        color: AppColor.wColor,
+                        fontSize: 18,
                       ),
                     ),
-                    child: const Text("Login",style: TextStyle(color: Colors.white,fontSize: 18),)),
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
 
+                const Text("Already Have a account?"),
+                const SizedBox(
+                  height: 20,
+                ),
+
+                TextButton(
+                    onPressed: () {
+                      Get.to(const LoginScreen());
+                    },
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStatePropertyAll(Colors.red[300]),
+                      padding: MaterialStateProperty.all(
+                        const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 40.0),
+                      ),
+                    ),
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    )),
               ],
             ),
           ),
@@ -265,9 +274,7 @@ class SignupScreen extends StatelessWidget {
   }
 }
 
-
-
-      //-------------code---------------------------
+//-------------code---------------------------
 //FutureBuilder(future: signupController.getPost(), builder: (context, snapshot) {
 //       if(snapshot.hasData){
 //         return Scaffold(
@@ -511,5 +518,3 @@ class SignupScreen extends StatelessWidget {
 //         return const Scaffold(body: Center(child: CircularProgressIndicator(color: Colors.red,)),);
 //       }
 //     },);
-
-

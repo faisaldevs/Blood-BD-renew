@@ -40,12 +40,12 @@ dependencies:
   get_storage:
 
   # UI Design
-  dropdown_textfield:
   google_fonts:
   flutter_screenutil:
   fluttertoast:
   pinput:
   flutter_spinkit:
+  dropdown_textfield: ^1.0.8
   carousel_slider: ^4.2.1
 
   #-------Storage ----------

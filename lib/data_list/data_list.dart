@@ -1,6 +1,6 @@
 
 class DataList{
-  static List<String> genderListData =["Select Gender","Male","Female","Other"];
+  static List<String> genderListData =["Male","Female","Other"];
   static List<String> bloodListData = ["A+","A-","B+","B-","O+","o-","AB+","AB-"];
 
   static List<String> divisionListData = ["Dhaka",];

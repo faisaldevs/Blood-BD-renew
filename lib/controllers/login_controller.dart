@@ -20,6 +20,8 @@ class LoginController extends GetxController{
  RxBool isLoginIng = false.obs;
 
 
+ RxBool isLogin= false.obs;
+
   Future<Text> loginForm()async {
 
     if(loginFormKey.currentState!.validate()){
@@ -44,11 +46,13 @@ class LoginController extends GetxController{
           var id = data["user"]["id"];
           var name = data["user"]["name"].toString();
           var phone = data["user"]["phone"].toString();
+          var blood = data["user"]["blood"].toString() ?? "O+";
           String message = data["message"].toString();
 
           getStorage.write("id", id);
           getStorage.write("name", name);
           getStorage.write("phone", phone);
+          getStorage.write("blood", blood);
 
           isLoginIng.value = false;
           Get.snackbar(
@@ -56,6 +60,7 @@ class LoginController extends GetxController{
             message,
           );
 
+          isLogin.value = true;
           Get.offAllNamed(home);
           // numberController.clear();
           // passwordController.clear();

@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var name = getStorage.read("name");
+
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -48,15 +49,17 @@ class HomeScreen extends StatelessWidget {
               Column(
                 children: [
                   Builder(
-                    builder: (context) => IconButton(
-                        onPressed: () {
+                    builder: (context) => InkWell(
+                        onTap: () {
                           Scaffold.of(context).openDrawer();
                         },
-                        icon: const Icon(
-                          Icons.account_circle_rounded,
-                          size: 100,
-                          color: Colors.red,
-                        )),
+                        child: const SizedBox(
+                          width: 70,
+                          height: 70,
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage("assets/images/profile.png"),
+                          ),
+                        ),),
                   ),
                    Text(
                     name,
@@ -69,7 +72,7 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 40),
 
-              const CardSections(),
+               CardSections(),
 
               const SizedBox(height: 40),
 
