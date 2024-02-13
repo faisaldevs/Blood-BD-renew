@@ -1,3 +1,4 @@
+import 'package:blood_bd/global/app_routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,16 +17,16 @@ class DrawerHeaderPage extends StatefulWidget {
 class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
   final getStorage = GetStorage();
 
-
-
   DrawerProfileController drawerProfileController =
       Get.put(DrawerProfileController());
 
   @override
   Widget build(BuildContext context) {
-    var name = getStorage.read("name");
-    var number = getStorage.read("phone");
-    var blood = getStorage.read("blood");
+    var name = getStorage.read("name") ?? "Faisal Ahamed";
+    var number = getStorage.read("phone") ?? "01*********";
+    var blood = getStorage.read("blood") ?? "A+";
+    var gender = getStorage.read("gender") ?? "Male";
+    var address = getStorage.read("address") ?? "Komorpur,Faridpur,Dhaka";
     var width = Get.width;
     return DrawerHeader(
       margin: EdgeInsets.zero,
@@ -52,7 +53,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                 ),
               ],
             ),
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const CircleAvatar(
@@ -76,7 +77,14 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                         ],
                       ),
                     ),
-                    const Text("Address"),
+                    Container(
+                        width: Get.width * .6,
+                        child: Text(
+                          address,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: true,
+                        )),
                   ],
                 ),
               ],
@@ -87,42 +95,53 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
             Row(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                 GestureDetector(
-                   onTap: (){},
-                   child: const Row(children: [
-                    Icon(Icons.star,size: 11,color: Colors.green,),
-                    Text("Basic"
-                        " "
-                        "Donor",style: TextStyle(fontSize: 11),),
-                   ]),
-                 ),
-                const SizedBox(width: 8,),
-                Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Color(0xfff9b6b6),),
-
-                    padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 6),
-                    child: const Text("Male")),
-                SizedBox(
-                  width: width * .04,
+                GestureDetector(
+                  onTap: () {},
+                  child: const Row(children: [
+                    Icon(
+                      Icons.star,
+                      size: 11,
+                      color: Colors.green,
+                    ),
+                    Text(
+                      "Basic "
+                      "Donor",
+                      style: TextStyle(fontSize: 11),
+                    ),
+                  ]),
+                ),
+                const SizedBox(
+                  width: 8,
                 ),
                 Container(
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color(0xfff9b6b6),),
-
-                    padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 8),
-                    child: Text("A+")),
+                      color: Color(0xfff9b6b6),
+                    ),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
+                    child: Text(gender)),
                 SizedBox(
-                  width: width * .038,
+                  width: width * .02,
                 ),
                 Container(
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color(0xfff9b6b6),),
-
-                    padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 6),
+                      color: Color(0xfff9b6b6),
+                    ),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
+                    child: blood == "null"? const Text("A+"):  Text(blood) ),
+                SizedBox(
+                  width: width * .02,
+                ),
+                Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      color: Color(0xfff9b6b6),
+                    ),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
                     child: Text(number)),
               ],
             ),
@@ -130,6 +149,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
               onTap: () {
                 if (kDebugMode) {
                   print("object");
+                  Get.toNamed(editProfile);
                 }
               },
               child: const Padding(

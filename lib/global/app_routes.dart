@@ -1,4 +1,5 @@
 
+import 'package:blood_bd/screens/drawer_profile/edit_profile.dart';
 import 'package:blood_bd/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,6 +27,7 @@ const welcomePage = "/welcomePage";
 // const forgetOtpPage = "/forgetOtpPage";
 const home = "/home";
 const forgetPasswordPage = "/forgetPasswordPage";
+const editProfile = "/editProfile";
 const notificationPage = "/notificationPage";
 const searchDonor = "/searchDonor";
 const bloodHeroes = "/bloodHeroes";
@@ -52,12 +54,13 @@ final pages = [
   customPage(name: searchDonor, page: const SearchDonor()),
   customPage(name: bloodHeroes, page: const BloodHeroes()),
   customPage(name: requestBlood, page: const RequestBlood()),
-  customPage(name: feedPage, page: const FeedPage()),
+  customPage(name: feedPage, page: FeedPage()),
 
 
         //-------------Drawer Pages---------------------------
 
 
+  customPage(name: editProfile, page: const EditProfile()),
   customPage(name: notificationPage, page: const NotificationPage()),
   customPage(name: medicalHistory, page: const MedicalHistory()),
   customPage(name: donationAccepted, page: const DonationAccepted()),

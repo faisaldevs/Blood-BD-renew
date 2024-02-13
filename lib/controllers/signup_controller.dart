@@ -1,16 +1,15 @@
+
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart';
-
 import '../global/app_routes.dart';
-import '../models/DropdownModel.dart';
 
 class SignupController extends GetxController {
-  RxBool isLoading = false.obs;
-  // var blood;
+
   final getStorage = GetStorage();
 
   final signupFormKey = GlobalKey<FormState>();
@@ -18,11 +17,13 @@ class SignupController extends GetxController {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
-  final TextEditingController bloodGroupController = TextEditingController();
-  final TextEditingController divisionController = TextEditingController();
-  final TextEditingController districtController = TextEditingController();
-  final TextEditingController upazilaController = TextEditingController();
-  final TextEditingController unionController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  late final String bloodType;
+  late final String gender;
+  late final String division;
+  late final String district;
+  late final String upazila;
+  late final String union;
   final TextEditingController addressController = TextEditingController();
   final TextEditingController numberController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
@@ -30,22 +31,94 @@ class SignupController extends GetxController {
   // final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   Future signUpForm() async {
-    isLoading.value = true;
+    // isLoading.value = true;
 
     if (kDebugMode) {
       print("success");
     }
     if (signupFormKey.currentState!.validate()) {
 
-      var name = nameController.text;
-      var phone = numberController.text;
-      var id = numberController.text;
-      var blood = bloodGroupController.text;
+      try {
+        var response = await post(Uri.parse("https://starsoftjpn.xyz/api/auth/register"), body: {
+          "name": nameController.text,
+          "username": "numberController.text",
+          "phone": numberController.text,
+          "email": "numberController.text",
+          "blood_group": bloodType,
+          "date_of_birth": dateController.text,
+          "gender": genderController.text,
+          "weight": weightController.text,
+          "division": division,
+          "district": district,
+          "upazila": upazila,
+          "union": union,
+          "address": addressController.text,
+          "password": passwordController.text,
+        });
 
-      getStorage.write("id", id);
-      getStorage.write("name", name);
-      getStorage.write("phone", phone);
-      getStorage.write("blood", blood);
+        if (response.statusCode == 200) {
+          var data = jsonDecode(response.body.toString());
+          // var id = data["user"]["id"];
+          // var name = data["user"]["name"].toString();
+          // var phone = data["user"]["phone"].toString();
+          // var blood = data["user"]["blood"].toString() ?? "O+";
+          // String message = data["message"].toString();
+          //
+          // getStorage.write("id", id);
+          // getStorage.write("name", name);
+          // getStorage.write("phone", phone);
+          // getStorage.write("blood", blood);
+
+          var name = nameController.text;
+          var phone = numberController.text;
+          var id = numberController.text;
+          var address = addressController.text;
+          var blood = bloodType;
+          print(blood);
+          print(address.length);
+
+          getStorage.write("id", id);
+          getStorage.write("name", name);
+          getStorage.write("phone", phone);
+          getStorage.write("blood", blood);
+          getStorage.write("gender", gender);
+          getStorage.write("address", address);
+
+
+          // isLoginIng.value = false;
+          Get.snackbar(
+            "Login Successes",
+            "message",
+          );
+
+          await Future.delayed(const Duration(seconds: 2));
+
+          await Get.offAllNamed(home);
+          // numberController.clear();
+          // passwordController.clear();
+        } else {
+          if (kDebugMode) {
+            print("failed");
+          }
+          Get.snackbar(
+            "Login failed",
+            "Number or Password was wrong..",
+          );
+        }
+      } catch (e) {
+        if (kDebugMode) {
+          print(e.toString());
+        }
+      }
+
+
+
+
+
+
+
+
+
 
       // showDialog(context: context, builder: (context) =>
       // const AlertDialog(
@@ -62,10 +135,7 @@ class SignupController extends GetxController {
         print("success");
       }
 
-      await Future.delayed(const Duration(seconds: 2));
 
-      isLoading.value = false;
-      await Get.offAllNamed(home);
     }
 
   }

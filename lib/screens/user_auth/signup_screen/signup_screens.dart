@@ -21,7 +21,6 @@ class SignupScreen extends StatelessWidget {
   final SignupController signupController = Get.put(SignupController());
   final WelcomeController welcomeController = Get.put(WelcomeController());
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,20 +75,21 @@ class SignupScreen extends StatelessWidget {
                 //-------Gender Date Field --------------
                 Row(
                   children: [
-
- // -----------------Dropdown Button OnChanged-------------
-
-                     Expanded(
-                        child: DropDownBtn(onChanged: (value){
-                          print(value);
-                        },)),
+                    Expanded(
+                      child: CustomDropdown(
+                        dropDownList: DataList.genderListData,
+                        label: 'Gender',
+                        onChanged: (value){
+                          signupController.gender = value.toString();
+                        },
+                      ),
+                    ),
 
                     //CustomDropdown(
                     //                       // controller: signupController.genderController,
                     //                       dropDownList: DataList.genderListData,
                     //                       label: 'Gender', onChanged: () {},
                     //                     )
-
 
                     const SizedBox(
                       width: 10,
@@ -107,10 +107,12 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                      // controller: signupController.bloodGroupController,
-                      dropDownList: DataList.bloodListData,
-                      label: '', onChanged: () {},
-                    )),
+                          dropDownList: DataList.bloodListData,
+                          label: 'Blood Type',
+                          onChanged: (value){
+                            signupController.bloodType = value.toString();
+                          },
+                        )),
                     const SizedBox(width: 10),
                     Expanded(
                       child: CustomTextFormField(
@@ -136,19 +138,23 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                      // controller: signupController.divisionController,
-                      dropDownList: DataList.divisionListData,
-                      label: 'Division', onChanged: () {},
-                    )),
+                          dropDownList: DataList.divisionListData,
+                          label: 'Division',
+                          onChanged: (value){
+                            signupController.division= value;
+                          },
+                        )),
                     const SizedBox(
                       width: 10,
                     ),
                     Expanded(
                         child: CustomDropdown(
-                      // controller: signupController.districtController,
-                      dropDownList: DataList.districtListData,
-                      label: 'District', onChanged: () {},
-                    )),
+                          dropDownList: DataList.districtListData,
+                          label: 'District',
+                          onChanged: (value){
+                            signupController.district= value;
+                          },
+                        )),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -157,19 +163,23 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                      // controller: signupController.upazilaController,
-                      dropDownList: DataList.divisionListData,
-                      label: 'Upazila', onChanged: () {},
-                    )),
+                          dropDownList: DataList.districtListData,
+                          label: 'Upazila',
+                          onChanged: (value){
+                            signupController.upazila= value;
+                          },
+                        )),
                     const SizedBox(
                       width: 10,
                     ),
                     Expanded(
                         child: CustomDropdown(
-                      dropDownList: DataList.districtListData,
-                      label: 'District',
-                      onChanged: () {},
-                    )),
+                          dropDownList: DataList.districtListData,
+                          label: 'Union',
+                          onChanged: (value){
+                            signupController.union= value;
+                          },
+                        )),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -212,7 +222,7 @@ class SignupScreen extends StatelessWidget {
                 ),
                 //  ------- Password Field --------------
                 CustomTextFormField(
-                  controller: signupController.numberController,
+                  controller: signupController.passwordController,
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (pass) {

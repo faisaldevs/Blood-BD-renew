@@ -86,7 +86,7 @@ class _RequestBloodState extends State<RequestBlood> {
                       child: CustomDropdown(
                         dropDownList: DataList.bloodAmount,
                         label: 'Blood Group',
-                        onChanged: () {},
+                        onChanged: (value) {},
                       )
                     ),
                     const SizedBox(
@@ -97,7 +97,7 @@ class _RequestBloodState extends State<RequestBlood> {
                         child: CustomDropdown(
                           dropDownList: DataList.bloodAmount,
                           label: 'Amount',
-                          onChanged: () {},
+                          onChanged: (value) {},
                         )),
                   ],
                 ),
@@ -126,7 +126,7 @@ class _RequestBloodState extends State<RequestBlood> {
                 CustomDropdown(
                   dropDownList: DataList.bloodAmount,
                   label: "Health Issue",
-                  onChanged: () {},
+                  onChanged: (value) {},
                 ),
 
                 const SizedBox(height: 10),
@@ -141,7 +141,7 @@ class _RequestBloodState extends State<RequestBlood> {
                         child: CustomDropdown(
                           dropDownList: DataList.divisionListData,
                           label: 'Division',
-                          onChanged: () {},
+                          onChanged: (value) {},
                         )),
                     const SizedBox(
                       width: 10,
@@ -151,7 +151,7 @@ class _RequestBloodState extends State<RequestBlood> {
                         child: CustomDropdown(
                           dropDownList: DataList.districtListData,
                           label: 'District',
-                          onChanged: () {},
+                          onChanged: (value) {},
                         )),
                   ],
                 ),
@@ -164,7 +164,7 @@ class _RequestBloodState extends State<RequestBlood> {
                         child: CustomDropdown(
                           dropDownList: DataList.divisionListData,
                           label: 'Division',
-                          onChanged: () {},
+                          onChanged: (value) {},
                         )),
                     const SizedBox(
                       width: 10,
@@ -174,7 +174,7 @@ class _RequestBloodState extends State<RequestBlood> {
                         child: CustomDropdown(
                           dropDownList: DataList.districtListData,
                           label: 'District',
-                          onChanged: () {},
+                          onChanged: (value) {},
                         )),
                   ],
                 ),
@@ -244,7 +244,7 @@ class _RequestBloodState extends State<RequestBlood> {
                       onPressed: () {
                         // _searchDonor();
                       },
-                      child: const Text("Sign Up")),
+                      child: const Text("Sign Up",style: TextStyle(color: Colors.white),)),
                 ),
               ],
             ),

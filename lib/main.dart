@@ -34,13 +34,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return GetMaterialApp(
           title: 'BLOOD BD',
-          // theme: ThemeData(
-          //   textTheme: TextTheme(
-          //     displayLarge: GoogleFonts.lobster(fontWeight: FontWeight.bold,fontSize: 40,color: color,)
-          //   )
-          //   // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          //   // useMaterial3: true,
-          // ),
+          theme: ThemeData(
+            useMaterial3: true,
+          ),
 
           navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,

@@ -45,7 +45,7 @@
 import 'package:flutter/material.dart';
 
 class CustomDropdown extends StatelessWidget {
-  const CustomDropdown({
+   CustomDropdown({
     super.key,
     required this.dropDownList,
     required this.label,
@@ -53,48 +53,42 @@ class CustomDropdown extends StatelessWidget {
     // required this.hint,
   });
 
-  final Function() onChanged;
+  // final Function() onChanged;
   final String label;
   // final Widget hint;
 
   final List dropDownList;
-
+  var onChanged;
+  // final List dropDownList;
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField(
-      // hint: hint,
-      style: const TextStyle(color: Colors.red),
-      decoration: InputDecoration(
-        // hintText: "hintText",
-        labelText: label,
-        labelStyle: const TextStyle(color: Colors.red),
-        contentPadding: const EdgeInsets.only(left: 12),
-        counterStyle: const TextStyle(fontWeight: FontWeight.bold),
-        border: const OutlineInputBorder(
-          borderRadius: BorderRadius.zero,
-          borderSide: BorderSide(color: Colors.black54, width: 1),
+    return Container(
+      child: DropdownButtonFormField(
+        decoration:  InputDecoration(
+          // hintText: "hintText",
+          labelText: label,
+          labelStyle: const TextStyle(color: Colors.red),
+          contentPadding: const EdgeInsets.only(left: 12),
+          counterStyle: const TextStyle(fontWeight: FontWeight.bold),
+          border: const OutlineInputBorder(
+            borderRadius: BorderRadius.zero,
+            borderSide: BorderSide(color: Colors.black54, width: 1),
+          ),
+          focusedBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.zero,
+            borderSide: BorderSide(color: Colors.black54, width: 1),
+          ),
         ),
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.zero,
-          borderSide: BorderSide(color: Colors.black54, width: 1),
-        ),
+        items:  dropDownList.map((e) {
+          return DropdownMenuItem(
+              value: e,
+              child: Text(
+                e,
+                style: const TextStyle(fontWeight: FontWeight.normal),
+              ));
+        }).toList(),
+        onChanged: onChanged,
       ),
-      // validator: (value) {
-      //   if (value == dropDownList[0]) {
-      //     return "$label required";
-      //   } else {
-      //     return null;
-      //   }
-      // },
-      items: dropDownList.map((e) {
-        return DropdownMenuItem(
-            value: e,
-            child: Text(
-              e,
-              style: const TextStyle(fontWeight: FontWeight.normal),
-            ));
-      }).toList(),
-      onChanged: (value){},
     );
   }
 }

@@ -37,12 +37,12 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
       child: TextFormField(
         readOnly: true,
         style: const TextStyle(color: Colors.red),
-        validator: (time) {
-          if (time!.isEmpty) {
-            return "Time required";
-          }
-          return null;
-        },
+        // validator: (time) {
+        //   if (time!.isEmpty) {
+        //     return "Time required";
+        //   }
+        //   return null;
+        // },
         controller: widget.controller,
         decoration: InputDecoration(
           labelText: widget.label,

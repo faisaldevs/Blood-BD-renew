@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../controllers/search_donor_controller.dart';
 import '../../data_list/data_list.dart';
+import '../../global/app_routes.dart';
 import '../global_widget/custom_birthDate.dart';
 import '../global_widget/custom_button.dart';
 import '../global_widget/custom_dropdown.dart';
@@ -26,12 +27,12 @@ class _SearchDonorState extends State<SearchDonor> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        FocusNode currentFocus = FocusScope.of(context);
-        if (!currentFocus.hasPrimaryFocus) {
-          currentFocus.unfocus();
-        }
-      },
+      // onTap: () {
+      //   FocusNode currentFocus = FocusScope.of(context);
+      //   if (!currentFocus.hasPrimaryFocus) {
+      //     currentFocus.unfocus();
+      //   }
+      // },
       child: Scaffold(
         appBar: AppBar(
           systemOverlayStyle: const SystemUiOverlayStyle(
@@ -89,7 +90,9 @@ class _SearchDonorState extends State<SearchDonor> {
                         child: CustomDropdown(
                           dropDownList: DataList.bloodListData,
                           label: 'Blood Group',
-                          onChanged: () {},
+                          onChanged: (value) {
+                            sdController.bloodType = value.toString();
+                          },
                         ),
                       ),
                       const SizedBox(
@@ -100,7 +103,9 @@ class _SearchDonorState extends State<SearchDonor> {
                           child: CustomDropdown(
                             dropDownList: DataList.bloodAmount,
                             label: 'Amount',
-                            onChanged: () {},
+                            onChanged: (value) {
+                              sdController.bloodAmount = value.toString();
+                            },
                           )),
                     ],
                   ),
@@ -130,7 +135,10 @@ class _SearchDonorState extends State<SearchDonor> {
                   CustomDropdown(
                     dropDownList: DataList.bloodAmount,
                     label: "Health Issue",
-                    onChanged: () {},
+                    onChanged: (value) {
+                      sdController.healthIssue = value.toString();
+
+                    },
                   ),
 
                   const SizedBox(height: 10),
@@ -145,7 +153,7 @@ class _SearchDonorState extends State<SearchDonor> {
                           child: CustomDropdown(
                             dropDownList: DataList.divisionListData,
                             label: 'Division',
-                            onChanged: () {},
+                            onChanged: (value) {},
                           )),
                       const SizedBox(
                         width: 10,
@@ -155,7 +163,7 @@ class _SearchDonorState extends State<SearchDonor> {
                           child: CustomDropdown(
                             dropDownList: DataList.districtListData,
                             label: 'District',
-                            onChanged: () {},
+                            onChanged: (value) {},
                           )),
                     ],
                   ),
@@ -168,7 +176,7 @@ class _SearchDonorState extends State<SearchDonor> {
                           child: CustomDropdown(
                             dropDownList: DataList.divisionListData,
                             label: 'Division',
-                            onChanged: () {},
+                            onChanged: (value) {},
                           )),
                       const SizedBox(
                         width: 10,
@@ -178,7 +186,7 @@ class _SearchDonorState extends State<SearchDonor> {
                           child: CustomDropdown(
                             dropDownList: DataList.districtListData,
                             label: 'District',
-                            onChanged: () {},
+                            onChanged: (value) {},
                           )),
                     ],
                   ),
@@ -205,7 +213,7 @@ class _SearchDonorState extends State<SearchDonor> {
                   const SizedBox(height: 10),
 
                   CustomTextFormField(
-                    controller: sdController.addressController,
+                    controller: sdController.contactParsonNameController,
                     hintText: "",
                     textInputType: TextInputType.text,
                     validate: (address) {
@@ -247,6 +255,7 @@ class _SearchDonorState extends State<SearchDonor> {
                     child: CustomButton(
                         onPressed: () {
                           sdController.searchDonor();
+                          Get.toNamed(home);
                         },
                         child: const Text("Submit",style: TextStyle(color: Colors.white),)),
                   ),
