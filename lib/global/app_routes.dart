@@ -4,6 +4,7 @@ import 'package:blood_bd/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../screens/drawer_profile/components/medical_history_report.dart';
 import '../screens/drawer_profile/drawer_pages/donation_accepted.dart';
 import '../screens/drawer_profile/drawer_pages/donation_blocked.dart';
 import '../screens/drawer_profile/drawer_pages/blood_history.dart';
@@ -34,6 +35,7 @@ const bloodHeroes = "/bloodHeroes";
 const requestBlood = "/requestBlood";
 const feedPage = "/feedPage";
 const medicalHistory = "/medicalHistory";
+const newReport = "/newReport";
 const donationAccepted = "/donationAccepted";
 const donationBlocked = "/donationBlocked";
 const history = "/history";
@@ -60,9 +62,10 @@ final pages = [
         //-------------Drawer Pages---------------------------
 
 
-  customPage(name: editProfile, page: const EditProfile()),
+  customPage(name: editProfile, page:  EditProfile()),
   customPage(name: notificationPage, page: const NotificationPage()),
   customPage(name: medicalHistory, page: const MedicalHistory()),
+  customPage(name: newReport, page: const NewReport()),
   customPage(name: donationAccepted, page: const DonationAccepted()),
   customPage(name: donationBlocked, page: const DonationBlocked()),
   customPage(name: history, page: const BloodHistory()),

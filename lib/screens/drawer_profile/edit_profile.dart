@@ -1,9 +1,21 @@
+import 'package:blood_bd/controllers/signup_controller.dart';
+import 'package:blood_bd/data_list/data_list.dart';
+import 'package:blood_bd/screens/global_widget/custom_birthDate.dart';
+import 'package:blood_bd/screens/global_widget/custom_dropdown.dart';
+import 'package:blood_bd/screens/global_widget/custom_textFormField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import '../../controllers/edit_profile_controller.dart';
+import '../../global/app_colors.dart';
+import '../global_widget/custom_button.dart';
 class EditProfile extends StatelessWidget {
-  const EditProfile({super.key});
+  EditProfile({super.key});
+
+  final EditProfileController editController = Get.put(EditProfileController());
+  // final SignupController editController = Get.put(SignupController());
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +28,7 @@ class EditProfile extends StatelessWidget {
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
         title: const Text(
-          "Sign Up",
+          "Edit Profile",
           style: TextStyle(color: Colors.red),
         ),
         titleSpacing: 0,
@@ -27,6 +39,244 @@ class EditProfile extends StatelessWidget {
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.red,
+          ),
+        ),
+      ),
+      body: Container(
+        height: Get.height,
+        margin: const EdgeInsets.only(left: 16, right: 16),
+        child: Form(
+          key: editController.editProfileKey,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  // color: Colors.red,
+                  height: Get.height * .15,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 60,
+                        // color: Colors.white,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(
+                            "assets/images/profile.png",
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.camera_alt_outlined,
+                            size: 40,
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Icon(
+                            Icons.image_outlined,
+                            size: 40,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
+
+                //-------Name Field --------------
+
+                CustomTextFormField(
+                  controller: editController.nameController,
+                  hintText: "",
+                  textInputType: TextInputType.text,
+                  validate: (name) {
+                    if (name!.isEmpty) {
+                      return "Full name required";
+                    }
+                    return null;
+                  },
+                  labelText: "Full Name",
+                ),
+
+                const SizedBox(height: 10),
+
+                //-------Gender Date Field --------------
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomDropdown(
+                        dropDownList: DataList.genderListData,
+                        label: 'Gender',
+                        onChanged: (value) {
+                          editController.gender = value.toString();
+                        },
+                      ),
+                    ),
+
+                    //CustomDropdown(
+                    //                       // controller: signupController.genderController,
+                    //                       dropDownList: DataList.genderListData,
+                    //                       label: 'Gender', onChanged: () {},
+                    //                     )
+
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    CustomBirthdate(
+                      controller: editController.dateController,
+                      label: 'Date of Birth',
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+
+                //-------BloodGroup Weight Field --------------
+                Row(
+                  children: [
+                    Expanded(
+                        child: CustomDropdown(
+                      dropDownList: DataList.bloodListData,
+                      label: 'Blood Type',
+                      onChanged: (value) {
+                        editController.bloodType = value.toString();
+                      },
+                    )),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: CustomTextFormField(
+                        controller: editController.weightController,
+                        hintText: '',
+                        textInputType: TextInputType.number,
+                        validate: (weight) {
+                          if (weight!.isEmpty) {
+                            return "Full name required";
+                          }
+                          return null;
+                        },
+                        padding: const EdgeInsets.only(left: 10),
+                        labelText: 'Weight(Kg)',
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+
+                //  -------Division District Field --------------
+                Row(
+                  children: [
+                    Expanded(
+                        child: CustomDropdown(
+                      dropDownList: DataList.divisionListData,
+                      label: 'Division',
+                      onChanged: (value) {
+                        editController.division = value;
+                      },
+                    )),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                        child: CustomDropdown(
+                      dropDownList: DataList.districtListData,
+                      label: 'District',
+                      onChanged: (value) {
+                        editController.district = value;
+                      },
+                    )),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                //  -------Upazila/City Union Field --------------
+                Row(
+                  children: [
+                    Expanded(
+                        child: CustomDropdown(
+                      dropDownList: DataList.districtListData,
+                      label: 'Upazila',
+                      onChanged: (value) {
+                        editController.upazila = value;
+                      },
+                    )),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                        child: CustomDropdown(
+                      dropDownList: DataList.districtListData,
+                      label: 'Union',
+                      onChanged: (value) {
+                        editController.union = value;
+                      },
+                    )),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                //  ------- Address Field --------------
+
+                CustomTextFormField(
+                  controller: editController.addressController,
+                  hintText: "",
+                  textInputType: TextInputType.text,
+                  validate: (address) {
+                    if (address!.isEmpty) {
+                      return "Address required";
+                    }
+                    return null;
+                  },
+                  labelText: "Address",
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+
+                const SizedBox(
+                  height: 10,
+                ),
+                //  ------- Signup Button --------------
+
+                const SizedBox(height: 60),
+
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: CustomButton(
+                    onPressed: () {
+                      // print("pressed");
+                    },
+                    child: Text(
+                      'Save Change',
+                      style: GoogleFonts.roboto(
+                        color: AppColor.wColor,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+
+                const Text("Change Mobile Number?"),
+
+                Container(
+                  margin: const EdgeInsets.only(top: 8),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: TextButton(
+                      // style: ButtonStyle(padding: MaterialStatePropertyAll(EdgeInsets.zero)),
+                        onPressed: () {}, child: const Text("Change Number??",style: TextStyle(color: Colors.red),)))
+              ],
+            ),
           ),
         ),
       ),

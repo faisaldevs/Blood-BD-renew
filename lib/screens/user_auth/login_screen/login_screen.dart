@@ -1,3 +1,4 @@
+import 'package:blood_bd/global/app_routes.dart';
 import 'package:blood_bd/screens/user_auth/signup_screen/signup_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -34,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: InkWell(
-          onTap: () => Get.back(),
+          onTap: () => Get.toNamed(welcomePage),
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
@@ -82,21 +83,39 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
 
                   //------- Password TextField ------
-                  CustomTextFormField(
-                    controller: _loginController.passwordController,
-                    hintText: '',
-                    obscure: true,
-                    textInputType: TextInputType.text,
-                    validate: (pass) {
-                      if (pass!.isEmpty) {
-                        return "Password required";
-                      }
-                      return null;
-                    },
-                    labelText: 'Password',
+                  Obx(
+                    () => CustomTextFormField(
+                      controller: _loginController.passwordController,
+                      hintText: '',
+                      // padding: EdgeInsets.,
+                      obscure: _loginController.isVisible.value,
+                      textInputType: TextInputType.text,
+                      validate: (pass) {
+                        if (pass!.isEmpty) {
+                          return "Password required";
+                        }
+                        return null;
+                      },
+                      labelText: 'Password',
+                      onTap: () {
+                        _loginController.showFunction();
+                      },
+                      suffixFunction: () {
+                        _loginController.visibility();
+                      },
+                      suffixIcon: _loginController.show.value
+                          ? _loginController.isVisible.value
+                              ? Icons.visibility_off
+                              : Icons.visibility
+                          : null,
+                    ),
                   ),
 
-                   ForgetPasswordWidget(onPressed: (){_loginController.forgetButton;},),
+                  ForgetPasswordWidget(
+                    onPressed: () {
+                      _loginController.forgetButton;
+                    },
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -110,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             _loginController.loginForm();
                           },
-                          child: _loginController.isLoginIng.value
+                          child: _loginController.isLogin.value
                               ? const Center(
                                   child: SizedBox(
                                       height: 18,
@@ -128,21 +147,31 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                         ),
                       )),
-                  const SizedBox(height: 40,),
+                  const SizedBox(
+                    height: 40,
+                  ),
 
                   const Text("Don't Have an account?"),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
 
-                  TextButton(onPressed: (){
-                    Get.to(SignupScreen());
-                  },
-                      style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.red[300]),
+                  TextButton(
+                      onPressed: () {
+                        Get.to(SignupScreen());
+                      },
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Colors.red[300]),
                         padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
+                          const EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 40.0),
                         ),
                       ),
-                      child: const Text("Sign Up",style: TextStyle(color: Colors.white,fontSize: 18),)),
-
+                      child: const Text(
+                        "Sign Up",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      )),
                 ],
               ),
             ),

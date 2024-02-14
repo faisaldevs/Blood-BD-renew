@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
- const CustomTextFormField({
+  const CustomTextFormField({
     super.key,
     required this.controller,
     required this.hintText,
@@ -16,6 +16,7 @@ class CustomTextFormField extends StatelessWidget {
     this.padding,
     required this.validate,
     required this.labelText,
+    this.suffixFunction, this.onTap,
   });
 
   // final TextEditingController controller;
@@ -26,25 +27,20 @@ class CustomTextFormField extends StatelessWidget {
   final String? helperText;
   final bool obscure;
   final TextInputType textInputType;
-  final Widget? suffixIcon;
+  final IconData? suffixIcon;
   final Color? borderColor;
   final int? designNumber;
   final bool? isEnabled;
   final Function(String)? onChanged;
   final String? Function(String?) validate;
+  final void Function()? suffixFunction;
+  final void Function()? onTap;
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return TextFormField(
-//       controller: controller,
-//     );
-//   }
-// }
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
       validator: validate,
-
       onChanged: onChanged,
       controller: controller,
       obscureText: obscure,
@@ -54,41 +50,13 @@ class CustomTextFormField extends StatelessWidget {
         color: Colors.black,
         // fontWeight: FontWeight.bold,
       ),
-      // decoration: InputDecoration(
-      //   floatingLabelBehavior: FloatingLabelBehavior.never,
-      //   hintStyle: TextStyle(
-      //     color: Colors.black,
-      //     fontSize: 14.sp,
-      //     fontWeight: FontWeight.bold,
-      //   ),
-      //   labelStyle: TextStyle(
-      //     color: Colors.black,
-      //     fontSize: 14.sp,
-      //     fontWeight: FontWeight.bold,
-      //   ),
-      //   helperStyle: TextStyle(
-      //     color: Colors.black,
-      //     fontSize: 14.sp,
-      //     fontWeight: FontWeight.bold,
-      //   ),
-      //   hintText: hintText,
-      //   helperText: helperText,
-      //   suffixIcon: suffixIcon,
-      //   border: designNumber != null
-      //       ? showDesign(designNumber!)
-      //       : _outlineDesignOne(),
-      //   enabledBorder: designNumber != null
-      //       ? showDesign(designNumber!)
-      //       : _outlineDesignOne(),
-      //   focusedBorder: designNumber != null
-      //       ? showDesign(designNumber!)
-      //       : _outlineDesignOne(),
-      //   disabledBorder: designNumber != null
-      //       ? showDesign(designNumber!)
-      //       : _outlineDesignOne(),
-      // ),
-
       decoration: InputDecoration(
+        suffixIcon: GestureDetector(
+                onTap: suffixFunction,
+                child: Icon(
+                  suffixIcon,
+                  size: 28,
+                )),
         contentPadding: padding,
         focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.zero,
@@ -98,45 +66,8 @@ class CustomTextFormField extends StatelessWidget {
             borderRadius: BorderRadius.zero,
             borderSide: BorderSide(color: Colors.blue)),
         labelText: labelText,
-
         labelStyle: const TextStyle(color: Colors.red),
       ),
     );
   }
-
-// OutlineInputBorder _outlineDesignOne() {
-//   return OutlineInputBorder(
-//     borderRadius: BorderRadius.all(
-//       Radius.circular(
-//         30.r,
-//       ),
-//     ),
-//     borderSide: const BorderSide(
-//       // color: secondaryColor,
-//       color: Colors.black45,
-//       width: 2,
-//     ),
-//   );
-// }
-
-//   OutlineInputBorder _outlineDesignTwo() {
-//     return OutlineInputBorder(
-//       borderSide: const BorderSide(
-//         // color: secondaryColor,
-//         color: Colors.black45,
-//       ),
-//       borderRadius: BorderRadius.circular(
-//         10.r,
-//       ),
-//     );
-//   }
-//
-//   OutlineInputBorder showDesign(int designNumber) {
-//     switch (designNumber) {
-//       case 1:
-//         return _outlineDesignTwo();
-//       default:
-//         return _outlineDesignTwo();
-//     }
-//   }
 }

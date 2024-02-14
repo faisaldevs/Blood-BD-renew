@@ -56,45 +56,50 @@ class ActiveDonor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          border: Border(
-        bottom: BorderSide(
-          //                   <--- right side
-          color: Colors.black26,
-          width: 1.0,
-        ),
-      )),
-      margin: const EdgeInsets.only(left: 10, top: 5),
-      padding: const EdgeInsets.only(top: 8, bottom: 8, left: 5),
-      child: Obx(() => Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Row(
-                children: [
-                  Icon(
-                    Icons.face,
-                    size: 34,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 8),
-                    child: Text('Active Donor', style: TextStyle(fontSize: 17)),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: drawerProfileController.switchValue.value
-                    ? const Icon(
-                        Icons.check_circle,
-                        color: Colors.green,
-                      )
-                    : const Icon(
-                        Icons.check_circle,
-                      ),
-              )
-            ],
-          )),
+    return GestureDetector(
+      onTap: (){
+        drawerProfileController.activeStc();
+      },
+      child: Container(
+        decoration: const BoxDecoration(
+            border: Border(
+          bottom: BorderSide(
+            //                   <--- right side
+            color: Colors.black26,
+            width: 1.0,
+          ),
+        )),
+        margin: const EdgeInsets.only(left: 10, top: 5),
+        padding: const EdgeInsets.only(top: 8, bottom: 8, left: 5),
+        child: Obx(() => Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Row(
+                  children: [
+                    Icon(
+                      Icons.face,
+                      size: 34,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 8),
+                      child: Text('Active Donor', style: TextStyle(fontSize: 17)),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: drawerProfileController.switchValue.value
+                      ? const Icon(
+                          Icons.check_circle,
+                          color: Colors.green,
+                        )
+                      : const Icon(
+                          Icons.check_circle,
+                        ),
+                )
+              ],
+            )),
+      ),
     );
   }
 }

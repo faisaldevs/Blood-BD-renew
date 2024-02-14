@@ -1,7 +1,7 @@
 import 'package:blood_bd/global/app_routes.dart';
 import 'package:blood_bd/screens/drawer_profile/drawer_pages/medical_history.dart';
-import 'package:blood_bd/screens/drawer_profile/widgets/custom_drawer_links.dart';
-import 'package:blood_bd/screens/drawer_profile/widgets/drawer_header.dart';
+import 'package:blood_bd/screens/drawer_profile/components/custom_drawer_links.dart';
+import 'package:blood_bd/screens/drawer_profile/components/drawer_header.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

@@ -18,7 +18,7 @@ class BloodHeroes extends StatelessWidget {
 
     return Scaffold(
       // backgroundColor: Colors.red.shade,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white60,
       appBar: AppBar(
         backgroundColor: Colors.white,
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -41,8 +41,8 @@ class BloodHeroes extends StatelessWidget {
       body: ListView.builder(
         itemCount: 5,
         itemBuilder: (context, index) => Container(
-          color: Colors.red.shade50,
-          margin: const EdgeInsets.only(bottom: 8),
+          color: Colors.white,
+          margin: const EdgeInsets.only(bottom: 4,top: 8),
          padding: const EdgeInsets.only(left: 16,top: 10),
          child: Column(
            mainAxisAlignment: MainAxisAlignment.start,
@@ -51,7 +51,7 @@ class BloodHeroes extends StatelessWidget {
              Text(name,style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
              Text(address,style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w400),),
              Padding(
-               padding: const EdgeInsets.only(top: 4,bottom: 4),
+               padding: const EdgeInsets.only(top: 4,bottom:0),
                child: Text("contract :",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),),
              ),
              Row(
@@ -74,6 +74,7 @@ class BloodHeroes extends StatelessWidget {
                        IconButton(onPressed: (){
                          launchUrlString("tel:$number2");
                        },
+                         style: ButtonStyle(padding: MaterialStatePropertyAll(EdgeInsets.all(0))),
                          icon: Row(
                          children: [
                            const Icon(Icons.call,size: 20,),

@@ -30,6 +30,25 @@ class SignupController extends GetxController {
 
   // final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
+  RxBool isVisible = true.obs;
+
+  RxBool isSignup = false.obs;
+
+
+
+  visibility(){
+
+    isVisible.value = !isVisible.value;
+
+  }
+  RxBool show = false.obs;
+
+  showFunction(){
+    show.value = !show.value;
+  }
+
+
+
   Future signUpForm() async {
     // isLoading.value = true;
 
@@ -37,13 +56,14 @@ class SignupController extends GetxController {
       print("success");
     }
     if (signupFormKey.currentState!.validate()) {
+      isSignup.value = true;
 
       try {
         var response = await post(Uri.parse("https://starsoftjpn.xyz/api/auth/register"), body: {
           "name": nameController.text,
-          "username": "numberController.text",
+          "username": "numberController.text852",
           "phone": numberController.text,
-          "email": "numberController.text",
+          "email": "numberController.text852",
           "blood_group": bloodType,
           "date_of_birth": dateController.text,
           "gender": genderController.text,
@@ -55,6 +75,8 @@ class SignupController extends GetxController {
           "address": addressController.text,
           "password": passwordController.text,
         });
+
+        print(response.statusCode);
 
         if (response.statusCode == 200) {
           var data = jsonDecode(response.body.toString());
@@ -93,19 +115,21 @@ class SignupController extends GetxController {
 
           await Future.delayed(const Duration(seconds: 2));
 
+          isSignup.value = false;
           await Get.offAllNamed(home);
           // numberController.clear();
           // passwordController.clear();
         } else {
-          if (kDebugMode) {
-            print("failed");
-          }
-          Get.snackbar(
-            "Login failed",
-            "Number or Password was wrong..",
-          );
+          isSignup.value = false;
+          print("Failed Code : ${response.statusCode}");
+          // Get.snackbar(
+          //   "Login failed",
+          //   "Number or Password was wrong..",
+          // );
         }
       } catch (e) {
+        isSignup.value = false;
+
         if (kDebugMode) {
           print(e.toString());
         }

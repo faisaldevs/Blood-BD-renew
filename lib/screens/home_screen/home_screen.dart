@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
 
                CardSections(),
 
-              const SizedBox(height: 40),
+               SizedBox(height: Get.height * .1),
 
               const BannerWidget(),
             ],

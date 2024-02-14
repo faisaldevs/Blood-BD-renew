@@ -1,5 +1,6 @@
 // import 'package:blood_bd/screens/user_auth/login_screen/login_screen.dart';
 import 'package:blood_bd/controllers/welcome_controller.dart';
+import 'package:blood_bd/global/app_routes.dart';
 import 'package:blood_bd/screens/user_auth/signup_screen/dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -39,7 +40,7 @@ class SignupScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: InkWell(
-          onTap: () => Get.back(),
+          onTap: () => Get.toNamed(welcomePage),
           child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.red,
@@ -79,7 +80,7 @@ class SignupScreen extends StatelessWidget {
                       child: CustomDropdown(
                         dropDownList: DataList.genderListData,
                         label: 'Gender',
-                        onChanged: (value){
+                        onChanged: (value) {
                           signupController.gender = value.toString();
                         },
                       ),
@@ -107,12 +108,12 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                          dropDownList: DataList.bloodListData,
-                          label: 'Blood Type',
-                          onChanged: (value){
-                            signupController.bloodType = value.toString();
-                          },
-                        )),
+                      dropDownList: DataList.bloodListData,
+                      label: 'Blood Type',
+                      onChanged: (value) {
+                        signupController.bloodType = value.toString();
+                      },
+                    )),
                     const SizedBox(width: 10),
                     Expanded(
                       child: CustomTextFormField(
@@ -138,23 +139,23 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                          dropDownList: DataList.divisionListData,
-                          label: 'Division',
-                          onChanged: (value){
-                            signupController.division= value;
-                          },
-                        )),
+                      dropDownList: DataList.divisionListData,
+                      label: 'Division',
+                      onChanged: (value) {
+                        signupController.division = value;
+                      },
+                    )),
                     const SizedBox(
                       width: 10,
                     ),
                     Expanded(
                         child: CustomDropdown(
-                          dropDownList: DataList.districtListData,
-                          label: 'District',
-                          onChanged: (value){
-                            signupController.district= value;
-                          },
-                        )),
+                      dropDownList: DataList.districtListData,
+                      label: 'District',
+                      onChanged: (value) {
+                        signupController.district = value;
+                      },
+                    )),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -163,23 +164,23 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CustomDropdown(
-                          dropDownList: DataList.districtListData,
-                          label: 'Upazila',
-                          onChanged: (value){
-                            signupController.upazila= value;
-                          },
-                        )),
+                      dropDownList: DataList.districtListData,
+                      label: 'Upazila',
+                      onChanged: (value) {
+                        signupController.upazila = value;
+                      },
+                    )),
                     const SizedBox(
                       width: 10,
                     ),
                     Expanded(
                         child: CustomDropdown(
-                          dropDownList: DataList.districtListData,
-                          label: 'Union',
-                          onChanged: (value){
-                            signupController.union= value;
-                          },
-                        )),
+                      dropDownList: DataList.districtListData,
+                      label: 'Union',
+                      onChanged: (value) {
+                        signupController.union = value;
+                      },
+                    )),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -221,20 +222,45 @@ class SignupScreen extends StatelessWidget {
                   height: 10,
                 ),
                 //  ------- Password Field --------------
-                CustomTextFormField(
-                  controller: signupController.passwordController,
-                  hintText: "",
-                  textInputType: TextInputType.text,
-                  validate: (pass) {
-                    if (pass!.isEmpty) {
-                      return "Mobile number is required";
-                    } else if (pass.length < 7) {
-                      return "Password must be 8 Character";
-                    }
-                    return null;
-                  },
-                  labelText: "Password",
+
+                Obx(
+                  () => CustomTextFormField(
+                    controller: signupController.passwordController,
+                    hintText: '',
+                    // padding: EdgeInsets.,
+                    obscure: signupController.isVisible.value,
+                    textInputType: TextInputType.text,
+                    validate: (pass) {
+                      if (pass!.isEmpty) {
+                        return "Password required";
+                      }
+                      return null;
+                    },
+                    labelText: 'Password',
+                    onTap: () {
+                      signupController.showFunction();
+                    },
+                    suffixFunction: () {
+                      signupController.visibility();
+                    },
+                    suffixIcon:
+                        signupController.show.value ? Icons.visibility : null,
+                  ),
                 ),
+                // CustomTextFormField(
+                //   controller: signupController.passwordController,
+                //   hintText: "",
+                //   textInputType: TextInputType.text,
+                //   validate: (pass) {
+                //     if (pass!.isEmpty) {
+                //       return "Mobile number is required";
+                //     } else if (pass.length < 7) {
+                //       return "Password must be 8 Character";
+                //     }
+                //     return null;
+                //   },
+                //   labelText: "Password",
+                // ),
 
                 //  ------- Signup Button --------------
 
@@ -242,20 +268,27 @@ class SignupScreen extends StatelessWidget {
 
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  // child: CustomButton(onPressed: () {
-                  //   controller.signUpForm();
-                  // }, buttonText: "Sign Up"),
-                  child: CustomButton(
-                    onPressed: () {
-                      // print("pressed");
-                      signupController.signUpForm();
-                    },
-                    child: Text(
-                      'Sign Up',
-                      style: GoogleFonts.roboto(
-                        color: AppColor.wColor,
-                        fontSize: 18,
-                      ),
+                  child: Obx(
+                    () => CustomButton(
+                      onPressed: () {
+                        signupController.signUpForm();
+                      },
+                      child: signupController.isSignup.value
+                          ? const Center(
+                              child: SizedBox(
+                                  height: 18,
+                                  width: 18,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    backgroundColor: Colors.red,
+                                  )))
+                          : Text(
+                              "Sign up",
+                              style: GoogleFonts.roboto(
+                                color: AppColor.wColor,
+                                fontSize: 18,
+                              ),
+                            ),
                     ),
                   ),
                 ),

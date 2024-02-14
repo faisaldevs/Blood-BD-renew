@@ -15,18 +15,33 @@ class LoginController extends GetxController{
 
   final TextEditingController numberController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  // final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
- RxBool isLoginIng = false.obs;
 
 
  RxBool isLogin= false.obs;
+
+ RxBool isVisible = true.obs;
+
+
+
+ visibility(){
+
+   isVisible.value = !isVisible.value;
+
+ }
+  RxBool show = false.obs;
+
+ showFunction(){
+   show.value = !show.value;
+ }
+
+
 
   Future<Text> loginForm()async {
 
     if(loginFormKey.currentState!.validate()){
 
-       isLoginIng.value = true;
+       isLogin.value = true;
 
 
       if (kDebugMode) {
@@ -41,12 +56,11 @@ class LoginController extends GetxController{
         });
 
         if (response.statusCode == 200) {
-          isLoginIng.value = false;
           var data = jsonDecode(response.body.toString());
           var id = data["user"]["id"];
           var name = data["user"]["name"].toString();
           var phone = data["user"]["phone"].toString();
-          var blood = data["user"]["blood"].toString() ?? "O+";
+          var blood = data["user"]["blood"].toString();
           String message = data["message"].toString();
 
           getStorage.write("id", id);
@@ -54,7 +68,6 @@ class LoginController extends GetxController{
           getStorage.write("phone", phone);
           getStorage.write("blood", blood);
 
-          isLoginIng.value = false;
           Get.snackbar(
             "Login Successes",
             message,
@@ -65,6 +78,7 @@ class LoginController extends GetxController{
           // numberController.clear();
           // passwordController.clear();
         } else {
+          isLogin.value = false;
           if (kDebugMode) {
             print("failed");
           }
@@ -74,6 +88,7 @@ class LoginController extends GetxController{
           );
         }
       } catch (e) {
+        isLogin.value = false;
         if (kDebugMode) {
           print(e.toString());
         }
