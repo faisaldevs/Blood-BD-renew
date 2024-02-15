@@ -9,20 +9,16 @@ import 'global/app_routes.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-class PostHttpOverrides extends HttpOverrides{
+class PostHttpOverrides extends HttpOverrides {
   @override
-  HttpClient createHttpClient(context){
+  HttpClient createHttpClient(context) {
     return super.createHttpClient(context)
-      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
   }
 }
 
-// Future<void> main() async {
-//   runApp(const MyApp());
-//   DependencyInjection.init();
-// }
-
-void main() async{
+void main() async {
   HttpOverrides.global = PostHttpOverrides();
   await GetStorage.init();
   runApp(const MyApp());
@@ -44,7 +40,6 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
           ),
-
           navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
           getPages: pages,

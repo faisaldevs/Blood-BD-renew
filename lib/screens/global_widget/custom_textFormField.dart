@@ -20,7 +20,6 @@ class CustomTextFormField extends StatelessWidget {
     this.onTap,
   });
 
-  // final TextEditingController controller;
   final TextEditingController? controller;
   final EdgeInsets? padding;
   final String? hintText;
@@ -49,7 +48,6 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: textInputType,
       style: const TextStyle(
         color: Colors.black,
-        // fontWeight: FontWeight.bold,
       ),
       decoration: InputDecoration(
         suffixIcon: GestureDetector(

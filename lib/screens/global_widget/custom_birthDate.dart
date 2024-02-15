@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
-
 class CustomBirthdate extends StatefulWidget {
-  const CustomBirthdate({super.key, required this.controller, required this.label});
+  const CustomBirthdate(
+      {super.key, required this.controller, required this.label});
+
   final TextEditingController controller;
   final String label;
 
@@ -15,7 +15,6 @@ class CustomBirthdate extends StatefulWidget {
 class _CustomBirthdateState extends State<CustomBirthdate> {
   @override
   Widget build(BuildContext context) {
-
     void showBirthDate() async {
       DateTime? pickedDate = await showDatePicker(
           context: context,
@@ -27,6 +26,7 @@ class _CustomBirthdateState extends State<CustomBirthdate> {
         widget.controller.text = DateFormat.yMMMd().format(pickedDate!);
       });
     }
+
     return Expanded(
       child: TextFormField(
         readOnly: true,
@@ -42,22 +42,16 @@ class _CustomBirthdateState extends State<CustomBirthdate> {
           labelText: widget.label,
           labelStyle: const TextStyle(color: Colors.red),
           focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black54,width: 1),
-            borderRadius: BorderRadius.zero
-          ),
+              borderSide: BorderSide(color: Colors.black54, width: 1),
+              borderRadius: BorderRadius.zero),
           suffixIcon: const Icon(Icons.calendar_month_outlined),
           contentPadding: const EdgeInsets.only(left: 10),
-
           border: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black45, width: 1),
-              borderRadius: BorderRadius.zero
-          ),
+              borderSide: BorderSide(color: Colors.black45, width: 1),
+              borderRadius: BorderRadius.zero),
         ),
         onTap: () => showBirthDate(),
       ),
     );
   }
 }
-
-
-

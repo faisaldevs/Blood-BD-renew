@@ -9,7 +9,7 @@ class CustomFileUpload extends StatelessWidget {
       required this.onTap1,
       required this.onTap2});
 
-  TextEditingController controller = TextEditingController();
+  final TextEditingController controller = TextEditingController();
   final EdgeInsets padding;
   final Border border;
   final Function() onTap1;

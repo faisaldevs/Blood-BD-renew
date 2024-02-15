@@ -77,7 +77,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                         width: Get.width * .6,
                         child: Text(
                           address,
@@ -93,7 +93,6 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
               height: 10,
             ),
             Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
                   onTap: () {},
@@ -131,7 +130,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
-                    child: blood == "null"? const Text("A+"):  Text(blood) ),
+                    child: blood == "null" ? const Text("A+") : Text(blood)),
                 SizedBox(
                   width: width * .02,
                 ),

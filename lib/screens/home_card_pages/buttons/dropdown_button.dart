@@ -4,9 +4,10 @@ import 'package:get/get.dart';
 import 'controller.dart';
 
 class DropDownButton extends StatelessWidget {
-   DropDownButton({super.key});
+  DropDownButton({super.key});
 
-  DropDownButtonController controller = Get.put(DropDownButtonController());
+  final DropDownButtonController controller =
+      Get.put(DropDownButtonController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +16,14 @@ class DropDownButton extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return DropdownButton(
-
             value: controller.selected,
             items: snapshot.data?.map((e) {
-              return DropdownMenuItem(value: e.id.toString(),child: Text(e.id.toString()),);
+              return DropdownMenuItem(
+                value: e.id.toString(),
+                child: Text(e.id.toString()),
+              );
             }).toList(),
             onChanged: (value) {
-
               // controller.onChange(value as bool);
             },
           );
@@ -32,5 +34,3 @@ class DropDownButton extends StatelessWidget {
     );
   }
 }
-
-

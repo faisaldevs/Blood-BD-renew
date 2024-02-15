@@ -9,9 +9,9 @@ import 'card.dart';
 class CardSections extends StatelessWidget {
   CardSections({super.key});
 
-  HomeController homeController = Get.put(HomeController());
+  final HomeController homeController = Get.put(HomeController());
 
-  SearchDonorController sdController = Get.put(SearchDonorController());
+  final SearchDonorController sdController = Get.put(SearchDonorController());
 
   @override
   Widget build(BuildContext context) {

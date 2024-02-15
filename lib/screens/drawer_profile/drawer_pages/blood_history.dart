@@ -13,8 +13,9 @@ class BloodHistory extends StatelessWidget {
         appBar: AppBar(
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.redAccent,
-            // Status bar brightness (optional)
-            statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+
+            statusBarIconBrightness: Brightness.dark,
+
             statusBarBrightness: Brightness.light, // For iOS (dark icons)
           ),
           title: const Text("Notification"),
@@ -36,31 +37,42 @@ class BloodHistory extends StatelessWidget {
               tabs: [
                 Tab(
                   text: "Blood Request",
-
                 ),
                 Tab(
                   text: "Blood Donate",
                 ),
               ]),
-
         ),
-
         body: const TabBarView(
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.search,size: 80,color: Colors.black26,),
-                Text("No Notification Found!",style: TextStyle(fontSize: 18,color: Colors.black26),),
+                Icon(
+                  Icons.search,
+                  size: 80,
+                  color: Colors.black26,
+                ),
+                Text(
+                  "No Notification Found!",
+                  style: TextStyle(fontSize: 18, color: Colors.black26),
+                ),
               ],
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.search,size: 80,color: Colors.black26,),
-                Text("No Notification Found!",style: TextStyle(fontSize: 18,color: Colors.black26),),
+                Icon(
+                  Icons.search,
+                  size: 80,
+                  color: Colors.black26,
+                ),
+                Text(
+                  "No Notification Found!",
+                  style: TextStyle(fontSize: 18, color: Colors.black26),
+                ),
               ],
             ),
           ],

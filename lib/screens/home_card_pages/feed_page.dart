@@ -1,8 +1,6 @@
 import 'package:blood_bd/data_list/data_list.dart';
-import 'package:blood_bd/screens/global_widget/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -26,10 +24,8 @@ class FeedPage extends StatelessWidget {
         appBar: AppBar(
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.redAccent,
-            // Status bar brightness (optional)
             statusBarIconBrightness: Brightness.dark,
-            // For Android (dark icons)
-            statusBarBrightness: Brightness.light, // For iOS (dark icons)
+            statusBarBrightness: Brightness.light,
           ),
           title: const Text("Feed"),
           titleSpacing: 0,
@@ -38,20 +34,25 @@ class FeedPage extends StatelessWidget {
           leading: null,
         ),
         body: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               Container(
                 color: Colors.red,
                 height: Get.height * .18,
                 width: Get.width,
-                child: Image.asset("assets/images/banner/1.png",fit: BoxFit.cover,),
+                child: Image.asset(
+                  "assets/images/banner/1.png",
+                  fit: BoxFit.cover,
+                ),
               ),
-              SizedBox(height: Get.height * .01,),
+              SizedBox(
+                height: Get.height * .01,
+              ),
               Expanded(
                 child: Column(
                   children: [
-                     const TabBar(
+                    const TabBar(
                         labelColor: Colors.green,
                         indicatorColor: Colors.green,
                         indicatorSize: TabBarIndicatorSize.tab,
@@ -64,9 +65,16 @@ class FeedPage extends StatelessWidget {
                             text: "Other Request",
                           ),
                         ]),
-                    SizedBox(height: Get.height * .02,),
-                    CustomDropdownFeed(dropDownList: DataList.bloodListData, label: "Select Blood Type", onChanged: (value){}),
-                    SizedBox(height: Get.height * .01,),
+                    SizedBox(
+                      height: Get.height * .02,
+                    ),
+                    CustomDropdownFeed(
+                        dropDownList: DataList.bloodListData,
+                        label: "Select Blood Type",
+                        onChanged: (value) {}),
+                    SizedBox(
+                      height: Get.height * .01,
+                    ),
                     Expanded(
                       child: TabBarView(
                         children: [
@@ -81,7 +89,8 @@ class FeedPage extends StatelessWidget {
                               ),
                               Text(
                                 "No Notification Found!",
-                                style: TextStyle(fontSize: 24, color: Colors.black26),
+                                style: TextStyle(
+                                    fontSize: 24, color: Colors.black26),
                               ),
                             ],
                           ),
@@ -89,11 +98,13 @@ class FeedPage extends StatelessWidget {
                             child: hasData
                                 ? ListView.builder(
                                     itemCount: 5,
-                                    itemBuilder: (context, index) => const FeedBody(),
+                                    itemBuilder: (context, index) =>
+                                        const FeedBody(),
                                   )
                                 : const Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Icon(
                                         Icons.search,
@@ -103,7 +114,8 @@ class FeedPage extends StatelessWidget {
                                       Text(
                                         "No Notification Found!",
                                         style: TextStyle(
-                                            fontSize: 24, color: Colors.black26),
+                                            fontSize: 24,
+                                            color: Colors.black26),
                                       ),
                                     ],
                                   ),

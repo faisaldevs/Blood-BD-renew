@@ -1,4 +1,3 @@
-import 'package:blood_bd/controllers/signup_controller.dart';
 import 'package:blood_bd/data_list/data_list.dart';
 import 'package:blood_bd/screens/global_widget/custom_birthDate.dart';
 import 'package:blood_bd/screens/global_widget/custom_dropdown.dart';
@@ -11,11 +10,11 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../controllers/edit_profile_controller.dart';
 import '../../global/app_colors.dart';
 import '../global_widget/custom_button.dart';
+
 class EditProfile extends StatelessWidget {
   EditProfile({super.key});
 
   final EditProfileController editController = Get.put(EditProfileController());
-  // final SignupController editController = Get.put(SignupController());
 
   @override
   Widget build(BuildContext context) {
@@ -122,13 +121,6 @@ class EditProfile extends StatelessWidget {
                         },
                       ),
                     ),
-
-                    //CustomDropdown(
-                    //                       // controller: signupController.genderController,
-                    //                       dropDownList: DataList.genderListData,
-                    //                       label: 'Gender', onChanged: () {},
-                    //                     )
-
                     const SizedBox(
                       width: 10,
                     ),
@@ -268,13 +260,16 @@ class EditProfile extends StatelessWidget {
                 const Text("Change Mobile Number?"),
 
                 Container(
-                  margin: const EdgeInsets.only(top: 8),
+                    margin: const EdgeInsets.only(top: 8),
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
                     child: TextButton(
-                      // style: ButtonStyle(padding: MaterialStatePropertyAll(EdgeInsets.zero)),
-                        onPressed: () {}, child: const Text("Change Number??",style: TextStyle(color: Colors.red),)))
+                        onPressed: () {},
+                        child: const Text(
+                          "Change Number??",
+                          style: TextStyle(color: Colors.red),
+                        )))
               ],
             ),
           ),

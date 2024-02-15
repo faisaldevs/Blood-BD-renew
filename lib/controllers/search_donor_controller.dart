@@ -19,7 +19,6 @@ class SearchDonorController extends GetxController {
   searchDonor() {
     print("pressend");
     if (searchDonorKey.currentState!.validate()) {
-
       var patientName = patientNameController.text;
       var date = dateController.text;
       var time = timeController.text;
@@ -41,8 +40,5 @@ class SearchDonorController extends GetxController {
       Get.snackbar("Received", "Donor Data Received");
       print("object");
     }
-
-
   }
 }
-

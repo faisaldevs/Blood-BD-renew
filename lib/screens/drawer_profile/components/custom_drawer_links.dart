@@ -57,7 +57,7 @@ class ActiveDonor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         drawerProfileController.activeStc();
       },
       child: Container(
@@ -82,7 +82,8 @@ class ActiveDonor extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 8),
-                      child: Text('Active Donor', style: TextStyle(fontSize: 17)),
+                      child:
+                          Text('Active Donor', style: TextStyle(fontSize: 17)),
                     ),
                   ],
                 ),

@@ -7,8 +7,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class DrawerProfile extends StatelessWidget {
-   const DrawerProfile({super.key});
-
+  const DrawerProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,6 @@ class DrawerProfile extends StatelessWidget {
             title: 'Medical History',
             icon: Icons.medical_information_outlined,
             onTap: () {
-              // Get.toNamed(medicalHistory);
               Get.to(const MedicalHistory());
             },
           ),

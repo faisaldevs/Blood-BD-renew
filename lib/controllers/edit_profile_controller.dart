@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-class EditProfileController extends GetxController{
+class EditProfileController extends GetxController {
   final getStorage = GetStorage();
 
   final editProfileKey = GlobalKey<FormState>();
-
 
   TextEditingController nameController = TextEditingController();
   TextEditingController dateController = TextEditingController();
@@ -18,5 +17,4 @@ class EditProfileController extends GetxController{
   late final String district;
   late final String upazila;
   late final String union;
-
 }

@@ -10,9 +10,10 @@ import '../../../controllers/medical_hisory_controller.dart';
 import '../../global_widget/custom_file_upload.dart';
 
 class NewReport extends StatelessWidget {
-   NewReport({super.key});
+  NewReport({super.key});
 
-   MedicalHistoryController medicalHistoryController = Get.put(MedicalHistoryController());
+  final MedicalHistoryController medicalHistoryController =
+      Get.put(MedicalHistoryController());
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,6 @@ class NewReport extends StatelessWidget {
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
-          // Status bar brightness (optional)
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
@@ -54,16 +54,16 @@ class NewReport extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-              
                       const Text("Please Provide your Medical Information"),
-                      const SizedBox(height: 10,),
-              
+                      const SizedBox(
+                        height: 10,
+                      ),
                       CustomTextFormField(
                         controller: medicalHistoryController.hemoglobin,
                         hintText: "15.5 g/dL",
                         textInputType: TextInputType.number,
                         validate: (value) {
-                          if(value!.isEmpty){
+                          if (value!.isEmpty) {
                             return "required Hemoglobin Level";
                           }
                           return null;
@@ -77,11 +77,13 @@ class NewReport extends StatelessWidget {
                         onChanged: (value) {},
                       ),
                       const SizedBox(height: 8),
-              
                       const Row(
                         children: [
                           Text("Infection Diseases "),
-                           Expanded(child: Divider(color: Colors.black45,)),
+                          Expanded(
+                              child: Divider(
+                            color: Colors.black45,
+                          )),
                         ],
                       ),
                       const SizedBox(height: 8),
@@ -95,7 +97,9 @@ class NewReport extends StatelessWidget {
                               onChanged: (value) {},
                             ),
                           ),
-                          const SizedBox(width: 10,),
+                          const SizedBox(
+                            width: 10,
+                          ),
                           Expanded(
                             flex: 1,
                             child: CustomDropdown(
@@ -112,7 +116,7 @@ class NewReport extends StatelessWidget {
                         hintText: "120/80",
                         textInputType: TextInputType.number,
                         validate: (value) {
-                          if(value!.isEmpty){
+                          if (value!.isEmpty) {
                             return "required Hemoglobin Level";
                           }
                           return null;
@@ -120,10 +124,9 @@ class NewReport extends StatelessWidget {
                         labelText: "Blood pressure*",
                       ),
                       const SizedBox(height: 14),
-              
-              
-                          const Divider(color: Colors.black45,),
-              
+                      const Divider(
+                        color: Colors.black45,
+                      ),
                       const SizedBox(height: 8),
                       CustomDropdown(
                         dropDownList: DataList.bloodListData,
@@ -148,7 +151,10 @@ class NewReport extends StatelessWidget {
                       onPressed: () {
                         medicalHistoryController.onSaveReport();
                       },
-                      child: const Text("Save Report",style: TextStyle(color: Colors.white,fontSize: 16),),
+                      child: const Text(
+                        "Save Report",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
                     ),
                   ),
                 ],

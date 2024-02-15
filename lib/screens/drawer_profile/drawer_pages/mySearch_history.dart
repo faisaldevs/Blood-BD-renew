@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
 class MySearchHistory extends StatelessWidget {
   const MySearchHistory({super.key});
 
@@ -26,15 +27,22 @@ class MySearchHistory extends StatelessWidget {
           ),
         ),
       ),
-      body:  SizedBox(
+      body: SizedBox(
         height: Get.height,
         width: Get.width,
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(Icons.search,size: 80,color: Colors.black26,),
-            Text("No Notification Found!",style: TextStyle(fontSize: 18,color: Colors.black26),),
+            Icon(
+              Icons.search,
+              size: 80,
+              color: Colors.black26,
+            ),
+            Text(
+              "No Notification Found!",
+              style: TextStyle(fontSize: 18, color: Colors.black26),
+            ),
           ],
         ),
       ),

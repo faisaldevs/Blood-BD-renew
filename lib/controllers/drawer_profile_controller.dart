@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class DrawerProfileController extends GetxController {
   RxBool switchValue = true.obs;
 
-  activeStc(){
+  activeStc() {
     switchValue.value = !switchValue.value;
   }
 

@@ -9,7 +9,6 @@ import '../global_widget/custom_birthDate.dart';
 import '../global_widget/custom_button.dart';
 import '../global_widget/custom_dropdown.dart';
 import '../global_widget/custom_timePicker.dart';
-import 'buttons/dropdown_button.dart';
 
 class SearchDonor extends StatefulWidget {
   const SearchDonor({super.key});
@@ -20,9 +19,6 @@ class SearchDonor extends StatefulWidget {
 
 class _SearchDonorState extends State<SearchDonor> {
   SearchDonorController sdController = Get.put(SearchDonorController());
-
-  // final TextEditingController _weightController = TextEditingController();
-  // final TextEditingController _genderController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +126,6 @@ class _SearchDonorState extends State<SearchDonor> {
                   label: "Health Issue",
                   onChanged: (value) {
                     sdController.healthIssue = value.toString();
-
                   },
                 ),
 
@@ -250,7 +245,10 @@ class _SearchDonorState extends State<SearchDonor> {
                         sdController.searchDonor();
                         Get.toNamed(home);
                       },
-                      child: const Text("Submit",style: TextStyle(color: Colors.white),)),
+                      child: const Text(
+                        "Submit",
+                        style: TextStyle(color: Colors.white),
+                      )),
                 ),
               ],
             ),

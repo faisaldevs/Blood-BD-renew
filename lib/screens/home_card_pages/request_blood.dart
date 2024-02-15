@@ -8,7 +8,6 @@ import '../global_widget/custom_button.dart';
 import '../global_widget/custom_dropdown.dart';
 import '../global_widget/custom_textFormField.dart';
 import '../global_widget/custom_timePicker.dart';
-import 'buttons/dropdown_button.dart';
 
 class RequestBlood extends StatefulWidget {
   const RequestBlood({super.key});
@@ -25,16 +24,12 @@ class _RequestBloodState extends State<RequestBlood> {
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _numberController = TextEditingController();
 
-  // final TextEditingController _weightController = TextEditingController();
-  // final TextEditingController _genderController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
-          // Status bar brightness (optional)
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
@@ -82,13 +77,12 @@ class _RequestBloodState extends State<RequestBlood> {
                 Row(
                   children: [
                     Expanded(
-                      flex: 1,
-                      child: CustomDropdown(
-                        dropDownList: DataList.bloodAmount,
-                        label: 'Blood Group',
-                        onChanged: (value) {},
-                      )
-                    ),
+                        flex: 1,
+                        child: CustomDropdown(
+                          dropDownList: DataList.bloodAmount,
+                          label: 'Blood Group',
+                          onChanged: (value) {},
+                        )),
                     const SizedBox(
                       width: 10,
                     ),
@@ -244,7 +238,10 @@ class _RequestBloodState extends State<RequestBlood> {
                       onPressed: () {
                         // _searchDonor();
                       },
-                      child: const Text("Sign Up",style: TextStyle(color: Colors.white),)),
+                      child: const Text(
+                        "Sign Up",
+                        style: TextStyle(color: Colors.white),
+                      )),
                 ),
               ],
             ),

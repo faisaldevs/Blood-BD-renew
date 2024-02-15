@@ -13,8 +13,8 @@ class NotificationPage extends StatelessWidget {
         appBar: AppBar(
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.redAccent,
-            // Status bar brightness (optional)
-            statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+            statusBarIconBrightness: Brightness.dark,
+            // For Android (dark icons)
             statusBarBrightness: Brightness.light, // For iOS (dark icons)
           ),
           title: const Text("Notification"),
@@ -34,33 +34,44 @@ class NotificationPage extends StatelessWidget {
               indicatorSize: TabBarIndicatorSize.tab,
               indicatorWeight: 3,
               tabs: [
-            Tab(
-              text: "Request",
-
-            ),
-            Tab(
-              text: "Donate",
-            ),
-          ]),
-
+                Tab(
+                  text: "Request",
+                ),
+                Tab(
+                  text: "Donate",
+                ),
+              ]),
         ),
-
         body: const TabBarView(
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.search,size: 120,color: Colors.black26,),
-                Text("No Notification Found!",style: TextStyle(fontSize: 24,color: Colors.black26),),
+                Icon(
+                  Icons.search,
+                  size: 120,
+                  color: Colors.black26,
+                ),
+                Text(
+                  "No Notification Found!",
+                  style: TextStyle(fontSize: 24, color: Colors.black26),
+                ),
               ],
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.search,size: 120,color: Colors.black26,),
-                Text("No Notification Found!",style: TextStyle(fontSize: 24,color: Colors.black26),),
+                Icon(
+                  Icons.search,
+                  size: 120,
+                  color: Colors.black26,
+                ),
+                Text(
+                  "No Notification Found!",
+                  style: TextStyle(fontSize: 24, color: Colors.black26),
+                ),
               ],
             ),
           ],

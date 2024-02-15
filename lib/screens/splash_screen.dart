@@ -15,7 +15,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   final getStorage = GetStorage();
 
   @override
@@ -23,21 +22,13 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
 
-
-    if (getStorage.read("id") != null){
+    if (getStorage.read("id") != null) {
       Future.delayed(const Duration(seconds: 2), () => Get.offAllNamed(home));
+    } else {
+      Future.delayed(
+          const Duration(seconds: 2), () => Get.offAllNamed(welcomePage));
     }
-    else
-      {
-        Future.delayed(const Duration(seconds: 2), () => Get.offAllNamed(welcomePage));
-      }
-
   }
-
-//   @override
-//   void onReady(){
-//     super.onReady();
-// }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +44,9 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Text(
         "BLOOD BD",
         style: GoogleFonts.roboto(
-            color: AppColor.bloodColor, fontSize: 54, fontWeight: FontWeight.bold),
+            color: AppColor.bloodColor,
+            fontSize: 54,
+            fontWeight: FontWeight.bold),
       )),
     );
   }

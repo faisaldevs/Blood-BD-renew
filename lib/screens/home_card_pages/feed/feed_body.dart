@@ -13,7 +13,8 @@ class FeedBody extends StatefulWidget {
 
 class _FeedBodyState extends State<FeedBody> {
   final sdStorage = GetStorage();
-  sdStorageClear(){
+
+  sdStorageClear() {
     var patientName = sdStorage.remove("patientName");
     var bloodType = sdStorage.remove("bloodType");
     var bloodAmount = sdStorage.remove("bloodAmount");
@@ -23,7 +24,6 @@ class _FeedBodyState extends State<FeedBody> {
     var contactParsonPhone = sdStorage.remove("contactParsonPhone");
     var contactParsonName = sdStorage.remove("contactParsonName");
   }
-
 
   bool isVisible = false;
 
@@ -37,7 +37,6 @@ class _FeedBodyState extends State<FeedBody> {
     var time = sdStorage.read("time");
     var contactParsonPhone = sdStorage.read("contactParsonPhone");
     var contactParsonName = sdStorage.read("contactParsonName");
-    print(patientName);
 
     String showTime() {
       DateTime now;
@@ -54,50 +53,46 @@ class _FeedBodyState extends State<FeedBody> {
       width: Get.width,
       child: Column(
         children: [
-          Container(
-            child: Row(
-              children: [
-                SizedBox(
-                  width: Get.width * .1,
-                  child: const CircleAvatar(
-                    backgroundImage: AssetImage("assets/images/profile.png"),
-                  ),
+          Row(
+            children: [
+              SizedBox(
+                width: Get.width * .1,
+                child: const CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/profile.png"),
                 ),
-                Container(
-                  width: Get.width * .775,
-                  padding: const EdgeInsets.only(
-                    left: 5,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              "Jami Ahmed",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              showTime(),
-                              style: const TextStyle(
-                                color: Colors.green,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      const Text("Address : ",
+              ),
+              Container(
+                width: Get.width * .775,
+                padding: const EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Jami Ahmed",
                           style: TextStyle(
-                              fontSize: 13, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                )
-              ],
-            ),
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          showTime(),
+                          style: const TextStyle(
+                            color: Colors.green,
+                          ),
+                        )
+                      ],
+                    ),
+                    const Text("Address : ",
+                        style: TextStyle(
+                            fontSize: 13, fontWeight: FontWeight.bold)),
+                  ],
+                ),
+              )
+            ],
           ),
           const SizedBox(height: 10),
           Container(
@@ -140,7 +135,6 @@ class _FeedBodyState extends State<FeedBody> {
                     InkWell(
                       borderRadius: BorderRadius.circular(10),
                       onTap: () {
-                        print("object");
                         setState(() {
                           isVisible = !isVisible;
                         });
@@ -178,49 +172,37 @@ class _FeedBodyState extends State<FeedBody> {
           ),
           Visibility(
             visible: isVisible,
-            // maintainSize: true,
-            // maintainAnimation: true,
-            // maintainState: true,
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Divider(),
-                  Container(
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("Address :"),
-                        Text("Date & Time :"),
-                      ],
-                    ),
-                  ),
-                  const Divider(),
-                  Container(
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("Contact Person's Name"),
-                        Text("Contact Person's Number"),
-                      ],
-                    ),
-                  ),
-                  Divider(),
-                  Container(
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("Massage"),
-                        Text(
-                            "dew   wwe 0eew dogie  eu ihhjfiew site heo h wo "),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Divider(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("Address :"),
+                    Text("Date & Time :"),
+                  ],
+                ),
+                Divider(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("Contact Person's Name"),
+                    Text("Contact Person's Number"),
+                  ],
+                ),
+                Divider(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("Massage"),
+                    Text("dew   wwe 0eew dogie  eu ihhjfiew site heo h wo "),
+                  ],
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 10),

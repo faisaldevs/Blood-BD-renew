@@ -13,7 +13,6 @@ class MedicalHistory extends StatelessWidget {
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
-          // Status bar brightness (optional)
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
@@ -29,18 +28,25 @@ class MedicalHistory extends StatelessWidget {
           ),
         ),
       ),
-      body:  SizedBox(
+      body: SizedBox(
         height: Get.height,
         width: Get.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(Icons.search,size: 80,color: Colors.black26,),
-            const Text("No Notification Found!",style: TextStyle(fontSize: 19,color: Colors.black26),),
-
-
-            SizedBox(height: Get.height * .32,),
+            const Icon(
+              Icons.search,
+              size: 80,
+              color: Colors.black26,
+            ),
+            const Text(
+              "No Notification Found!",
+              style: TextStyle(fontSize: 19, color: Colors.black26),
+            ),
+            SizedBox(
+              height: Get.height * .32,
+            ),
             Container(
                 width: Get.width,
                 margin: const EdgeInsets.all(16),
@@ -51,9 +57,17 @@ class MedicalHistory extends StatelessWidget {
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.add,color: Colors.white,),
-                      SizedBox(width: 4,),
-                      Text("Add New Report",style: TextStyle(color: Colors.white,fontSize: 16),),
+                      Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 4,
+                      ),
+                      Text(
+                        "Add New Report",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
                     ],
                   ),
                 )),

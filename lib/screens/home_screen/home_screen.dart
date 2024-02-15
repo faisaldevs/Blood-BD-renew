@@ -9,7 +9,8 @@ import '../../global/app_routes.dart';
 import '../drawer_profile/drawer_profile.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
+  HomeScreen({super.key});
+
   final getStorage = GetStorage();
 
   @override
@@ -31,10 +32,17 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 Get.toNamed(notificationPage);
               },
-              icon: const Icon(
-                Icons.notifications_active_outlined,
-                color: Colors.red,
-                size: 28,
+              icon: Badge(
+                backgroundColor: Colors.red[600],
+                label: const Text(
+                  "1",
+                  style: TextStyle(fontSize: 16),
+                ),
+                child: const Icon(
+                  Icons.notifications_active_outlined,
+                  color: Colors.red,
+                  size: 28,
+                ),
               )),
         ],
       ),
@@ -50,18 +58,20 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Builder(
                     builder: (context) => InkWell(
-                        onTap: () {
-                          Scaffold.of(context).openDrawer();
-                        },
-                        child: const SizedBox(
-                          width: 70,
-                          height: 70,
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage("assets/images/profile.png"),
-                          ),
-                        ),),
+                      onTap: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      child: const SizedBox(
+                        width: 70,
+                        height: 70,
+                        child: CircleAvatar(
+                          backgroundImage:
+                              AssetImage("assets/images/profile.png"),
+                        ),
+                      ),
+                    ),
                   ),
-                   Text(
+                  Text(
                     name,
                     style: const TextStyle(
                         fontSize: 21,
@@ -71,11 +81,8 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 40),
-
-               CardSections(),
-
-               SizedBox(height: Get.height * .1),
-
+              CardSections(),
+              SizedBox(height: Get.height * .1),
               const BannerWidget(),
             ],
           ),

@@ -53,41 +53,37 @@ class CustomDropdownFeed extends StatelessWidget {
     // required this.hint,
   });
 
-  // final Function() onChanged;
   final String label;
-  // final Widget hint;
 
   final List dropDownList;
   var onChanged;
-  // final List dropDownList;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: DropdownButtonFormField(
-        decoration:  InputDecoration(
-          filled: true,
-          fillColor: Colors.red.shade100,
-          hintText: label,
-          // labelText: label,
-          hintStyle: const TextStyle(color: Colors.red),
-          contentPadding: const EdgeInsets.only(left: 12),
-          counterStyle: const TextStyle(fontWeight: FontWeight.bold),
-          border: InputBorder.none,
-          focusedBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.zero,
-            borderSide: BorderSide(color: Colors.white, width: 0),
-          ),
+    return DropdownButtonFormField(
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.red.shade100,
+        hintText: label,
+        // labelText: label,
+        hintStyle: const TextStyle(color: Colors.red),
+        contentPadding: const EdgeInsets.only(left: 12),
+        counterStyle: const TextStyle(fontWeight: FontWeight.bold),
+        border: InputBorder.none,
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.zero,
+          borderSide: BorderSide(color: Colors.white, width: 0),
         ),
-        items:  dropDownList.map((e) {
-          return DropdownMenuItem(
-              value: e,
-              child: Text(
-                e,
-                style: const TextStyle(fontWeight: FontWeight.normal),
-              ));
-        }).toList(),
-        onChanged: onChanged,
       ),
+      items: dropDownList.map((e) {
+        return DropdownMenuItem(
+            value: e,
+            child: Text(
+              e,
+              style: const TextStyle(fontWeight: FontWeight.normal),
+            ));
+      }).toList(),
+      onChanged: onChanged,
     );
   }
 }

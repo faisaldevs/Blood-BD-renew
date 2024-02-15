@@ -1,25 +1,25 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 
 import '../../../models/DropdownModel.dart';
 
-class DropDownButtonController extends GetxController{
-
-
-
+class DropDownButtonController extends GetxController {
   var selected;
 
   Future<List<DropdownModel>> getPost() async {
     try {
       final response =
-      await get(Uri.parse("https://jsonplaceholder.typicode.com/posts"));
+          await get(Uri.parse("https://jsonplaceholder.typicode.com/posts"));
 
       final body = json.decode(response.body) as List;
 
       if (response.statusCode == 200) {
-        print(response.statusCode.toString());
+        if (kDebugMode) {
+          print(response.statusCode.toString());
+        }
 
         return body.map((e) {
           final map = e as Map<String, dynamic>;
@@ -32,15 +32,15 @@ class DropDownButtonController extends GetxController{
         }).toList();
       }
     } catch (e) {
-      print("object");
+      if (kDebugMode) {
+        print("object");
+      }
     }
 
     throw Exception("");
   }
 
-  onChange(bool value){
-
+  onChange(bool value) {
     selected = value;
   }
-
 }
