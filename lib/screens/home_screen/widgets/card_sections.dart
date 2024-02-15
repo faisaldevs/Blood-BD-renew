@@ -1,3 +1,4 @@
+import 'package:blood_bd/controllers/home_controller.dart';
 import 'package:blood_bd/global/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ import 'card.dart';
 
 class CardSections extends StatelessWidget {
    CardSections({super.key});
+   HomeController homeController = Get.put(HomeController());
 
   SearchDonorController sdController = Get.put(SearchDonorController());
   @override
