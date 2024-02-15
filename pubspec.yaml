@@ -56,6 +56,7 @@ dependencies:
   intl:
   http:
   url_launcher:
+  connectivity_plus:
 
 
 

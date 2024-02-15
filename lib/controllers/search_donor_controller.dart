@@ -4,7 +4,6 @@ import 'package:get_storage/get_storage.dart';
 
 class SearchDonorController extends GetxController {
   final sdStorage = GetStorage();
-
   final searchDonorKey = GlobalKey<FormState>();
   final TextEditingController patientNameController = TextEditingController();
   late final String bloodType;
@@ -47,11 +46,3 @@ class SearchDonorController extends GetxController {
   }
 }
 
-// showDialog(context: context, builder: (context) {
-// return Container(
-// color: Colors.white12,
-// height: 400,
-// width: 400,
-// child: Text("data"),
-// );
-// },);

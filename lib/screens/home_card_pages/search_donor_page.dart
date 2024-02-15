@@ -26,241 +26,233 @@ class _SearchDonorState extends State<SearchDonor> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      // onTap: () {
-      //   FocusNode currentFocus = FocusScope.of(context);
-      //   if (!currentFocus.hasPrimaryFocus) {
-      //     currentFocus.unfocus();
-      //   }
-      // },
-      child: Scaffold(
-        appBar: AppBar(
-          systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: Colors.redAccent,
-            // Status bar brightness (optional)
-            statusBarIconBrightness: Brightness.dark,
-            // For Android (dark icons)
-            statusBarBrightness: Brightness.light, // For iOS (dark icons)
-          ),
-          elevation: 0,
-          backgroundColor: Colors.white60,
-          title: const Text("Search Donor"),
-          titleSpacing: 0,
-          leading: InkWell(
-            onTap: () => Get.back(),
-            child: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.redAccent,
+          // Status bar brightness (optional)
+          statusBarIconBrightness: Brightness.dark,
+          // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white60,
+        title: const Text("Search Donor"),
+        titleSpacing: 0,
+        leading: InkWell(
+          onTap: () => Get.back(),
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
           ),
         ),
-        body: Container(
-          margin: const EdgeInsets.all(16),
-          child: Form(
-            key: sdController.searchDonorKey,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  const SizedBox(height: 10),
+      ),
+      body: Container(
+        margin: const EdgeInsets.all(16),
+        child: Form(
+          key: sdController.searchDonorKey,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const SizedBox(height: 10),
 
-                  //-------Name Field --------------
+                //-------Name Field --------------
 
-                  CustomTextFormField(
-                    controller: sdController.patientNameController,
-                    hintText: "",
-                    textInputType: TextInputType.text,
-                    validate: (name) {
-                      if (name!.isEmpty) {
-                        return "Patient's name required";
-                      }
-                      return null;
-                    },
-                    labelText: "Patient's Name",
-                  ),
+                CustomTextFormField(
+                  controller: sdController.patientNameController,
+                  hintText: "",
+                  textInputType: TextInputType.text,
+                  validate: (name) {
+                    if (name.toString().isEmpty) {
+                      return "Patient's name required";
+                    }
+                    return null;
+                  },
+                  labelText: "Patient's Name",
+                ),
 
-                  const SizedBox(height: 30),
+                const SizedBox(height: 30),
 
-                  //-------Blood Group and  Blood Amount --------------
+                //-------Blood Group and  Blood Amount --------------
 
-                  Row(
-                    children: [
-                      Expanded(
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: CustomDropdown(
+                        dropDownList: DataList.bloodListData,
+                        label: 'Blood Group',
+                        onChanged: (value) {
+                          sdController.bloodType = value.toString();
+                        },
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
                         flex: 1,
                         child: CustomDropdown(
-                          dropDownList: DataList.bloodListData,
-                          label: 'Blood Group',
+                          dropDownList: DataList.bloodAmount,
+                          label: 'Amount',
                           onChanged: (value) {
-                            sdController.bloodType = value.toString();
+                            sdController.bloodAmount = value.toString();
                           },
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                          flex: 1,
-                          child: CustomDropdown(
-                            dropDownList: DataList.bloodAmount,
-                            label: 'Amount',
-                            onChanged: (value) {
-                              sdController.bloodAmount = value.toString();
-                            },
-                          )),
-                    ],
-                  ),
+                        )),
+                  ],
+                ),
 
-                  //-------Date  and  Time --------------
+                //-------Date  and  Time --------------
 
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      CustomBirthdate(
-                        controller: sdController.dateController,
-                        label: 'Date',
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      CustomTimePicker(
-                        controller: sdController.timeController,
-                        label: 'time',
-                      ),
-                    ],
-                  ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    CustomBirthdate(
+                      controller: sdController.dateController,
+                      label: 'Date',
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    CustomTimePicker(
+                      controller: sdController.timeController,
+                      label: 'time',
+                    ),
+                  ],
+                ),
 
-                  const SizedBox(height: 10),
-                  //-------  Health issue --------------
+                const SizedBox(height: 10),
+                //-------  Health issue --------------
 
-                  CustomDropdown(
-                    dropDownList: DataList.bloodAmount,
-                    label: "Health Issue",
-                    onChanged: (value) {
-                      sdController.healthIssue = value.toString();
+                CustomDropdown(
+                  dropDownList: DataList.bloodAmount,
+                  label: "Health Issue",
+                  onChanged: (value) {
+                    sdController.healthIssue = value.toString();
 
-                    },
-                  ),
+                  },
+                ),
 
-                  const SizedBox(height: 10),
+                const SizedBox(height: 10),
 
-                  const Divider(),
-                  const SizedBox(height: 10),
+                const Divider(),
+                const SizedBox(height: 10),
 
-                  Row(
-                    children: [
-                      Expanded(
-                          flex: 1,
-                          child: CustomDropdown(
-                            dropDownList: DataList.divisionListData,
-                            label: 'Division',
-                            onChanged: (value) {},
-                          )),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                          flex: 1,
-                          child: CustomDropdown(
-                            dropDownList: DataList.districtListData,
-                            label: 'District',
-                            onChanged: (value) {},
-                          )),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  //  -------Upazila/City Union Field --------------
-                  Row(
-                    children: [
-                      Expanded(
-                          flex: 1,
-                          child: CustomDropdown(
-                            dropDownList: DataList.divisionListData,
-                            label: 'Division',
-                            onChanged: (value) {},
-                          )),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                          flex: 1,
-                          child: CustomDropdown(
-                            dropDownList: DataList.districtListData,
-                            label: 'District',
-                            onChanged: (value) {},
-                          )),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: CustomDropdown(
+                          dropDownList: DataList.divisionListData,
+                          label: 'Division',
+                          onChanged: (value) {},
+                        )),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: CustomDropdown(
+                          dropDownList: DataList.districtListData,
+                          label: 'District',
+                          onChanged: (value) {},
+                        )),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                //  -------Upazila/City Union Field --------------
+                Row(
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: CustomDropdown(
+                          dropDownList: DataList.divisionListData,
+                          label: 'Division',
+                          onChanged: (value) {},
+                        )),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: CustomDropdown(
+                          dropDownList: DataList.districtListData,
+                          label: 'District',
+                          onChanged: (value) {},
+                        )),
+                  ],
+                ),
+                const SizedBox(height: 10),
 
-                  //  ------- Address Field --------------
+                //  ------- Address Field --------------
 
-                  CustomTextFormField(
-                    controller: sdController.addressController,
-                    hintText: "",
-                    textInputType: TextInputType.text,
-                    validate: (address) {
-                      if (address!.isEmpty) {
-                        return "Address required";
-                      }
-                      return null;
-                    },
-                    labelText: "Address",
-                  ),
+                CustomTextFormField(
+                  controller: sdController.addressController,
+                  hintText: "",
+                  textInputType: TextInputType.text,
+                  validate: (address) {
+                    if (address.toString().isEmpty) {
+                      return "Address required";
+                    }
+                    return null;
+                  },
+                  labelText: "Address",
+                ),
 
-                  const SizedBox(height: 10),
+                const SizedBox(height: 10),
 
-                  const Divider(),
-                  const SizedBox(height: 10),
+                const Divider(),
+                const SizedBox(height: 10),
 
-                  CustomTextFormField(
-                    controller: sdController.contactParsonNameController,
-                    hintText: "",
-                    textInputType: TextInputType.text,
-                    validate: (address) {
-                      if (address!.isEmpty) {
-                        return "Address required";
-                      }
-                      return null;
-                    },
-                    labelText: "Contact Person's Name",
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                CustomTextFormField(
+                  controller: sdController.contactParsonNameController,
+                  hintText: "",
+                  textInputType: TextInputType.text,
+                  validate: (address) {
+                    if (address.toString().isEmpty) {
+                      return "Address required";
+                    }
+                    return null;
+                  },
+                  labelText: "Contact Person's Name",
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
 
-                  //  ------- Mobile Field --------------
-                  CustomTextFormField(
-                    controller: sdController.numberController,
-                    hintText: "",
-                    textInputType: TextInputType.number,
-                    validate: (number) {
-                      if (number!.isEmpty) {
-                        return "Mobile number is required";
-                      } else if (number.length != 11) {
-                        return "Incorrect mobile number!!";
-                      }
-                      return null;
-                    },
-                    labelText: "Number",
-                  ),
+                //  ------- Mobile Field --------------
+                CustomTextFormField(
+                  controller: sdController.numberController,
+                  hintText: "",
+                  textInputType: TextInputType.number,
+                  validate: (number) {
+                    if (number.toString().isEmpty) {
+                      return "Mobile number is required";
+                    } else if (number.toString().length != 11) {
+                      return "Incorrect mobile number!!";
+                    }
+                    return null;
+                  },
+                  labelText: "Number",
+                ),
 
-                  //  ------- Signup Button --------------
+                //  ------- Signup Button --------------
 
-                  const SizedBox(
-                    height: 40,
-                  ),
+                const SizedBox(
+                  height: 40,
+                ),
 
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    child: CustomButton(
-                        onPressed: () {
-                          sdController.searchDonor();
-                          Get.toNamed(home);
-                        },
-                        child: const Text("Submit",style: TextStyle(color: Colors.white),)),
-                  ),
-                ],
-              ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: CustomButton(
+                      onPressed: () {
+                        sdController.searchDonor();
+                        Get.toNamed(home);
+                      },
+                      child: const Text("Submit",style: TextStyle(color: Colors.white),)),
+                ),
+              ],
             ),
           ),
         ),

@@ -7,10 +7,12 @@ import '../../../controllers/search_donor_controller.dart';
 import 'card.dart';
 
 class CardSections extends StatelessWidget {
-   CardSections({super.key});
-   HomeController homeController = Get.put(HomeController());
+  CardSections({super.key});
+
+  HomeController homeController = Get.put(HomeController());
 
   SearchDonorController sdController = Get.put(SearchDonorController());
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,14 +25,12 @@ class CardSections extends StatelessWidget {
               onTap: () {
                 Get.toNamed(searchDonor);
                 sdController.searchDonor();
-
               },
             ),
             CardWidget(
               title: 'Request Blood',
               imageUrl: "assets/images/home_icons/request_blood.png",
               onTap: () {
-
                 Get.toNamed(requestBlood);
               },
             ),

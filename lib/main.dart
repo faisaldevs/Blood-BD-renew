@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:blood_bd/screens/depandency_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -16,10 +17,16 @@ class PostHttpOverrides extends HttpOverrides{
   }
 }
 
+// Future<void> main() async {
+//   runApp(const MyApp());
+//   DependencyInjection.init();
+// }
+
 void main() async{
   HttpOverrides.global = PostHttpOverrides();
   await GetStorage.init();
   runApp(const MyApp());
+  DependencyInjection.init();
 }
 
 class MyApp extends StatelessWidget {

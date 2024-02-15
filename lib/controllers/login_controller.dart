@@ -79,11 +79,8 @@ class LoginController extends GetxController{
           // passwordController.clear();
         } else {
           isLogin.value = false;
-          if (kDebugMode) {
-            print("failed");
-          }
           Get.snackbar(
-            "Login failed",
+            "Login failed${response.statusCode}"  ,
             "Number or Password was wrong..",
           );
         }

@@ -9,8 +9,6 @@ class BloodHeroes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     String? name = "Faisal";
     String? address = "Kazipara, Mirpur, Dhaka";
     String? number1 = "01903440069";
