@@ -5,7 +5,8 @@ class CustomButton extends StatelessWidget {
   final Function() onPressed;
   final Widget child ;
 
-  const CustomButton({super.key, required this.onPressed, required this.child});
+
+  const CustomButton({super.key, required this.onPressed, required this.child,});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,9 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
-
 ButtonStyle buttonStyle = ButtonStyle(
   padding:
-      MaterialStateProperty.all(const EdgeInsets.only(top: 18, bottom: 18)),
+      MaterialStateProperty.all(const EdgeInsets.only(top: 15, bottom: 15)),
   backgroundColor: MaterialStateProperty.all(Colors.redAccent),
   shape: MaterialStateProperty.all(
     RoundedRectangleBorder(
@@ -27,18 +27,3 @@ ButtonStyle buttonStyle = ButtonStyle(
         side: const BorderSide(color: Colors.red)),
   ),
 );
-
-
-// ElevatedButton(
-// onPressed: () async{
-// print("object");
-// // setState(() => isLoading = true);
-// // welcomePageController.signupForm();
-// // await Get.to(const SignupPage(),transition: Transition.rightToLeftWithFade,duration: const Duration(milliseconds: 500));
-// },
-// style: ButtonStyle(
-// backgroundColor: MaterialStateProperty.all(Colors.redAccent),
-// foregroundColor: MaterialStateProperty.all(Colors.transparent),
-// ),
-// child: isLoading ?CircularProgressIndicator() : Text("Sign up",style: TextStyle(color: Colors.white),),
-// ),

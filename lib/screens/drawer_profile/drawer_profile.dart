@@ -27,7 +27,7 @@ class DrawerProfile extends StatelessWidget {
             icon: Icons.medical_information_outlined,
             onTap: () {
               // Get.toNamed(medicalHistory);
-              Get.to(const MedicalHistory(),transition: Transition.rightToLeftWithFade,duration: const Duration(milliseconds: 700));
+              Get.to(const MedicalHistory());
             },
           ),
           CustomDrawerLinks(

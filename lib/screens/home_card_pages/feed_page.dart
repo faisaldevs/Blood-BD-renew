@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'feed/feed_body.dart';
 
 class FeedPage extends StatelessWidget {
-   FeedPage({super.key});
+  FeedPage({super.key});
+
   final getStorage = GetStorage();
+
   @override
   Widget build(BuildContext context) {
     var contactParsonPhone = getStorage.read("contactParsonPhone");
@@ -21,20 +22,15 @@ class FeedPage extends StatelessWidget {
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.redAccent,
             // Status bar brightness (optional)
-            statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+            statusBarIconBrightness: Brightness.dark,
+            // For Android (dark icons)
             statusBarBrightness: Brightness.light, // For iOS (dark icons)
           ),
           title: const Text("Feed"),
           titleSpacing: 0,
           backgroundColor: Colors.white,
           elevation: 0,
-          leading: InkWell(
-            onTap: () => Get.back(),
-            child: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
-            ),
-          ),
+          leading: null,
           bottom: const TabBar(
               labelColor: Colors.green,
               indicatorColor: Colors.green,
@@ -43,37 +39,50 @@ class FeedPage extends StatelessWidget {
               tabs: [
                 Tab(
                   text: "My Request",
-
                 ),
                 Tab(
                   text: "Other Request",
                 ),
               ]),
-
         ),
-
-        body:   TabBarView(
+        body: TabBarView(
           children: [
             const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.search,size: 120,color: Colors.black26,),
-                Text("No Notification Found!",style: TextStyle(fontSize: 24,color: Colors.black26),),
+                Icon(
+                  Icons.search,
+                  size: 120,
+                  color: Colors.black26,
+                ),
+                Text(
+                  "No Notification Found!",
+                  style: TextStyle(fontSize: 24, color: Colors.black26),
+                ),
               ],
             ),
             Container(
-              child: hasData? ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) => const FeedBody(),
-              ):Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(Icons.search,size: 120,color: Colors.black26,),
-                  Text("No Notification Found!",style: TextStyle(fontSize: 24,color: Colors.black26),),
-                ],
-              ),
+              child: hasData
+                  ? ListView.builder(
+                      itemCount: 5,
+                      itemBuilder: (context, index) => const FeedBody(),
+                    )
+                  : const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.search,
+                          size: 120,
+                          color: Colors.black26,
+                        ),
+                        Text(
+                          "No Notification Found!",
+                          style: TextStyle(fontSize: 24, color: Colors.black26),
+                        ),
+                      ],
+                    ),
             ),
           ],
         ),
@@ -81,12 +90,3 @@ class FeedPage extends StatelessWidget {
     );
   }
 }
-
-//             child: const Column(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 crossAxisAlignment: CrossAxisAlignment.center,
-//                 children: [
-//                   Icon(Icons.search,size: 120,color: Colors.black26,),
-//                   Text("No Notification Found!",style: TextStyle(fontSize: 24,color: Colors.black26),),
-//                 ],
-//               ),

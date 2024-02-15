@@ -65,7 +65,7 @@ final pages = [
   customPage(name: editProfile, page:  EditProfile()),
   customPage(name: notificationPage, page: const NotificationPage()),
   customPage(name: medicalHistory, page: const MedicalHistory()),
-  customPage(name: newReport, page: const NewReport()),
+  customPage(name: newReport, page: NewReport()),
   customPage(name: donationAccepted, page: const DonationAccepted()),
   customPage(name: donationBlocked, page: const DonationBlocked()),
   customPage(name: history, page: const BloodHistory()),

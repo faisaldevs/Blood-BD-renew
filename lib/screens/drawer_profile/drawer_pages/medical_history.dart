@@ -53,7 +53,7 @@ class MedicalHistory extends StatelessWidget {
                     children: [
                       Icon(Icons.add,color: Colors.white,),
                       SizedBox(width: 4,),
-                      Text("Add New Report",style: TextStyle(color: Colors.white,fontSize: 18),),
+                      Text("Add New Report",style: TextStyle(color: Colors.white,fontSize: 16),),
                     ],
                   ),
                 )),

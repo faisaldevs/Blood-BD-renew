@@ -4,7 +4,7 @@ class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
     required this.controller,
-    required this.hintText,
+    this.hintText,
     this.helperText,
     this.obscure = false,
     required this.textInputType,
@@ -16,13 +16,14 @@ class CustomTextFormField extends StatelessWidget {
     this.padding,
     required this.validate,
     required this.labelText,
-    this.suffixFunction, this.onTap,
+    this.suffixFunction,
+    this.onTap,
   });
 
   // final TextEditingController controller;
   final TextEditingController? controller;
   final EdgeInsets? padding;
-  final String hintText;
+  final String? hintText;
   final String labelText;
   final String? helperText;
   final bool obscure;
@@ -52,11 +53,11 @@ class CustomTextFormField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         suffixIcon: GestureDetector(
-                onTap: suffixFunction,
-                child: Icon(
-                  suffixIcon,
-                  size: 28,
-                )),
+            onTap: suffixFunction,
+            child: Icon(
+              suffixIcon,
+              size: 28,
+            )),
         contentPadding: padding,
         focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.zero,
@@ -65,8 +66,10 @@ class CustomTextFormField extends StatelessWidget {
         border: const OutlineInputBorder(
             borderRadius: BorderRadius.zero,
             borderSide: BorderSide(color: Colors.blue)),
+        hintText: hintText,
         labelText: labelText,
         labelStyle: const TextStyle(color: Colors.red),
+        helperStyle: const TextStyle(color: Colors.black45),
       ),
     );
   }
