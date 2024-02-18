@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'buttons/feed_dropdoen.dart';
-import 'feed/feed_body.dart';
+import 'feed/feed_my_request.dart';
+import 'feed/feed_other_request.dart';
 
 class FeedPage extends StatelessWidget {
   FeedPage({super.key});
@@ -15,7 +16,6 @@ class FeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var contactParsonPhone = getStorage.read("contactParsonPhone");
-
     bool hasData = contactParsonPhone != null;
 
     return DefaultTabController(
@@ -75,51 +75,59 @@ class FeedPage extends StatelessWidget {
                     SizedBox(
                       height: Get.height * .01,
                     ),
-                    Expanded(
+                     Expanded(
                       child: TabBarView(
                         children: [
-                          const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.search,
-                                size: 120,
-                                color: Colors.black26,
-                              ),
-                              Text(
-                                "No Notification Found!",
-                                style: TextStyle(
-                                    fontSize: 24, color: Colors.black26),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            child: hasData
-                                ? ListView.builder(
-                                    itemCount: 5,
-                                    itemBuilder: (context, index) =>
-                                        const FeedBody(),
-                                  )
-                                : const Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.search,
-                                        size: 120,
-                                        color: Colors.black26,
-                                      ),
-                                      Text(
-                                        "No Notification Found!",
-                                        style: TextStyle(
-                                            fontSize: 24,
-                                            color: Colors.black26),
-                                      ),
-                                    ],
-                                  ),
-                          ),
+                          MyRequestFeed(),
+                          // dataList == []? const Column(
+                          //   mainAxisAlignment: MainAxisAlignment.center,
+                          //   crossAxisAlignment: CrossAxisAlignment.center,
+                          //   children: [
+                          //     Icon(
+                          //       Icons.search,
+                          //       size: 120,
+                          //       color: Colors.black26,
+                          //     ),
+                          //     Text(
+                          //       "No Notification Found!",
+                          //       style: TextStyle(
+                          //           fontSize: 24, color: Colors.black26),
+                          //     ),
+                          //   ],
+                          // ) :ListView.builder(
+                          //
+                          //   itemBuilder: (context, index) {
+                          //   return Container(child: Text(dataList[index]["Patient's Name"]),);
+                          // },
+                          // itemCount: dataList.length,
+                          // ),
+                          // Container(
+                          //   child: hasData
+                          //       ? ListView.builder(
+                          //           itemCount: 5,
+                          //           itemBuilder: (context, index) =>
+                          //               const FeedBody(),
+                          //         )
+                          //       : const Column(
+                          //           mainAxisAlignment: MainAxisAlignment.center,
+                          //           crossAxisAlignment:
+                          //               CrossAxisAlignment.center,
+                          //           children: [
+                          //             Icon(
+                          //               Icons.search,
+                          //               size: 120,
+                          //               color: Colors.black26,
+                          //             ),
+                          //             Text(
+                          //               "No Notification Found!",
+                          //               style: TextStyle(
+                          //                   fontSize: 24,
+                          //                   color: Colors.black26),
+                          //             ),
+                          //           ],
+                          //         ),
+                          // ),
+                          OtherRequestFeed(),
                         ],
                       ),
                     ),

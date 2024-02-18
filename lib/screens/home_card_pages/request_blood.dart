@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/request_blood_controller.dart';
 import '../../data_list/data_list.dart';
 import '../global_widget/custom_birthDate.dart';
 import '../global_widget/custom_button.dart';
@@ -17,12 +18,7 @@ class RequestBlood extends StatefulWidget {
 }
 
 class _RequestBloodState extends State<RequestBlood> {
-  final _searchDonorKey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _dateController = TextEditingController();
-  final TextEditingController _timeController = TextEditingController();
-  final TextEditingController _addressController = TextEditingController();
-  final TextEditingController _numberController = TextEditingController();
+  RequestBloodController  rqBloodController = Get.put(RequestBloodController());
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +31,7 @@ class _RequestBloodState extends State<RequestBlood> {
         ),
         elevation: 0,
         backgroundColor: Colors.white60,
-        title: const Text("Search Donor"),
+        title: const Text("Request Blood"),
         titleSpacing: 0,
         leading: InkWell(
           onTap: () => Get.back(),
@@ -48,7 +44,7 @@ class _RequestBloodState extends State<RequestBlood> {
       body: Container(
         margin: const EdgeInsets.all(16),
         child: Form(
-          key: _searchDonorKey,
+          key: rqBloodController.requestBloodKey,
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -58,11 +54,11 @@ class _RequestBloodState extends State<RequestBlood> {
                 //-------Name Field --------------
 
                 CustomTextFormField(
-                  controller: _nameController,
+                  controller: rqBloodController.patientNameController,
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (name) {
-                    if (name!.isEmpty) {
+                    if (name.toString().isEmpty) {
                       return "Patient's name required";
                     }
                     return null;
@@ -79,9 +75,11 @@ class _RequestBloodState extends State<RequestBlood> {
                     Expanded(
                         flex: 1,
                         child: CustomDropdown(
-                          dropDownList: DataList.bloodAmount,
+                          dropDownList: DataList.bloodListData,
                           label: 'Blood Group',
-                          onChanged: (value) {},
+                          onChanged: (value) {
+                            rqBloodController.bloodType = value.toString();
+                          },
                         )),
                     const SizedBox(
                       width: 10,
@@ -91,7 +89,9 @@ class _RequestBloodState extends State<RequestBlood> {
                         child: CustomDropdown(
                           dropDownList: DataList.bloodAmount,
                           label: 'Amount',
-                          onChanged: (value) {},
+                          onChanged: (value) {
+                            rqBloodController.bloodAmount = value.toString();
+                          },
                         )),
                   ],
                 ),
@@ -101,14 +101,14 @@ class _RequestBloodState extends State<RequestBlood> {
                 Row(
                   children: [
                     CustomBirthdate(
-                      controller: _dateController,
+                      controller: rqBloodController.dateController,
                       label: 'Date',
                     ),
                     const SizedBox(
                       width: 10,
                     ),
                     CustomTimePicker(
-                      controller: _timeController,
+                      controller: rqBloodController.timeController,
                       label: 'time',
                     ),
                   ],
@@ -120,7 +120,9 @@ class _RequestBloodState extends State<RequestBlood> {
                 CustomDropdown(
                   dropDownList: DataList.bloodAmount,
                   label: "Health Issue",
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    rqBloodController.healthIssue = value.toString();
+                  },
                 ),
 
                 const SizedBox(height: 10),
@@ -177,7 +179,7 @@ class _RequestBloodState extends State<RequestBlood> {
                 //  ------- Address Field --------------
 
                 CustomTextFormField(
-                  controller: _addressController,
+                  controller: rqBloodController.addressController,
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (address) {
@@ -195,7 +197,7 @@ class _RequestBloodState extends State<RequestBlood> {
                 const SizedBox(height: 10),
 
                 CustomTextFormField(
-                  controller: _addressController,
+                  controller: rqBloodController.contactParsonNameController,
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (address) {
@@ -212,7 +214,7 @@ class _RequestBloodState extends State<RequestBlood> {
 
                 //  ------- Mobile Field --------------
                 CustomTextFormField(
-                  controller: _numberController,
+                  controller: rqBloodController.numberController,
                   hintText: "",
                   textInputType: TextInputType.number,
                   validate: (number) {
@@ -233,10 +235,16 @@ class _RequestBloodState extends State<RequestBlood> {
                 ),
 
                 SizedBox(
-                  width: MediaQuery.of(context).size.width,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
                   child: CustomButton(
                       onPressed: () {
-                        // _searchDonor();
+                        rqBloodController.onSaveRqBlood();
+                        // if(rqBloodController.requestBloodKey.currentState!.validate()){
+                        //   print("validate??");
+                        // }
                       },
                       child: const Text(
                         "Sign Up",

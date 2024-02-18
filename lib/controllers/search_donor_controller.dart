@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 
 class SearchDonorController extends GetxController {
   final sdStorage = GetStorage();
-  final searchDonorKey = GlobalKey<FormState>();
+   GlobalKey<FormState> searchDonorKey = GlobalKey<FormState>();
   final TextEditingController patientNameController = TextEditingController();
   late final String bloodType;
   late final String bloodAmount;
@@ -12,8 +12,7 @@ class SearchDonorController extends GetxController {
   final TextEditingController dateController = TextEditingController();
   final TextEditingController timeController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
-  final TextEditingController contactParsonNameController =
-      TextEditingController();
+  final TextEditingController contactParsonNameController = TextEditingController();
   final TextEditingController numberController = TextEditingController();
 
   searchDonor() {
