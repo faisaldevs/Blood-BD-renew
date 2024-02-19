@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
+import '../../../controllers/feed_controller.dart';
 import '../../../controllers/request_blood_controller.dart';
 
 class MyRequestFeed extends StatefulWidget {
@@ -14,6 +15,10 @@ class MyRequestFeed extends StatefulWidget {
 }
 
 class _MyRequestFeedState extends State<MyRequestFeed> {
+
+  FeedMyRequestController myFeedController =
+  Get.put(FeedMyRequestController());
+
 
   RequestBloodController requestBloodController =
       Get.put(RequestBloodController());
@@ -43,7 +48,7 @@ class _MyRequestFeedState extends State<MyRequestFeed> {
   Widget build(BuildContext context) {
     print("userList" + userList.toString());
 
-    bool isVisible = true;
+    // bool isVisible = true;
 
     //---------------------------------------
     // var patientName = sdStorage.read("patientName");
@@ -72,7 +77,7 @@ class _MyRequestFeedState extends State<MyRequestFeed> {
       itemBuilder: (context, index) {
         Map<String, dynamic> userData = userList[index];
 
-        print("2nd Data :" + userData.toString());
+        print("2nd Data :$userData");
 
         return  Container(
                 padding: const EdgeInsets.all(8),
@@ -174,17 +179,16 @@ class _MyRequestFeedState extends State<MyRequestFeed> {
                               InkWell(
                                 borderRadius: BorderRadius.circular(10),
                                 onTap: () {
-                                  setState(() {
-                                    isVisible = !isVisible;
-                                  });
+                                  myFeedController.visibility();
                                 },
+
                                 child: Container(
                                   padding: const EdgeInsets.all(4),
                                   decoration: const BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10)),
                                   ),
-                                  child: isVisible
+                                  child: myFeedController.isVisible.value
                                       ? const Row(
                                           children: [
                                             Icon(
@@ -210,8 +214,8 @@ class _MyRequestFeedState extends State<MyRequestFeed> {
                         ],
                       ),
                     ),
-                    Visibility(
-                      visible: isVisible,
+                    Obx(() => Visibility(
+                      visible: myFeedController.isVisible.value,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -247,7 +251,7 @@ class _MyRequestFeedState extends State<MyRequestFeed> {
                           ),
                         ],
                       ),
-                    ),
+                    )),
                     const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,

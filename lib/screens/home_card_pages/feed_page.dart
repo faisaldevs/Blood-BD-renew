@@ -1,10 +1,10 @@
 import 'package:blood_bd/data_list/data_list.dart';
+import 'package:blood_bd/screens/global_widget/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'buttons/feed_dropdoen.dart';
 import 'feed/feed_my_request.dart';
 import 'feed/feed_other_request.dart';
 
@@ -68,7 +68,7 @@ class FeedPage extends StatelessWidget {
                     SizedBox(
                       height: Get.height * .02,
                     ),
-                    CustomDropdownFeed(
+                    CustomDropdown(
                         dropDownList: DataList.bloodListData,
                         label: "Select Blood Type",
                         onChanged: (value) {}),

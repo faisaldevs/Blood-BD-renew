@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+
+import 'notification/blood_request_notification.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    String showTime() {
+      DateTime now;
+
+      now = DateTime.now();
+
+      String formattedDate = DateFormat('dd MMM, kk:mm a').format(now);
+
+      return formattedDate;
+    }
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.redAccent,
@@ -42,24 +56,10 @@ class NotificationPage extends StatelessWidget {
                 ),
               ]),
         ),
-        body: const TabBarView(
+        body:  TabBarView(
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.search,
-                  size: 120,
-                  color: Colors.black26,
-                ),
-                Text(
-                  "No Notification Found!",
-                  style: TextStyle(fontSize: 24, color: Colors.black26),
-                ),
-              ],
-            ),
-            Column(
+            BloodRqNotification(),
+            const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
