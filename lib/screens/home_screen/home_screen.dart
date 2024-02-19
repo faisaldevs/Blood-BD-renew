@@ -46,45 +46,47 @@ class HomeScreen extends StatelessWidget {
               )),
         ],
       ),
-      body: Container(
-        color: Colors.white60,
-        height: Get.height,
-        width: Get.width,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Column(
-                children: [
-                  Builder(
-                    builder: (context) => InkWell(
-                      onTap: () {
-                        Scaffold.of(context).openDrawer();
-                      },
-                      child: const SizedBox(
-                        width: 70,
-                        height: 70,
-                        child: CircleAvatar(
-                          backgroundImage:
-                              AssetImage("assets/images/profile.png"),
+      body: SafeArea(
+        child: Container(
+          color: Colors.white60,
+          height: Get.height,
+          width: Get.width,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Column(
+                  children: [
+                    Builder(
+                      builder: (context) => InkWell(
+                        onTap: () {
+                          Scaffold.of(context).openDrawer();
+                        },
+                        child: const SizedBox(
+                          width: 70,
+                          height: 70,
+                          child: CircleAvatar(
+                            backgroundImage:
+                                AssetImage("assets/images/profile.png"),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Text(
-                    name,
-                    style: const TextStyle(
-                        fontSize: 21,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.red),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 40),
-              CardSections(),
-              SizedBox(height: Get.height * .1),
-              const BannerWidget(),
-            ],
+                    Text(
+                      name,
+                      style: const TextStyle(
+                          fontSize: 21,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.red),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 40),
+                CardSections(),
+                SizedBox(height: Get.height * .1),
+                const BannerWidget(),
+              ],
+            ),
           ),
         ),
       ),
