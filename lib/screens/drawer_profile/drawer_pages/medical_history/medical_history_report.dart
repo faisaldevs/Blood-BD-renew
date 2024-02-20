@@ -1,13 +1,16 @@
 import 'package:blood_bd/data_list/data_list.dart';
+import 'package:blood_bd/global/app_routes.dart';
+import 'package:blood_bd/screens/global_widget/custom_birthDate.dart';
 import 'package:blood_bd/screens/global_widget/custom_button.dart';
 import 'package:blood_bd/screens/global_widget/custom_dropdown.dart';
 import 'package:blood_bd/screens/global_widget/custom_textFormField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-import '../../../controllers/medical_hisory_controller.dart';
-import '../../global_widget/custom_file_upload.dart';
+import '../../../../controllers/medical_hisory_controller.dart';
+import '../../../global_widget/custom_file_upload.dart';
 
 class NewReport extends StatelessWidget {
   NewReport({super.key});
@@ -71,10 +74,21 @@ class NewReport extends StatelessWidget {
                         labelText: "Hemoglobin Level*",
                       ),
                       const SizedBox(height: 8),
-                      CustomDropdown(
-                        dropDownList: DataList.bloodListData,
-                        label: "Blood Group",
-                        onChanged: (value) {},
+                      Row(
+                        children: [
+                          Expanded(
+
+                            child: CustomDropdown(
+                              dropDownList: DataList.bloodListData,
+                              label: "Blood Group",
+                              onChanged: (value) {
+                                medicalHistoryController.bloodType = value;
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 10,),
+                          CustomBirthdate(controller: medicalHistoryController.dayOfTest, label: "Day of Test"),
+                        ],
                       ),
                       const SizedBox(height: 8),
                       const Row(
@@ -94,7 +108,9 @@ class NewReport extends StatelessWidget {
                             child: CustomDropdown(
                               dropDownList: DataList.bloodListData,
                               label: "Hepatitis",
-                              onChanged: (value) {},
+                              onChanged: (value) {
+                                medicalHistoryController.hepatitis = value;
+                              },
                             ),
                           ),
                           const SizedBox(
@@ -105,7 +121,9 @@ class NewReport extends StatelessWidget {
                             child: CustomDropdown(
                               dropDownList: DataList.bloodListData,
                               label: "Malaria",
-                              onChanged: (value) {},
+                              onChanged: (value) {
+                                medicalHistoryController.malaria = value;
+                              },
                             ),
                           ),
                         ],
@@ -131,7 +149,9 @@ class NewReport extends StatelessWidget {
                       CustomDropdown(
                         dropDownList: DataList.bloodListData,
                         label: "Institute Name",
-                        onChanged: (value) {},
+                        onChanged: (value) {
+                          medicalHistoryController.institutionName = value;
+                        },
                       ),
                       const SizedBox(height: 8),
                       CustomFileUpload(
@@ -143,23 +163,26 @@ class NewReport extends StatelessWidget {
                       const SizedBox(height: 8),
                     ],
                   ),
-                  const SizedBox(height: 30),
-                  SizedBox(
-                    // height: 70,
-                    width: Get.width,
-                    child: CustomButton(
-                      onPressed: () {
-                        medicalHistoryController.onSaveReport();
-                      },
-                      child: const Text(
-                        "Save Report",
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
-                    ),
-                  ),
+                  // const SizedBox(height: 30),
+
                 ],
               ),
             ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.all(16),
+        // height: 70,
+        width: Get.width,
+        child: CustomButton(
+          onPressed: () {
+            medicalHistoryController.onSaveReport();
+            Get.toNamed(medicalHistory);
+          },
+          child: const Text(
+            "Save Report",
+            style: TextStyle(color: Colors.white, fontSize: 16),
           ),
         ),
       ),

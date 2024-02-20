@@ -25,7 +25,7 @@ class DrawerProfile extends StatelessWidget {
             title: 'Medical History',
             icon: Icons.medical_information_outlined,
             onTap: () {
-              Get.to(const MedicalHistory());
+              Get.to( MedicalHistory());
             },
           ),
           CustomDrawerLinks(

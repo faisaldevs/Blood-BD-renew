@@ -3,7 +3,7 @@ import 'package:blood_bd/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../screens/drawer_profile/components/medical_history_report.dart';
+import '../screens/drawer_profile/drawer_pages/medical_history/medical_history_report.dart';
 import '../screens/drawer_profile/drawer_pages/donation_accepted.dart';
 import '../screens/drawer_profile/drawer_pages/donation_blocked.dart';
 import '../screens/drawer_profile/drawer_pages/blood_history.dart';
@@ -50,7 +50,7 @@ final pages = [
 
   customPage(name: editProfile, page: EditProfile()),
   customPage(name: notificationPage, page: const NotificationPage()),
-  customPage(name: medicalHistory, page: const MedicalHistory()),
+  customPage(name: medicalHistory, page:  MedicalHistory()),
   customPage(name: newReport, page: NewReport()),
   customPage(name: donationAccepted, page: const DonationAccepted()),
   customPage(name: donationBlocked, page: const DonationBlocked()),
