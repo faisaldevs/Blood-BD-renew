@@ -258,7 +258,7 @@ class HomeScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Container(child: ElevatedButton(onPressed: (){}, child: Text("Urgent")),margin: EdgeInsets.only(top: 10),),
+                                Container(margin: const EdgeInsets.only(top: 10),child: ElevatedButton(onPressed: (){}, child: Text("Urgent")),),
                               ],
                             )
                           ],),
