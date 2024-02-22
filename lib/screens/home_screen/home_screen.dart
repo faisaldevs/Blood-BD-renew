@@ -215,6 +215,7 @@ class HomeScreen extends StatelessWidget {
                       Expanded(
                         child: Container(
                           // width: Get.width * .3,
+                          padding: EdgeInsets.only(left: 10,top: 10,right: 10),
                           height: Get.height,
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -222,18 +223,42 @@ class HomeScreen extends StatelessWidget {
                                 bottomRight: Radius.circular(20)),
                             color: Colors.greenAccent,
                           ),
-                          child: Column(children: [
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
                             const Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),),
                             const Row(
                               children: [
                                 Icon(Icons.add_box_sharp),
-                                Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 5),
+                                  child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                ),
+                              ],
+                            ),
+                            const Row(
+                              children: [
+                                Icon(Icons.location_on),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 5),
+                                  child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                ),
+                              ],
+                            ),
+                            const Row(
+                              children: [
+                                Icon(Icons.calendar_month_sharp),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 5),
+                                  child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                ),
                               ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                ElevatedButton(onPressed: (){}, child: Text("Urgent")),
+                                Container(child: ElevatedButton(onPressed: (){}, child: Text("Urgent")),margin: EdgeInsets.only(top: 10),),
                               ],
                             )
                           ],),
