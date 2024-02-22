@@ -48,6 +48,7 @@ dependencies:
   dropdown_textfield: ^1.0.8
   carousel_slider: ^4.2.1
   badges:
+  curved_labeled_navigation_bar: ^2.0.2
 
   #-------Storage ----------
   shared_preferences:
@@ -96,6 +97,7 @@ flutter:
     - assets/images/home_icons/search donor.png
     #      -----------Home-Icon Image------
     - assets/images/profile.png
+    - assets/images/blood_drop.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
