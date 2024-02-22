@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var name = getStorage.read("name");
+    // var name = getStorage.read("name");
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
+                SizedBox(
                   height: Get.height * .4,
                   child: Stack(
                     children: [
@@ -162,7 +162,7 @@ class HomeScreen extends StatelessWidget {
 
                 SizedBox(height: Get.height * .05),
                 // CardSections(),
-                HomeScreenIcons(),
+                const HomeScreenIcons(),
                 SizedBox(height: Get.height * .06),
                 Container(
                   // padding: EdgeInsets.all(5),
@@ -215,7 +215,7 @@ class HomeScreen extends StatelessWidget {
                       Expanded(
                         child: Container(
                           // width: Get.width * .3,
-                          padding: EdgeInsets.only(left: 10,top: 10,right: 10),
+                          padding: const EdgeInsets.only(left: 10,top: 10,right: 10),
                           height: Get.height,
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -258,7 +258,7 @@ class HomeScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Container(margin: const EdgeInsets.only(top: 10),child: ElevatedButton(onPressed: (){}, child: Text("Urgent")),),
+                                Container(margin: const EdgeInsets.only(top: 10),child: ElevatedButton(onPressed: (){}, child: const Text("Urgent")),),
                               ],
                             )
                           ],),
