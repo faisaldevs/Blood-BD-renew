@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
           getPages: pages,
-          initialRoute: splashScreen,
+          initialRoute: home,
         );
       },
     );

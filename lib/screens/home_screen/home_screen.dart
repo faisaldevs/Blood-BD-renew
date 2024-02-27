@@ -12,18 +12,86 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../global/app_routes.dart';
 import '../drawer_profile/drawer_profile.dart';
+import '../home_card_pages/blood_heroes_page.dart';
+import '../home_card_pages/feed_page.dart';
+import '../home_card_pages/search_donor_page.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final getStorage = GetStorage();
-  final HomeController homeController = Get.put(HomeController());
+
+
+  var selectedItem = 0;
+  var pages = [
+     HomePage(),
+    const BloodHeroes(),
+    FeedPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    // var name = getStorage.read("name");
     return Scaffold(
       backgroundColor: Colors.white,
+
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.white,
+        color: Colors.red,
+        animationDuration: const Duration(milliseconds: 300),
+        animationCurve: Curves.fastLinearToSlowEaseIn,
+        items: const [
+          CurvedNavigationBarItem(
+              child: Icon(
+                Icons.home_outlined,
+                color: Colors.white,
+              ),
+              label: 'Home',
+              labelStyle: TextStyle(color: Colors.white)),
+          CurvedNavigationBarItem(
+              child: Icon(
+                Icons.bloodtype_outlined,
+                color: Colors.white,
+              ),
+              label: 'Blood Request',
+              labelStyle: TextStyle(color: Colors.white)),
+          CurvedNavigationBarItem(
+              child: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+              label: 'Profile',
+              labelStyle: TextStyle(color: Colors.white)),
+        ],
+        index: selectedItem,
+        onTap: (index) {
+          setState(() {
+            selectedItem = index;
+          });
+
+          print("Selected Item : $selectedItem");
+          print("Page Selected: ${pages[selectedItem]}");
+        },
+        letIndexChange:  (index) => true,
+      ),
+      body: pages[selectedItem],
+
+    );
+  }
+}
+
+
+class HomePage extends StatelessWidget {
+   HomePage({super.key});
+
+  final HomeController homeController = Get.put(HomeController());
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       body: SafeArea(
         child: SizedBox(
           // color: Colors.white60,
@@ -40,7 +108,7 @@ class HomeScreen extends StatelessWidget {
                     statusBarIconBrightness: Brightness.dark,
                     // For Android (dark icons)
                     statusBarBrightness:
-                        Brightness.light, // For iOS (dark icons)
+                    Brightness.light, // For iOS (dark icons)
                   ),
                   elevation: 0,
                   backgroundColor: Colors.white60,
@@ -75,7 +143,7 @@ class HomeScreen extends StatelessWidget {
                           height: 30,
                           child: const CircleAvatar(
                             backgroundImage:
-                                AssetImage("assets/images/profile.png"),
+                            AssetImage("assets/images/profile.png"),
                           ),
                         ),
                       ),
@@ -124,7 +192,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ],
                             borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
+                            const BorderRadius.all(Radius.circular(20)),
                           ),
                           child: Form(
                             key: homeController.findDonorKey,
@@ -227,41 +295,41 @@ class HomeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                            const Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),),
-                            const Row(
-                              children: [
-                                Icon(Icons.add_box_sharp),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
-                                ),
-                              ],
-                            ),
-                            const Row(
-                              children: [
-                                Icon(Icons.location_on),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
-                                ),
-                              ],
-                            ),
-                            const Row(
-                              children: [
-                                Icon(Icons.calendar_month_sharp),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Container(margin: const EdgeInsets.only(top: 10),child: ElevatedButton(onPressed: (){}, child: const Text("Urgent")),),
-                              ],
-                            )
-                          ],),
+                              const Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),),
+                              const Row(
+                                children: [
+                                  Icon(Icons.add_box_sharp),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                  ),
+                                ],
+                              ),
+                              const Row(
+                                children: [
+                                  Icon(Icons.location_on),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                  ),
+                                ],
+                              ),
+                              const Row(
+                                children: [
+                                  Icon(Icons.calendar_month_sharp),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(margin: const EdgeInsets.only(top: 10),child: ElevatedButton(onPressed: (){}, child: const Text("Urgent")),),
+                                ],
+                              )
+                            ],),
                         ),
                       ),
                     ],
@@ -275,36 +343,6 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       drawer: const DrawerProfile(),
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.white,
-        color: Colors.red,
-        items: const [
-          CurvedNavigationBarItem(
-              child: Icon(
-                Icons.home_outlined,
-                color: Colors.white,
-              ),
-              label: 'Home',
-              labelStyle: TextStyle(color: Colors.white)),
-          CurvedNavigationBarItem(
-              child: Icon(
-                Icons.bloodtype_outlined,
-                color: Colors.white,
-              ),
-              label: 'Blood Request',
-              labelStyle: TextStyle(color: Colors.white)),
-          CurvedNavigationBarItem(
-              child: Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
-              label: 'Profile',
-              labelStyle: TextStyle(color: Colors.white)),
-        ],
-        onTap: (index) {
-          // Handle button tap
-        },
-      ),
     );
   }
 }
