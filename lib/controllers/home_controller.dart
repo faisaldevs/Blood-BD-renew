@@ -22,4 +22,14 @@ class HomeController extends GetxController {
     }
 
   }
+
+
+  //------------------Nav bar----------------
+
+   RxInt selectedItem = 0.obs;
+
+  navbarFunction(index){
+    selectedItem.value = index;
+  }
+
 }

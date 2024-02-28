@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'package:blood_bd/screens/depandency_injection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'global/app_routes.dart';
-
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -20,6 +20,12 @@ class PostHttpOverrides extends HttpOverrides {
 
 void main() async {
   HttpOverrides.global = PostHttpOverrides();
+
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.redAccent,
+    statusBarColor: Colors.redAccent,
+  ));
+
   await GetStorage.init();
   runApp(const MyApp());
   DependencyInjection.init();

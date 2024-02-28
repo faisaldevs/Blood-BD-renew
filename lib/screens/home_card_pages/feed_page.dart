@@ -28,6 +28,7 @@ class FeedPage extends StatelessWidget {
             statusBarBrightness: Brightness.light,
           ),
           title: const Text("Feed"),
+          centerTitle: true,
           titleSpacing: 0,
           backgroundColor: Colors.white,
           elevation: 0,

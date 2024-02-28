@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../global/app_routes.dart';
+
 class HomeScreenIcons extends StatelessWidget {
   const HomeScreenIcons({super.key});
 
@@ -46,7 +48,9 @@ class HomeScreenIcons extends StatelessWidget {
                     SizedBox(
                       width: 110,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed(requestBlood);
+                        },
                         icon: const Column(
                           children: [
                             Icon(
@@ -80,7 +84,9 @@ class HomeScreenIcons extends StatelessWidget {
                     SizedBox(
                       width: 110,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed(searchDonor);
+                        },
                         icon: const Column(
                           children: [
                             Icon(
@@ -111,7 +117,9 @@ class HomeScreenIcons extends StatelessWidget {
                     SizedBox(
                       width: 110,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed(bloodHeroes);
+                        },
                         icon: const Column(
                           children: [
                             Icon(
@@ -151,7 +159,9 @@ class HomeScreenIcons extends StatelessWidget {
                     SizedBox(
                       width: 110,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+
+                        },
                         icon: const Column(
                           children: [
                             Icon(
@@ -185,7 +195,9 @@ class HomeScreenIcons extends StatelessWidget {
                     SizedBox(
                       width: 110,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed(history);
+                        },
                         icon: const Column(
                           children: [
                             Icon(

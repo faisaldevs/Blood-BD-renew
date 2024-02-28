@@ -7,38 +7,32 @@ import 'package:blood_bd/screens/home_screen/widgets/textfield_widget.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../global/app_routes.dart';
 import '../drawer_profile/drawer_profile.dart';
-import '../home_card_pages/blood_heroes_page.dart';
 import '../home_card_pages/feed_page.dart';
-import '../home_card_pages/search_donor_page.dart';
+import '../nav_pages/health.dart';
+import '../nav_pages/receiver_request.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   final getStorage = GetStorage();
+  final HomeController homeController = Get.put(HomeController());
 
-
-  var selectedItem = 0;
-  var pages = [
-     HomePage(),
-    const BloodHeroes(),
-    FeedPage(),
-  ];
+  // var selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {
+    var pages = [
+      HomePage(),
+      FeedPage(),
+      const HealthPage(),
+    ];
+
     return Scaffold(
       backgroundColor: Colors.white,
-
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
         color: Colors.red,
@@ -61,34 +55,33 @@ class _HomeScreenState extends State<HomeScreen> {
               labelStyle: TextStyle(color: Colors.white)),
           CurvedNavigationBarItem(
               child: Icon(
-                Icons.person,
+                Icons.health_and_safety,
                 color: Colors.white,
               ),
-              label: 'Profile',
+              label: 'Health',
               labelStyle: TextStyle(color: Colors.white)),
         ],
-        index: selectedItem,
+        index: homeController.selectedItem.value,
         onTap: (index) {
-          setState(() {
-            selectedItem = index;
-          });
+          homeController.navbarFunction(index);
 
-          print("Selected Item : $selectedItem");
-          print("Page Selected: ${pages[selectedItem]}");
+          print("Selected Item : $homeController.selectedItem.value");
+          print("Page Selected: ${pages[homeController.selectedItem.value]}");
         },
-        letIndexChange:  (index) => true,
+        letIndexChange: (index) => true,
       ),
-      body: pages[selectedItem],
-
+      body: Obx(
+        () => pages[homeController.selectedItem.value],
+      ),
     );
   }
 }
 
-
 class HomePage extends StatelessWidget {
-   HomePage({super.key});
+  HomePage({super.key});
 
   final HomeController homeController = Get.put(HomeController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,31 +95,24 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 AppBar(
-                  systemOverlayStyle: const SystemUiOverlayStyle(
-                    statusBarColor: Colors.redAccent,
-                    // Status bar brightness (optional)
-                    statusBarIconBrightness: Brightness.dark,
-                    // For Android (dark icons)
-                    statusBarBrightness:
-                    Brightness.light, // For iOS (dark icons)
-                  ),
                   elevation: 0,
-                  backgroundColor: Colors.white60,
+                  backgroundColor: Colors.redAccent,
+                  foregroundColor: Colors.white,
                   actions: [
                     IconButton(
                         onPressed: () {
                           Get.toNamed(notificationPage);
                         },
-                        icon: Badge(
-                          backgroundColor: Colors.red[600],
-                          label: const Text(
+                        icon: const Badge(
+                          backgroundColor: Colors.white10,
+                          label: Text(
                             "1",
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 16, color: Colors.black),
                           ),
-                          child: const Icon(
+                          child: Icon(
                             Icons.notifications_active_outlined,
-                            color: Colors.red,
-                            size: 28,
+                            color: Colors.white,
+                            size: 24,
                           ),
                         )),
                     const SizedBox(
@@ -143,10 +129,13 @@ class HomePage extends StatelessWidget {
                           height: 30,
                           child: const CircleAvatar(
                             backgroundImage:
-                            AssetImage("assets/images/profile.png"),
+                                AssetImage("assets/images/profile.png"),
                           ),
                         ),
                       ),
+                    ),
+                    const SizedBox(
+                      width: 10,
                     ),
                   ],
                 ),
@@ -192,7 +181,7 @@ class HomePage extends StatelessWidget {
                               ),
                             ],
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(20)),
+                                const BorderRadius.all(Radius.circular(20)),
                           ),
                           child: Form(
                             key: homeController.findDonorKey,
@@ -283,7 +272,8 @@ class HomePage extends StatelessWidget {
                       Expanded(
                         child: Container(
                           // width: Get.width * .3,
-                          padding: const EdgeInsets.only(left: 10,top: 10,right: 10),
+                          padding: const EdgeInsets.only(
+                              left: 10, top: 10, right: 10),
                           height: Get.height,
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -295,13 +285,25 @@ class HomePage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),),
+                              const Text(
+                                "Name",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 24),
+                              ),
                               const Row(
                                 children: [
                                   Icon(Icons.add_box_sharp),
                                   Padding(
                                     padding: EdgeInsets.only(left: 5),
-                                    child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                    child: Text(
+                                      "Name",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 18),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -310,7 +312,13 @@ class HomePage extends StatelessWidget {
                                   Icon(Icons.location_on),
                                   Padding(
                                     padding: EdgeInsets.only(left: 5),
-                                    child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                    child: Text(
+                                      "Name",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 18),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -319,17 +327,29 @@ class HomePage extends StatelessWidget {
                                   Icon(Icons.calendar_month_sharp),
                                   Padding(
                                     padding: EdgeInsets.only(left: 5),
-                                    child: Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                    child: Text(
+                                      "Name",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 18),
+                                    ),
                                   ),
                                 ],
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Container(margin: const EdgeInsets.only(top: 10),child: ElevatedButton(onPressed: (){}, child: const Text("Urgent")),),
+                                  Container(
+                                    margin: const EdgeInsets.only(top: 10),
+                                    child: ElevatedButton(
+                                        onPressed: () {},
+                                        child: const Text("Urgent")),
+                                  ),
                                 ],
                               )
-                            ],),
+                            ],
+                          ),
                         ),
                       ),
                     ],

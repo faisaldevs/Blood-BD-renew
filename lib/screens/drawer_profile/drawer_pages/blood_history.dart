@@ -18,7 +18,7 @@ class BloodHistory extends StatelessWidget {
 
             statusBarBrightness: Brightness.light, // For iOS (dark icons)
           ),
-          title: const Text("Notification"),
+          title: const Text("History"),
           titleSpacing: 0,
           backgroundColor: Colors.white,
           elevation: 0,
