@@ -1,4 +1,3 @@
-import 'package:blood_bd/global/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -6,6 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../global/app_routes.dart';
+import '../utils/app_colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -44,9 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Text(
         "BLOOD BD",
         style: GoogleFonts.roboto(
-            color: AppColor.bloodColor,
-            fontSize: 54,
-            fontWeight: FontWeight.bold),
+            color: Colors.redAccent, fontSize: 54, fontWeight: FontWeight.bold),
       )),
     );
   }

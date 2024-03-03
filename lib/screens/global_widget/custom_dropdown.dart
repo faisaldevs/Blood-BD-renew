@@ -1,48 +1,6 @@
-// import 'package:flutter/material.dart';
-//
-// import '../../data/gender_list_data.dart';
-//
-// class CustomDropdown extends StatefulWidget {
-//
-//    const CustomDropdown({super.key});
-//
-//   @override
-//   State<CustomDropdown> createState() => _CustomDropdownState();
-// }
-//
-// class _CustomDropdownState extends State<CustomDropdown> {
-//   @override
-//   Widget build(BuildContext context) {
-//
-//    var genderListData = GenderList.genderListData;
-//
-//     List<String> _genderList = genderListData;
-//     String dropdownValue = "";
-//
-//     myFormState() {
-//       dropdownValue = _genderList[0];
-//     }
-//
-//     return DropdownButton(
-//       isExpanded: true,
-//       value: dropdownValue,
-//       icon: const Icon(Icons.keyboard_arrow_down_outlined),
-//       items: _genderList.map((String value) {
-//         return DropdownMenuItem<String>(
-//           value: value,
-//           child: Text(value),
-//         );
-//       }).toList(),
-//       onChanged: (val) {
-//         setState(() {
-//           dropdownValue = val!;
-//         });
-//       },
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
+
+import '../../utils/app_colors.dart';
 
 class CustomDropdown extends StatelessWidget {
   CustomDropdown({
@@ -56,24 +14,33 @@ class CustomDropdown extends StatelessWidget {
   final String label;
 
   final List dropDownList;
-  var onChanged;
+ var onChanged;
 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
+      icon: Icon(
+        Icons.arrow_drop_down,
+        color: AppTheme.textColorRed,
+      ),
       decoration: InputDecoration(
-        // hintText: "hintText",
-        labelText: label,
-        labelStyle: const TextStyle(color: Colors.red),
+        hintText: label,
+        fillColor: AppTheme.textFieldColor,
+        filled: true,
         contentPadding: const EdgeInsets.only(left: 12),
         counterStyle: const TextStyle(fontWeight: FontWeight.bold),
-        border: const OutlineInputBorder(
-          borderRadius: BorderRadius.zero,
-          borderSide: BorderSide(color: Colors.black54, width: 1),
-        ),
         focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.zero,
-          borderSide: BorderSide(color: Colors.black54, width: 1),
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          borderSide: BorderSide.none,
+        ),
+        border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            borderSide: BorderSide.none),
+        labelStyle: TextStyle(
+          color: AppTheme.textColorRed,
+        ),
+        hintStyle: TextStyle(
+          color: AppTheme.textColorRed,
         ),
       ),
       items: dropDownList.map((e) {
@@ -85,6 +52,7 @@ class CustomDropdown extends StatelessWidget {
             ));
       }).toList(),
       onChanged: onChanged,
+
     );
   }
 }

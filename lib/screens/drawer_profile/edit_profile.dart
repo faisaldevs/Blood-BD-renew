@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../controllers/edit_profile_controller.dart';
-import '../../global/app_colors.dart';
+
 import '../global_widget/custom_button.dart';
 
 class EditProfile extends StatelessWidget {
@@ -247,7 +247,7 @@ class EditProfile extends StatelessWidget {
                     child: Text(
                       'Save Change',
                       style: GoogleFonts.roboto(
-                        color: AppColor.wColor,
+                        color: Colors.white,
                         fontSize: 18,
                       ),
                     ),

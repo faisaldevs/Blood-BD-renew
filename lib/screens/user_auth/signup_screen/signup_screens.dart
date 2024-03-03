@@ -1,7 +1,6 @@
-// import 'package:blood_bd/screens/user_auth/login_screen/login_screen.dart';
 import 'package:blood_bd/controllers/welcome_controller.dart';
 import 'package:blood_bd/global/app_routes.dart';
-import 'package:blood_bd/screens/user_auth/signup_screen/dropdown.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -9,7 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controllers/signup_controller.dart';
 import '../../../data_list/data_list.dart';
-import '../../../global/app_colors.dart';
+
+import '../../../utils/app_colors.dart';
 import '../../global_widget/custom_birthDate.dart';
 import '../../global_widget/custom_button.dart';
 import '../../global_widget/custom_dropdown.dart';
@@ -25,25 +25,25 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.primary,
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
-          // Status bar brightness (optional)
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
-        title: const Text(
-          "Sign Up",
-          style: TextStyle(color: Colors.red),
-        ),
+        title: const Text("Sign Up"),
+        foregroundColor: AppTheme.primaryRed,
         titleSpacing: 0,
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         leading: InkWell(
           onTap: () => Get.toNamed(welcomePage),
           child: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.red,
+            // color: Colors.black,
           ),
         ),
       ),
@@ -285,7 +285,7 @@ class SignupScreen extends StatelessWidget {
                           : Text(
                               "Sign up",
                               style: GoogleFonts.roboto(
-                                color: AppColor.wColor,
+                                color: Colors.white,
                                 fontSize: 18,
                               ),
                             ),
@@ -296,7 +296,12 @@ class SignupScreen extends StatelessWidget {
                   height: 40,
                 ),
 
-                const Text("Already Have a account?"),
+                Text(
+                  "Already Have a account?",
+                  style: TextStyle(
+                    color: AppTheme.textColorRed,
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),

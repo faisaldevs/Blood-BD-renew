@@ -1,15 +1,16 @@
 import 'package:blood_bd/global/app_routes.dart';
 import 'package:blood_bd/screens/user_auth/signup_screen/signup_screens.dart';
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controllers/login_controller.dart';
-import '../../../global/app_colors.dart';
 import '../../global_widget/custom_button.dart';
 import '../../global_widget/custom_textFormField.dart';
 import 'forget_password/forgetButton.dart';
+import 'forget_password/forget_password_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.primary,
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
@@ -32,13 +34,15 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         title: const Text("Login"),
         titleSpacing: 0,
-        backgroundColor: Colors.white,
+        foregroundColor: AppTheme.primaryRed,
+        // backgroundColor: Colors.white,
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         leading: InkWell(
           onTap: () => Get.toNamed(welcomePage),
           child: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
           ),
         ),
       ),
@@ -114,6 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ForgetPasswordWidget(
                     onPressed: () {
                       _loginController.forgetButton;
+                      Get.to(ForgetPasswordPage());
                     },
                   ),
                   const SizedBox(
@@ -141,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               : Text(
                                   "Login",
                                   style: GoogleFonts.roboto(
-                                    color: AppColor.wColor,
+                                    color: Colors.white,
                                     fontSize: 18,
                                   ),
                                 ),
@@ -151,7 +156,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 40,
                   ),
 
-                  const Text("Don't Have an account?"),
+                  Text(
+                    "Don't Have an account?",
+                    style: TextStyle(
+                      color: AppTheme.textColorRed,
+                    ),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),

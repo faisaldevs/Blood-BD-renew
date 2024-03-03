@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ForgetPassController extends GetxController {
+  GlobalKey<FormState> forgetPassKey = GlobalKey<FormState>();
   final TextEditingController newPassword = TextEditingController();
   final TextEditingController confirmPassword = TextEditingController();
 
   forgetValidation() {
-    if (kDebugMode) {
-      print("success");
+    if(forgetPassKey.currentState!.validate()){
+      print("succeed");
+    }else{
+      print("failed");
     }
   }
 }

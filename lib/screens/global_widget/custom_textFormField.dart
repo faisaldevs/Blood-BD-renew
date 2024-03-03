@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/app_colors.dart';
+
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
@@ -46,10 +48,12 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscure,
       enabled: isEnabled,
       keyboardType: textInputType,
-      style: const TextStyle(
-        color: Colors.black,
+      style: TextStyle(
+        color: AppTheme.textColorRed,
       ),
       decoration: InputDecoration(
+        fillColor: AppTheme.textFieldColor,
+        filled: true,
         suffixIcon: GestureDetector(
             onTap: suffixFunction,
             child: Icon(
@@ -58,16 +62,21 @@ class CustomTextFormField extends StatelessWidget {
             )),
         contentPadding: padding,
         focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.zero,
-          borderSide: BorderSide(color: Colors.black45, width: 1.0),
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          borderSide: BorderSide.none,
         ),
         border: const OutlineInputBorder(
-            borderRadius: BorderRadius.zero,
-            borderSide: BorderSide(color: Colors.blue)),
-        hintText: hintText,
-        labelText: labelText,
-        labelStyle: const TextStyle(color: Colors.red),
-        helperStyle: const TextStyle(color: Colors.black45),
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            borderSide: BorderSide.none),
+        hintText: labelText,
+        // labelText: labelText,
+
+        labelStyle: TextStyle(
+          color: AppTheme.textColorRed,
+        ),
+        hintStyle: TextStyle(
+          color: AppTheme.textColorRed,
+        ),
       ),
     );
   }

@@ -34,10 +34,11 @@ class CustomDrawerLinks extends StatelessWidget {
             Icon(
               icon,
               size: 34,
+              color: Colors.redAccent,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8),
-              child: Text(title, style: const TextStyle(fontSize: 17)),
+              child: Text(title, style: const TextStyle(fontSize: 17,   color: Colors.redAccent,)),
             ),
           ],
         ),
@@ -79,11 +80,12 @@ class ActiveDonor extends StatelessWidget {
                     Icon(
                       Icons.face,
                       size: 34,
+                         color: Colors.redAccent,
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 8),
                       child:
-                          Text('Active Donor', style: TextStyle(fontSize: 17)),
+                          Text('Active Donor', style: TextStyle(fontSize: 17,   color: Colors.redAccent,)),
                     ),
                   ],
                 ),

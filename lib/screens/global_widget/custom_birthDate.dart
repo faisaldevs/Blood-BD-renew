@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../utils/app_colors.dart';
+
 class CustomBirthdate extends StatefulWidget {
   const CustomBirthdate(
       {super.key, required this.controller, required this.label});
@@ -39,16 +41,19 @@ class _CustomBirthdateState extends State<CustomBirthdate> {
         },
         controller: widget.controller,
         decoration: InputDecoration(
-          labelText: widget.label,
-          labelStyle: const TextStyle(color: Colors.red),
+          fillColor: AppTheme.textFieldColor,
+          filled: true,
+          hintText: widget.label,
+          hintStyle: const TextStyle(color: Colors.red),
           focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black54, width: 1),
-              borderRadius: BorderRadius.zero),
-          suffixIcon: const Icon(Icons.calendar_month_outlined),
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            borderSide: BorderSide.none,
+          ),
+          suffixIcon: const Icon(Icons.calendar_month_outlined,color: Colors.red,),
           contentPadding: const EdgeInsets.only(left: 10),
           border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black45, width: 1),
-              borderRadius: BorderRadius.zero),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+              borderSide: BorderSide.none),
         ),
         onTap: () => showBirthDate(),
       ),

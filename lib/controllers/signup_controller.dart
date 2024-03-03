@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,24 +6,25 @@ import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart';
 import '../global/app_routes.dart';
 
+
 class SignupController extends GetxController {
   final getStorage = GetStorage();
 
-  final signupFormKey = GlobalKey<FormState>();
+   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController genderController = TextEditingController();
-  final TextEditingController dateController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+   TextEditingController genderController = TextEditingController();
+   TextEditingController dateController = TextEditingController();
+   TextEditingController passwordController = TextEditingController();
   late final String bloodType;
   late final String gender;
   late final String division;
   late final String district;
   late final String upazila;
   late final String union;
-  final TextEditingController addressController = TextEditingController();
-  final TextEditingController numberController = TextEditingController();
-  final TextEditingController weightController = TextEditingController();
+   TextEditingController addressController = TextEditingController();
+   TextEditingController numberController = TextEditingController();
+   TextEditingController weightController = TextEditingController();
 
   RxBool isVisible = true.obs;
 

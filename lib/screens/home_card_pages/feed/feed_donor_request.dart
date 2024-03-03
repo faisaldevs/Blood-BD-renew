@@ -7,14 +7,14 @@ import 'package:intl/intl.dart';
 import '../../../controllers/feed_controller.dart';
 import '../../../controllers/request_blood_controller.dart';
 
-class MyRequestFeed extends StatefulWidget {
-  const MyRequestFeed({super.key});
+class DonorRequestFeed extends StatefulWidget {
+  const DonorRequestFeed({super.key});
 
   @override
-  State<MyRequestFeed> createState() => _MyRequestFeedState();
+  State<DonorRequestFeed> createState() => _DonorRequestFeedState();
 }
 
-class _MyRequestFeedState extends State<MyRequestFeed> {
+class _DonorRequestFeedState extends State<DonorRequestFeed> {
 
   FeedMyRequestController myFeedController =
   Get.put(FeedMyRequestController());
