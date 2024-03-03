@@ -42,7 +42,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
               children: [
                  Text(
                   "Profile",
-                  style: TextStyle(fontSize: 21.sp),
+                  style: TextStyle(fontSize: 21.sp , color: Colors.redAccent ),
                 ),
                 Obx(
                   () => CupertinoSwitch(
@@ -73,7 +73,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                         children: [
                           Text(
                             name,
-                            style: TextStyle(fontSize: 24.sp),
+                            style: TextStyle(fontSize: 24.sp, color: Colors.redAccent ),
                           ),
                         ],
                       ),
@@ -85,7 +85,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           softWrap: true,
-                          style: TextStyle(fontSize: 16.sp),
+                          style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),
                         )),
                   ],
                 ),
@@ -107,7 +107,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     Text(
                       "Basic "
                       "Donor",
-                      style: TextStyle(fontSize: 11.sp),
+                      style: TextStyle(fontSize: 11.sp, color: Colors.redAccent ),
                     ),
                   ]),
                 ),
@@ -115,35 +115,35 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                   width: 8,
                 ),
                 Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color(0xfff9b6b6),
+                    decoration:  BoxDecoration(
+                      borderRadius: BorderRadius.all(const Radius.circular(10)),
+                       color: Colors.black.withOpacity(.3),
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
-                    child: Text(gender,style: TextStyle(fontSize: 16.sp),)),
+                    child: Text(gender,style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),)),
                 SizedBox(
                   width: width * .02,
                 ),
                 Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color(0xfff9b6b6),
+                    decoration:  BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                      color: Colors.black.withOpacity(.3),
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
-                    child: blood == "null" ? Text("A+",style: TextStyle(fontSize: 16.sp),) : Text(blood,style: TextStyle(fontSize: 16.sp),)),
+                    child: blood == "null" ? Text("A+",style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),) : Text(blood,style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),)),
                 SizedBox(
                   width: width * .02,
                 ),
                 Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color(0xfff9b6b6),
+                    decoration:  BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                     color: Colors.black.withOpacity(.3),
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
-                    child: Text(number,style: TextStyle(fontSize: 16.sp),)),
+                    child: Text(number,style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),)),
               ],
             ),
             GestureDetector(
@@ -158,8 +158,8 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    const Icon(Icons.edit_note),
-                    Text("Edit Profile",style: TextStyle(fontSize: 16.sp),),
+                    const Icon(Icons.edit_note, color: Colors.redAccent ),
+                    Text("Edit Profile",style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),),
                   ],
                 ),
               ),

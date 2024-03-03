@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
-class OtherRequestFeed extends StatefulWidget {
-   OtherRequestFeed({super.key});
+class ReceiverRequestFeed extends StatefulWidget {
+   ReceiverRequestFeed({super.key});
 
   @override
-  State<OtherRequestFeed> createState() => _OtherRequestFeedState();
+  State<ReceiverRequestFeed> createState() => _ReceiverRequestFeed();
 }
 
-class _OtherRequestFeedState extends State<OtherRequestFeed> {
+class _ReceiverRequestFeed extends State<ReceiverRequestFeed> {
   final sdStorage = GetStorage();
 
   sdStorageClear() {

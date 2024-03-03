@@ -1,12 +1,13 @@
 import 'package:blood_bd/data_list/data_list.dart';
 import 'package:blood_bd/screens/global_widget/custom_dropdown.dart';
+import 'package:blood_bd/screens/home_card_pages/feed/feed_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'feed/feed_my_request.dart';
-import 'feed/feed_other_request.dart';
+import 'feed/feed_donor_request.dart';
+import 'feed/feed_receiver_request.dart';
 
 class FeedPage extends StatelessWidget {
   FeedPage({super.key});
@@ -62,16 +63,16 @@ class FeedPage extends StatelessWidget {
                         indicatorWeight: 3,
                         tabs: [
                           Tab(
-                            text: "My Request",
+                            text: "Donor",
                           ),
                           Tab(
-                            text: "Other Request",
+                            text: "Receiver",
                           ),
                         ]),
                     SizedBox(
                       height: Get.height * .02,
                     ),
-                    CustomDropdown(
+                    FeedDropdown(
                         dropDownList: DataList.bloodListData,
                         label: "Select Blood Type",
                         onChanged: (value) {}),
@@ -81,7 +82,7 @@ class FeedPage extends StatelessWidget {
                      Expanded(
                       child: TabBarView(
                         children: [
-                          MyRequestFeed(),
+                          const DonorRequestFeed(),
                           // dataList == []? const Column(
                           //   mainAxisAlignment: MainAxisAlignment.center,
                           //   crossAxisAlignment: CrossAxisAlignment.center,
@@ -130,7 +131,7 @@ class FeedPage extends StatelessWidget {
                           //           ],
                           //         ),
                           // ),
-                          OtherRequestFeed(),
+                          ReceiverRequestFeed(),
                         ],
                       ),
                     ),
