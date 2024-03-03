@@ -12,26 +12,24 @@ class HealthBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin:  EdgeInsets.only(bottom: 10),
-      width: Get.width.w,
-      height: 90.h,
-      decoration:  BoxDecoration(
-        // color:Color(0xffeeeeee),
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
-        border: Border.all(width: 1,color: const Color(0xffeeeeee),)
-      ),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
-        focusColor: Colors.black.withOpacity(.1),
-        splashColor: Colors.black.withOpacity(.1),
-        hoverColor: Colors.black.withOpacity(.1),
+    return ClipRRect(borderRadius: BorderRadius.circular(20.0),
+
+      child: Container(
+        margin:  EdgeInsets.only(bottom: 10),
+        width: Get.width.w,
+        height: 90.h,
+        decoration:  BoxDecoration(
+          color:Color(0xffeeeeee),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          border: Border.all(width: 1,color: const Color(0xffeeeeee),)
+        ),
         child: ListTile(
+          onTap: onTap,
           leading: Image.asset(image),
-          title:  Text(title),
-          subtitle:  Text(subTitle),
+          title:  Text(title,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+          subtitle:  Text(subTitle,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
           contentPadding: const EdgeInsets.all(8),
+          // tileColor: Colors.red,
           // style: ListTileStyle.drawer,
           // tileColor:
         ),

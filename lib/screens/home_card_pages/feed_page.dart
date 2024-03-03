@@ -21,16 +21,18 @@ class FeedPage extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.redAccent,
             statusBarIconBrightness: Brightness.dark,
             statusBarBrightness: Brightness.light,
           ),
-          title: const Text("Feed"),
+          title: const Text("Blood Request",style: TextStyle(color: Colors.white),),
           centerTitle: true,
           titleSpacing: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.redAccent,
           elevation: 0,
           leading: null,
         ),
@@ -38,24 +40,24 @@ class FeedPage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Container(
-                color: Colors.red,
-                height: Get.height * .18,
-                width: Get.width,
-                child: Image.asset(
-                  "assets/images/banner/1.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-              SizedBox(
-                height: Get.height * .01,
-              ),
+              // Container(
+              //   color: Colors.red,
+              //   height: Get.height * .18,
+              //   width: Get.width,
+              //   child: Image.asset(
+              //     "assets/images/banner/1.png",
+              //     fit: BoxFit.cover,
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: Get.height * .01,
+              // ),
               Expanded(
                 child: Column(
                   children: [
                     const TabBar(
-                        labelColor: Colors.green,
-                        indicatorColor: Colors.green,
+                        labelColor: Colors.redAccent,
+                        indicatorColor: Colors.redAccent,
                         indicatorSize: TabBarIndicatorSize.tab,
                         indicatorWeight: 3,
                         tabs: [

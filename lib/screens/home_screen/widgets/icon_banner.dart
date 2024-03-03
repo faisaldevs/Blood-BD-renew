@@ -31,6 +31,7 @@ class HomeScreenIcons extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20, top: 16),
             child: const Text(
               "More Items",
+              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
             ),
           ),
@@ -62,8 +63,11 @@ class HomeScreenIcons extends StatelessWidget {
                               padding: EdgeInsets.only(top: 5),
                               child: Text(
                                 "Add Request",
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500,color: Colors.red),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.red),
                               ),
                             ),
                           ],
@@ -99,7 +103,12 @@ class HomeScreenIcons extends StatelessWidget {
                               child: Text(
                                 "Become Donor",
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500,color: Colors.red,),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.red,
+                                ),
+                                // maxLines: 1,
+                                textAlign: TextAlign.center,
                               ),
                             ),
                           ],
@@ -132,7 +141,10 @@ class HomeScreenIcons extends StatelessWidget {
                               child: Text(
                                 "Blood Bank",
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500,color: Colors.red,),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
                           ],
@@ -159,9 +171,7 @@ class HomeScreenIcons extends StatelessWidget {
                     SizedBox(
                       width: 110,
                       child: IconButton(
-                        onPressed: () {
-
-                        },
+                        onPressed: () {},
                         icon: const Column(
                           children: [
                             Icon(
@@ -174,7 +184,10 @@ class HomeScreenIcons extends StatelessWidget {
                               child: Text(
                                 "About Us",
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500,color: Colors.red,),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
                           ],
@@ -210,7 +223,10 @@ class HomeScreenIcons extends StatelessWidget {
                               child: Text(
                                 "History",
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500,color: Colors.red,),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
                           ],
@@ -241,7 +257,10 @@ class HomeScreenIcons extends StatelessWidget {
                               child: Text(
                                 "FeedBack",
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500,color: Colors.red,),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
                           ],

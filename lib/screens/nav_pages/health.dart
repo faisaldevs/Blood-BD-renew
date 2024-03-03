@@ -35,27 +35,32 @@ class HealthPage extends StatelessWidget {
               onTap: () {}, image: "assets/images/bmi.png",
             ),
             HealthBody(
-              title: "Body Mass Index(BMI)",
+              title: "Body Fat Percentage",
               subTitle:
-              "a way to see if you have correct amount body fat or not based on your height and weight.",
+              "a measure of fitness level of an individual",
               onTap: () {},
               image: "assets/images/bmi.png",
             ),
             HealthBody(
-              title: "Ponderal Index",
-              subTitle: "An improved Version of BMI",
+              title: "Lean Body Mass",
+              subTitle: "Calculate your fat free mass",
               onTap: () {}, image: "assets/images/bmi.png",
             ),
             HealthBody(
-              title: "Body Mass Index(BMI)",
+              title: "Blood Volume",
               subTitle:
-              "a way to see if you have correct amount body fat or not based on your height and weight.",
+              "Volume of blood of any individual",
               onTap: () {},
               image: "assets/images/bmi.png",
             ),
             HealthBody(
-              title: "Ponderal Index",
-              subTitle: "An improved Version of BMI",
+              title: "Body Water",
+              subTitle: "Know your water volume in your body",
+              onTap: () {}, image: "assets/images/bmi.png",
+            ),
+            HealthBody(
+              title: "Heart Rate",
+              subTitle: "know your heart rate",
               onTap: () {}, image: "assets/images/bmi.png",
             ),
           ],

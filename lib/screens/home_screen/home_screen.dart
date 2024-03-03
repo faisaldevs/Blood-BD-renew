@@ -95,6 +95,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 AppBar(
+                  surfaceTintColor: Colors.transparent,
                   elevation: 0,
                   backgroundColor: Colors.redAccent,
                   foregroundColor: Colors.white,
@@ -341,7 +342,7 @@ class HomePage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Container(
-                                    margin: const EdgeInsets.only(top: 10),
+                                    margin: const EdgeInsets.only(top: 4),
                                     child: ElevatedButton(
                                         onPressed: () {},
                                         child: const Text("Urgent")),

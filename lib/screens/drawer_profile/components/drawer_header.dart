@@ -2,6 +2,7 @@ import 'package:blood_bd/global/app_routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -39,9 +40,9 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                 Text(
                   "Profile",
-                  style: TextStyle(fontSize: 21),
+                  style: TextStyle(fontSize: 21.sp),
                 ),
                 Obx(
                   () => CupertinoSwitch(
@@ -59,8 +60,8 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                 const CircleAvatar(
                   backgroundImage: AssetImage("assets/images/profile.png"),
                 ),
-                const SizedBox(
-                  width: 8,
+                 SizedBox(
+                  width: 8.w,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -72,18 +73,19 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                         children: [
                           Text(
                             name,
-                            style: const TextStyle(fontSize: 24),
+                            style: TextStyle(fontSize: 24.sp),
                           ),
                         ],
                       ),
                     ),
                     SizedBox(
-                        width: Get.width * .6,
+                        width: Get.width * .6.w,
                         child: Text(
                           address,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           softWrap: true,
+                          style: TextStyle(fontSize: 16.sp),
                         )),
                   ],
                 ),
@@ -96,8 +98,8 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
               children: [
                 GestureDetector(
                   onTap: () {},
-                  child: const Row(children: [
-                    Icon(
+                  child:  Row(children: [
+                    const Icon(
                       Icons.star,
                       size: 11,
                       color: Colors.green,
@@ -105,7 +107,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     Text(
                       "Basic "
                       "Donor",
-                      style: TextStyle(fontSize: 11),
+                      style: TextStyle(fontSize: 11.sp),
                     ),
                   ]),
                 ),
@@ -119,7 +121,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
-                    child: Text(gender)),
+                    child: Text(gender,style: TextStyle(fontSize: 16.sp),)),
                 SizedBox(
                   width: width * .02,
                 ),
@@ -130,7 +132,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
-                    child: blood == "null" ? const Text("A+") : Text(blood)),
+                    child: blood == "null" ? Text("A+",style: TextStyle(fontSize: 16.sp),) : Text(blood,style: TextStyle(fontSize: 16.sp),)),
                 SizedBox(
                   width: width * .02,
                 ),
@@ -141,7 +143,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
-                    child: Text(number)),
+                    child: Text(number,style: TextStyle(fontSize: 16.sp),)),
               ],
             ),
             GestureDetector(
@@ -151,13 +153,13 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                   Get.toNamed(editProfile);
                 }
               },
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
+              child:  Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Icon(Icons.edit_note),
-                    Text("Edit Profile"),
+                    const Icon(Icons.edit_note),
+                    Text("Edit Profile",style: TextStyle(fontSize: 16.sp),),
                   ],
                 ),
               ),
