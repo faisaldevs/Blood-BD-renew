@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 class EditProfileController extends GetxController {
   final getStorage = GetStorage();
 
-  final editProfileKey = GlobalKey<FormState>();
+   GlobalKey<FormState> editProfileKey = GlobalKey<FormState>();
 
   TextEditingController nameController = TextEditingController();
   TextEditingController dateController = TextEditingController();

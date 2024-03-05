@@ -6,7 +6,7 @@ import 'package:get_storage/get_storage.dart';
 
 class MedicalHistoryController extends GetxController {
   final box = GetStorage();
-  final newReportKey = GlobalKey<FormState>();
+   GlobalKey<FormState> newReportKey = GlobalKey<FormState>();
 
   final TextEditingController hemoglobin = TextEditingController();
   final TextEditingController dayOfTest = TextEditingController();

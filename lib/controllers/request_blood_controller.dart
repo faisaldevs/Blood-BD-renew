@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import '../global/app_routes.dart';
 
 class RequestBloodController extends GetxController {
-  final requestBloodKey = GlobalKey<FormState>();
+   GlobalKey<FormState> requestBloodKey = GlobalKey<FormState>();
   final TextEditingController patientNameController = TextEditingController();
   late final String bloodType;
   late final String bloodAmount;
