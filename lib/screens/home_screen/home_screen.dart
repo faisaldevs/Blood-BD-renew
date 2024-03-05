@@ -8,9 +8,11 @@ import 'package:blood_bd/utils/app_colors.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../global/app_routes.dart';
+import '../../utils/assets_links.dart';
 import '../drawer_profile/drawer_profile.dart';
 import '../home_card_pages/feed_page.dart';
 import '../nav_pages/health.dart';
@@ -66,7 +68,7 @@ class HomeScreen extends StatelessWidget {
           homeController.navbarFunction(index);
 
         },
-        letIndexChange: (index) => true,
+        // letIndexChange: (index) => true,
       ),
       body: Obx(
         () => pages[homeController.selectedItem.value],
@@ -93,6 +95,11 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 AppBar(
+                  systemOverlayStyle: const SystemUiOverlayStyle(
+                    statusBarColor: Colors.redAccent,
+                    statusBarIconBrightness: Brightness.dark,
+                    statusBarBrightness: Brightness.light,
+                  ),
                   surfaceTintColor: Colors.transparent,
                   elevation: 0,
                   backgroundColor: Colors.redAccent,
@@ -126,9 +133,9 @@ class HomePage extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 5),
                           width: 30,
                           height: 30,
-                          child: const CircleAvatar(
+                          child: CircleAvatar(
                             backgroundImage:
-                                AssetImage("assets/images/profile.png"),
+                                AssetImage(ImageLink.profile),
                           ),
                         ),
                       ),
