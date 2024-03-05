@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class SignupOTPController extends GetxController {
    GlobalKey<FormState> otpFormKey = GlobalKey<FormState>();
 
-  final TextEditingController signupOtpController = TextEditingController();
+   TextEditingController signupOtpController = TextEditingController();
 
-  final focusNode = FocusNode();
+   FocusNode focusNode = FocusNode();
 }

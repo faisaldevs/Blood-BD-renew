@@ -5,12 +5,12 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class MedicalHistoryController extends GetxController {
-  final box = GetStorage();
+   GetStorage box = GetStorage();
    GlobalKey<FormState> newReportKey = GlobalKey<FormState>();
 
-  final TextEditingController hemoglobin = TextEditingController();
-  final TextEditingController dayOfTest = TextEditingController();
-  final TextEditingController bloodPressure = TextEditingController();
+   TextEditingController hemoglobin = TextEditingController();
+   TextEditingController dayOfTest = TextEditingController();
+   TextEditingController bloodPressure = TextEditingController();
    String? bloodType;
    String? hepatitis;
    String? malaria;

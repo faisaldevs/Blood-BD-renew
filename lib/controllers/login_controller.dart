@@ -10,12 +10,12 @@ import 'package:http/http.dart';
 import '../global/app_routes.dart';
 
 class LoginController extends GetxController{
-  final getStorage = GetStorage();
+   GetStorage getStorage = GetStorage();
 
    GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
-  final TextEditingController numberController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+   TextEditingController numberController = TextEditingController();
+   TextEditingController passwordController = TextEditingController();
 
 
 

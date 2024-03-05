@@ -13,7 +13,7 @@ class ForgetOtpVerificationPage extends StatefulWidget {
 class _ForgetOtpVerificationPageState extends State<ForgetOtpVerificationPage> {
   @override
   Widget build(BuildContext context) {
-    final forgetOtpFormKey = GlobalKey<FormState>();
+       // forgetOtpFormKey = GlobalKey<FormState>();
 
     final TextEditingController forgetOtpController = TextEditingController();
     // final focusNode = FocusNode();
@@ -80,7 +80,7 @@ class _ForgetOtpVerificationPageState extends State<ForgetOtpVerificationPage> {
                 child: SizedBox(
                   width: width,
                   child: Pinput(
-                      key: forgetOtpFormKey,
+                      // key: forgetOtpFormKey,
                       controller: forgetOtpController,
                       validator: (otp) {
                         if (otp!.isEmpty) {

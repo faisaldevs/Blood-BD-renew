@@ -3,17 +3,18 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class SearchDonorController extends GetxController {
-  final sdStorage = GetStorage();
-   GlobalKey<FormState> searchDonorKey = GlobalKey<FormState>();
-  final TextEditingController patientNameController = TextEditingController();
+   GetStorage sdStorage = GetStorage();
+  GlobalKey<FormState> searchDonorKey = GlobalKey<FormState>();
+  TextEditingController patientNameController = TextEditingController();
   late final String bloodType;
   late final String bloodAmount;
   late final String healthIssue;
-  final TextEditingController dateController = TextEditingController();
-  final TextEditingController timeController = TextEditingController();
-  final TextEditingController addressController = TextEditingController();
-  final TextEditingController contactParsonNameController = TextEditingController();
-  final TextEditingController numberController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController timeController = TextEditingController();
+
+  TextEditingController addressController = TextEditingController();
+  TextEditingController contactParsonNameController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
 
   searchDonor() {
     print("pressend");

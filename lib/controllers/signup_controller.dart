@@ -8,7 +8,7 @@ import '../global/app_routes.dart';
 
 
 class SignupController extends GetxController {
-  final getStorage = GetStorage();
+   GetStorage getStorage = GetStorage();
 
    GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
