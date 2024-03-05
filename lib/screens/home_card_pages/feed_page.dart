@@ -15,7 +15,7 @@ class FeedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var contactParsonPhone = getStorage.read("contactParsonPhone");
+    // var contactParsonPhone = getStorage.read("contactParsonPhone");
     // bool hasData = contactParsonPhone != null;
 
     return DefaultTabController(
