@@ -29,7 +29,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
 
       if (timeOfDay != null) {
         setState(() {
-          selectedTime = timeOfDay;
+          widget.controller.text = timeOfDay.toString();
         });
       }
     }
@@ -42,8 +42,8 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
         decoration: InputDecoration(
           fillColor: AppTheme.textFieldColor,
           filled: true,
-          labelText: widget.label,
-          labelStyle: const TextStyle(color: Colors.red),
+          hintText: widget.label,
+          hintStyle: const TextStyle(color: Colors.red),
           focusedBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(15)),
             borderSide: BorderSide.none,
