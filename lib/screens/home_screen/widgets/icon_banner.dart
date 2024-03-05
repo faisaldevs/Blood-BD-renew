@@ -1,15 +1,16 @@
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../global/app_routes.dart';
 
 class HomeScreenIcons extends StatelessWidget {
-  const HomeScreenIcons({super.key});
+   const HomeScreenIcons({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5),
+      padding:  const EdgeInsets.all(5),
       // height: 250,
       width: Get.width * .9,
       decoration: BoxDecoration(
@@ -21,18 +22,18 @@ class HomeScreenIcons extends StatelessWidget {
             blurRadius: 7,
           ),
         ],
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        borderRadius:  const BorderRadius.all(Radius.circular(20)),
       ),
       child: Column(
         children: [
           Container(
             // height: 40,
             width: Get.width,
-            padding: const EdgeInsets.only(left: 20, top: 16),
-            child: const Text(
+            padding:  const EdgeInsets.only(left: 20, top: 16),
+            child: Text(
               "More Items",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600,color: AppTheme.textColorRed),
             ),
           ),
           SizedBox(
@@ -52,35 +53,35 @@ class HomeScreenIcons extends StatelessWidget {
                         onPressed: () {
                           Get.toNamed(requestBlood);
                         },
-                        icon: const Column(
+                        icon:  Column(
                           children: [
                             Icon(
                               Icons.note_add_outlined,
                               size: 34,
-                              color: Colors.red,
+                              color: AppTheme.textColorRed,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 5),
                               child: Text(
                                 "Add Request",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
-                                    color: Colors.red),
+                                    color: AppTheme.textColorRed),
                               ),
                             ),
                           ],
                         ),
                         style: ButtonStyle(
                           backgroundColor:
-                              const MaterialStatePropertyAll(Colors.white),
+                               const MaterialStatePropertyAll(Colors.white),
                           shape: MaterialStatePropertyAll(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                           ),
-                          padding: const MaterialStatePropertyAll(
+                          padding:  const MaterialStatePropertyAll(
                               EdgeInsets.all(10)),
                         ),
                       ),
@@ -91,21 +92,21 @@ class HomeScreenIcons extends StatelessWidget {
                         onPressed: () {
                           Get.toNamed(searchDonor);
                         },
-                        icon: const Column(
+                        icon:  Column(
                           children: [
                             Icon(
                               Icons.person_add_alt_1_outlined,
                               size: 34,
-                              color: Colors.red,
+                              color: AppTheme.textColorRed,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 5),
                               child: Text(
                                 "Become Donor",
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.red,
+                                  color: AppTheme.textColorRed,
                                 ),
                                 // maxLines: 1,
                                 textAlign: TextAlign.center,
@@ -115,7 +116,7 @@ class HomeScreenIcons extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                             backgroundColor:
-                                const MaterialStatePropertyAll(Colors.white),
+                                 const MaterialStatePropertyAll(Colors.white),
                             shape: MaterialStatePropertyAll(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0),
@@ -129,21 +130,21 @@ class HomeScreenIcons extends StatelessWidget {
                         onPressed: () {
                           Get.toNamed(bloodHeroes);
                         },
-                        icon: const Column(
+                        icon:  Column(
                           children: [
                             Icon(
                               Icons.add_box,
                               size: 34,
-                              color: Colors.red,
+                              color: AppTheme.textColorRed,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 5),
                               child: Text(
                                 "Blood Bank",
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.red,
+                                  color: AppTheme.textColorRed,
                                 ),
                               ),
                             ),
@@ -151,7 +152,7 @@ class HomeScreenIcons extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                             backgroundColor:
-                                const MaterialStatePropertyAll(Colors.white),
+                                 const MaterialStatePropertyAll(Colors.white),
                             shape: MaterialStatePropertyAll(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0),
@@ -172,21 +173,21 @@ class HomeScreenIcons extends StatelessWidget {
                       width: 110,
                       child: IconButton(
                         onPressed: () {},
-                        icon: const Column(
+                        icon:  Column(
                           children: [
                             Icon(
                               Icons.question_mark,
                               size: 34,
-                              color: Colors.red,
+                              color: AppTheme.textColorRed,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 5),
                               child: Text(
                                 "About Us",
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.red,
+                                  color: AppTheme.textColorRed,
                                 ),
                               ),
                             ),
@@ -194,13 +195,13 @@ class HomeScreenIcons extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                           backgroundColor:
-                              const MaterialStatePropertyAll(Colors.white),
+                               const MaterialStatePropertyAll(Colors.white),
                           shape: MaterialStatePropertyAll(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                           ),
-                          padding: const MaterialStatePropertyAll(
+                          padding:  const MaterialStatePropertyAll(
                               EdgeInsets.all(10)),
                         ),
                       ),
@@ -211,21 +212,21 @@ class HomeScreenIcons extends StatelessWidget {
                         onPressed: () {
                           Get.toNamed(history);
                         },
-                        icon: const Column(
+                        icon:  Column(
                           children: [
                             Icon(
                               Icons.history_outlined,
                               size: 34,
-                              color: Colors.red,
+                              color: AppTheme.textColorRed,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 5),
                               child: Text(
                                 "History",
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.red,
+                                  color: AppTheme.textColorRed,
                                 ),
                               ),
                             ),
@@ -233,7 +234,7 @@ class HomeScreenIcons extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                             backgroundColor:
-                                const MaterialStatePropertyAll(Colors.white),
+                                 const MaterialStatePropertyAll(Colors.white),
                             shape: MaterialStatePropertyAll(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0),
@@ -245,21 +246,21 @@ class HomeScreenIcons extends StatelessWidget {
                       width: 110,
                       child: IconButton(
                         onPressed: () {},
-                        icon: const Column(
+                        icon:  Column(
                           children: [
                             Icon(
                               Icons.feedback_outlined,
                               size: 34,
-                              color: Colors.red,
+                              color: AppTheme.textColorRed,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 5),
                               child: Text(
                                 "FeedBack",
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.red,
+                                  color: AppTheme.textColorRed,
                                 ),
                               ),
                             ),
@@ -267,7 +268,7 @@ class HomeScreenIcons extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                             backgroundColor:
-                                const MaterialStatePropertyAll(Colors.white),
+                                 const MaterialStatePropertyAll(Colors.white),
                             shape: MaterialStatePropertyAll(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0),

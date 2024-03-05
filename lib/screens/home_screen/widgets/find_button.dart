@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class FindDonorBtn extends StatelessWidget {
-  const FindDonorBtn({super.key, required this.onPressed});
+  const FindDonorBtn({super.key, required this.onPressed, required this.child});
  final Function() onPressed;
+ final String child;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +15,9 @@ class FindDonorBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             side: const BorderSide(color: Colors.red)),)),
 
-      child: const Text(
-        "Find Donor",
-        style: TextStyle(color: Colors.white),
+      child: Text(
+        child,
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }

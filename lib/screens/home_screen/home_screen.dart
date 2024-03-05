@@ -4,6 +4,7 @@ import 'package:blood_bd/screens/home_screen/widgets/banner_widget.dart';
 import 'package:blood_bd/screens/home_screen/widgets/find_button.dart';
 import 'package:blood_bd/screens/home_screen/widgets/icon_banner.dart';
 import 'package:blood_bd/screens/home_screen/widgets/textfield_widget.dart';
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,6 @@ import '../../global/app_routes.dart';
 import '../drawer_profile/drawer_profile.dart';
 import '../home_card_pages/feed_page.dart';
 import '../nav_pages/health.dart';
-import '../nav_pages/receiver_request.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -65,8 +65,6 @@ class HomeScreen extends StatelessWidget {
         onTap: (index) {
           homeController.navbarFunction(index);
 
-          print("Selected Item : $homeController.selectedItem.value");
-          print("Page Selected: ${pages[homeController.selectedItem.value]}");
         },
         letIndexChange: (index) => true,
       ),
@@ -85,9 +83,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.primary,
       body: SafeArea(
         child: SizedBox(
-          // color: Colors.white60,
           height: Get.height,
           width: Get.width,
           child: SingleChildScrollView(
@@ -112,7 +110,7 @@ class HomePage extends StatelessWidget {
                           ),
                           child: Icon(
                             Icons.notifications_active_outlined,
-                            color: Colors.white,
+                            // color: Colors.white,
                             size: 24,
                           ),
                         )),
@@ -173,7 +171,9 @@ class HomePage extends StatelessWidget {
                           height: Get.height * .3,
                           width: Get.width * .7,
                           decoration: BoxDecoration(
+                            // ------------find donor card color--------------
                             color: Colors.white,
+                            // ------------find donor card--------------
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.4),
@@ -207,7 +207,7 @@ class HomePage extends StatelessWidget {
                                 FindDonorBtn(
                                   onPressed: () {
                                     homeController.findDonor();
-                                  },
+                                  }, child: "Find Donor",
                                 ),
                               ],
                             ),
@@ -220,7 +220,7 @@ class HomePage extends StatelessWidget {
 
                 SizedBox(height: Get.height * .05),
                 // CardSections(),
-                const HomeScreenIcons(),
+                 const HomeScreenIcons(),
                 SizedBox(height: Get.height * .06),
                 Container(
                   // padding: EdgeInsets.all(5),
@@ -343,9 +343,10 @@ class HomePage extends StatelessWidget {
                                 children: [
                                   Container(
                                     margin: const EdgeInsets.only(top: 4),
-                                    child: ElevatedButton(
-                                        onPressed: () {},
-                                        child: const Text("Urgent")),
+                                    // child: ElevatedButton(
+                                    //     onPressed: () {},
+                                    //     child: const Text("Urgent")),
+                                    child: FindDonorBtn(onPressed: () {  }, child: 'Urgent',),
                                   ),
                                 ],
                               )

@@ -5,7 +5,7 @@ class AppTheme{
   static Color textFieldColor = const Color(0xffdddbdb);
 
 
-  static Color primary = Color(0xffecf0f1);
+  static Color primary = const Color(0xffecf0f1);
   // static Color primary = Colors.transparent;
   static Color primaryRed = Colors.redAccent;
 
