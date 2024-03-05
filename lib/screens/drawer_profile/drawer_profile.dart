@@ -2,6 +2,7 @@ import 'package:blood_bd/global/app_routes.dart';
 import 'package:blood_bd/screens/drawer_profile/drawer_pages/medical_history.dart';
 import 'package:blood_bd/screens/drawer_profile/components/custom_drawer_links.dart';
 import 'package:blood_bd/screens/drawer_profile/components/drawer_header.dart';
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -13,6 +14,7 @@ class DrawerProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     final getStorage = GetStorage();
     return Drawer(
+      backgroundColor: AppTheme.primary,
       child: ListView(
         children: [
           // -------Drawer Header------------

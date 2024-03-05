@@ -1,3 +1,4 @@
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -23,6 +24,7 @@ class _RequestBloodState extends State<RequestBlood> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.primary,
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
@@ -30,7 +32,8 @@ class _RequestBloodState extends State<RequestBlood> {
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
         elevation: 0,
-        backgroundColor: Colors.white60,
+        backgroundColor: AppTheme.primary,
+        surfaceTintColor: Colors.transparent,
         title: const Text("Request Blood"),
         titleSpacing: 0,
         leading: InkWell(

@@ -34,8 +34,8 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.white,
-        color: Colors.red,
+        backgroundColor: AppTheme.primary,
+        color: AppTheme.primaryRed,
         animationDuration: const Duration(milliseconds: 300),
         animationCurve: Curves.fastLinearToSlowEaseIn,
         items: const [

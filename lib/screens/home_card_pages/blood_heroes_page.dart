@@ -1,3 +1,4 @@
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -9,15 +10,16 @@ class BloodHeroes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? name = "Faisal";
-    String? address = "Kazipara, Mirpur, Dhaka";
-    String? number1 = "01903440069";
-    String? number2 = "0122355";
+    // String? name = "Faisal";
+    // String? address = "Kazipara, Mirpur, Dhaka";
+    // String? number1 = "01903440069";
+    // String? number2 = "0122355";
 
     return Scaffold(
-      // backgroundColor: Colors.white60,
+      backgroundColor: AppTheme.primary,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.primary,
+        surfaceTintColor: Colors.transparent,
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
           statusBarIconBrightness: Brightness.dark,

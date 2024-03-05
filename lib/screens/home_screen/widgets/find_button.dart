@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class FindDonorBtn extends StatelessWidget {
@@ -13,7 +14,7 @@ class FindDonorBtn extends StatelessWidget {
         backgroundColor: const MaterialStatePropertyAll(Colors.red),
         shape: MaterialStatePropertyAll(  RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
-            side: const BorderSide(color: Colors.red)),)),
+            side: const BorderSide(color: Colors.redAccent)),)),
 
       child: Text(
         child,

@@ -20,13 +20,6 @@ class TextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(16),
-      // decoration: BoxDecoration(
-      //   color: Colors.black.withOpacity(.2),
-      //   borderRadius: const BorderRadius.all(Radius.circular(10)),
-      // ), // decoration: BoxDecoration(
-      //   color: Colors.black.withOpacity(.2),
-      //   borderRadius: const BorderRadius.all(Radius.circular(10)),
-      // ),
       child: DropdownButtonFormField(
         // dropdownColor:  Colors.black.withOpacity(.2),
         icon: Icon(
@@ -37,6 +30,7 @@ class TextFieldWidget extends StatelessWidget {
           filled: true,
           fillColor: AppTheme.textFieldColor,
           hintText: label,
+          hintStyle: TextStyle(color: AppTheme.textColorRed),
           // labelStyle:  const TextStyle(color: Colors.red),
           contentPadding: const EdgeInsets.only(left: 12),
           counterStyle: const TextStyle(fontWeight: FontWeight.bold),

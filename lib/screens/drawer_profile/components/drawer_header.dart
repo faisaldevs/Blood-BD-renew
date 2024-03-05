@@ -1,13 +1,12 @@
 import 'package:blood_bd/global/app_routes.dart';
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
 import '../../../controllers/drawer_profile_controller.dart';
-
 class DrawerHeaderPage extends StatefulWidget {
   const DrawerHeaderPage({super.key});
 
@@ -42,7 +41,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
               children: [
                  Text(
                   "Profile",
-                  style: TextStyle(fontSize: 21.sp , color: Colors.redAccent ),
+                  style: TextStyle(fontSize: 21.sp , color: AppTheme.textColorRed ),
                 ),
                 Obx(
                   () => CupertinoSwitch(
@@ -73,7 +72,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                         children: [
                           Text(
                             name,
-                            style: TextStyle(fontSize: 24.sp, color: Colors.redAccent ),
+                            style: TextStyle(fontSize: 24.sp, color: AppTheme.textColorRed ),
                           ),
                         ],
                       ),
@@ -85,7 +84,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           softWrap: true,
-                          style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),
+                          style: TextStyle(fontSize: 16.sp, color: AppTheme.textColorRed ),
                         )),
                   ],
                 ),
@@ -107,7 +106,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     Text(
                       "Basic "
                       "Donor",
-                      style: TextStyle(fontSize: 11.sp, color: Colors.redAccent ),
+                      style: TextStyle(fontSize: 11.sp, color: AppTheme.textColorRed ),
                     ),
                   ]),
                 ),
@@ -121,7 +120,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
-                    child: Text(gender,style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),)),
+                    child: Text(gender,style: TextStyle(fontSize: 16.sp, color: AppTheme.textColorRed ),)),
                 SizedBox(
                   width: width * .02,
                 ),
@@ -132,7 +131,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
-                    child: blood == "null" ? Text("A+",style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),) : Text(blood,style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),)),
+                    child: blood == "null" ? Text("A+",style: TextStyle(fontSize: 16.sp, color: AppTheme.textColorRed ),) : Text(blood,style: TextStyle(fontSize: 16.sp, color: AppTheme.textColorRed ),)),
                 SizedBox(
                   width: width * .02,
                 ),
@@ -143,7 +142,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                     ),
                     padding:
                         const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
-                    child: Text(number,style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),)),
+                    child: Text(number,style: TextStyle(fontSize: 16.sp, color: AppTheme.textColorRed ),)),
               ],
             ),
             GestureDetector(
@@ -158,8 +157,8 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    const Icon(Icons.edit_note, color: Colors.redAccent ),
-                    Text("Edit Profile",style: TextStyle(fontSize: 16.sp, color: Colors.redAccent ),),
+                     Icon(Icons.edit_note, color: AppTheme.textColorRed ),
+                    Text("Edit Profile",style: TextStyle(fontSize: 16.sp, color: AppTheme.textColorRed ),),
                   ],
                 ),
               ),

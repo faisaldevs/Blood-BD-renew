@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../controllers/search_donor_controller.dart';
 import '../../data_list/data_list.dart';
 import '../../global/app_routes.dart';
+import '../../utils/app_colors.dart';
 import '../global_widget/custom_birthDate.dart';
 import '../global_widget/custom_button.dart';
 import '../global_widget/custom_dropdown.dart';
@@ -23,6 +24,7 @@ class _SearchDonorState extends State<SearchDonor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.primary,
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
@@ -32,7 +34,8 @@ class _SearchDonorState extends State<SearchDonor> {
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
         elevation: 0,
-        backgroundColor: Colors.white60,
+        backgroundColor: AppTheme.primary,
+        surfaceTintColor: Colors.transparent,
         title: const Text("Search Donor"),
         titleSpacing: 0,
         leading: InkWell(

@@ -1,5 +1,4 @@
 import 'package:blood_bd/data_list/data_list.dart';
-import 'package:blood_bd/screens/global_widget/custom_dropdown.dart';
 import 'package:blood_bd/screens/home_card_pages/feed/feed_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +16,7 @@ class FeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var contactParsonPhone = getStorage.read("contactParsonPhone");
-    bool hasData = contactParsonPhone != null;
+    // bool hasData = contactParsonPhone != null;
 
     return DefaultTabController(
       length: 2,
