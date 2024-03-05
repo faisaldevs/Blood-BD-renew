@@ -11,7 +11,6 @@ class FeedDropdown extends StatelessWidget {
   });
 
   final String label;
-
   final List dropDownList;
   var onChanged;
 

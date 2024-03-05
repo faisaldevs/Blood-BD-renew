@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../../controllers/medical_hisory_controller.dart';
+import '../../../../utils/app_colors.dart';
 import '../../../global_widget/custom_file_upload.dart';
 
 class NewReport extends StatelessWidget {
@@ -21,6 +22,7 @@ class NewReport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.primary,
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
@@ -29,16 +31,16 @@ class NewReport extends StatelessWidget {
         ),
         title: const Text(
           "New Report",
-          style: TextStyle(color: Colors.black),
         ),
         titleSpacing: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.primary,
+        surfaceTintColor: Colors.transparent,
+        foregroundColor: AppTheme.textColorRed,
         elevation: 0,
         leading: InkWell(
           onTap: () => Get.back(),
           child: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.red,
           ),
         ),
       ),
@@ -57,7 +59,7 @@ class NewReport extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text("Please Provide your Medical Information"),
+                      Text("Please Provide your Medical Information",style: TextStyle(color: AppTheme.textColorRed),),
                       const SizedBox(
                         height: 10,
                       ),
@@ -91,12 +93,12 @@ class NewReport extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 8),
-                      const Row(
+                       Row(
                         children: [
-                          Text("Infection Diseases "),
-                          Expanded(
+                          Text("Infection Diseases ",style: TextStyle(color: AppTheme.textColorRed),),
+                           Expanded(
                               child: Divider(
-                            color: Colors.black45,
+                            color: AppTheme.textColorRed,
                           )),
                         ],
                       ),
@@ -142,8 +144,8 @@ class NewReport extends StatelessWidget {
                         labelText: "Blood pressure*",
                       ),
                       const SizedBox(height: 14),
-                      const Divider(
-                        color: Colors.black45,
+                       Divider(
+                        color: AppTheme.textColorRed,
                       ),
                       const SizedBox(height: 8),
                       CustomDropdown(

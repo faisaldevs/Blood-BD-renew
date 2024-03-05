@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../../utils/app_colors.dart';
+
 class DonationAccepted extends StatelessWidget {
   const DonationAccepted({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.primary,
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
@@ -16,13 +19,14 @@ class DonationAccepted extends StatelessWidget {
         ),
         title: const Text("Medical History"),
         titleSpacing: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.primary,
+        surfaceTintColor: Colors.transparent,
+        foregroundColor: AppTheme.textColorRed,
         elevation: 0,
         leading: InkWell(
           onTap: () => Get.back(),
           child: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
           ),
         ),
       ),

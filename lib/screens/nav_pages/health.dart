@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../utils/app_colors.dart';
 import 'health_checkup/calculator.dart';
 import 'health_checkup/health_checkup.dart';
 
@@ -10,14 +11,15 @@ class HealthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white10,
+      backgroundColor: AppTheme.primary,
       appBar: AppBar(
         title: const Text("Health Checkup"),
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.primary,
+        surfaceTintColor: Colors.transparent,
+        foregroundColor: AppTheme.textColorRed,
       ),
       body: Container(
         margin: EdgeInsets.all(16),
-        color: Colors.white10,
         child: ListView(
           children: [
             HealthBody(

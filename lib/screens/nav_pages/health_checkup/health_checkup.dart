@@ -1,3 +1,4 @@
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -24,7 +25,7 @@ class HealthBody extends StatelessWidget {
         width: Get.width.w,
         height: 90.h,
         decoration: BoxDecoration(
-            color: Color(0xffeeeeee),
+            color: AppTheme.textFieldColor,
             borderRadius: const BorderRadius.all(Radius.circular(20)),
             border: Border.all(
               width: 1,
@@ -35,11 +36,17 @@ class HealthBody extends StatelessWidget {
           leading: Image.asset(image),
           title: Text(
             title,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: AppTheme.textColorRed,
+                fontSize: 16,
+                fontWeight: FontWeight.bold),
           ),
           subtitle: Text(
             subTitle,
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                color: AppTheme.textColorRed,
+                fontSize: 12,
+                fontWeight: FontWeight.w500),
           ),
           contentPadding: const EdgeInsets.all(8),
           // tileColor: Colors.red,
@@ -50,5 +57,4 @@ class HealthBody extends StatelessWidget {
     );
   }
 }
-//
-//
+

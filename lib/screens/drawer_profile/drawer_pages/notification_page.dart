@@ -1,3 +1,4 @@
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,7 @@ class NotificationPage extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.primary,
         appBar: AppBar(
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.redAccent,
@@ -33,13 +34,15 @@ class NotificationPage extends StatelessWidget {
           ),
           title: const Text("Notification"),
           titleSpacing: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.primary,
+          surfaceTintColor: Colors.transparent,
+          foregroundColor: AppTheme.textColorRed,
           elevation: 0,
           leading: InkWell(
             onTap: () => Get.back(),
             child: const Icon(
               Icons.arrow_back_ios,
-              color: Colors.black,
+              // color: Colors.black,
             ),
           ),
           bottom: const TabBar(

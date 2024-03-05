@@ -14,7 +14,7 @@ class CustomDropdown extends StatelessWidget {
   final String label;
 
   final List dropDownList;
- var onChanged;
+  var onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +46,12 @@ class CustomDropdown extends StatelessWidget {
       items: dropDownList.map((e) {
         return DropdownMenuItem(
             value: e,
-            child: Text(
-              e,
-              style: const TextStyle(fontWeight: FontWeight.normal),
-            ));
+            child: Text(e,
+                style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    color: AppTheme.textColorRed)));
       }).toList(),
       onChanged: onChanged,
-
     );
   }
 }

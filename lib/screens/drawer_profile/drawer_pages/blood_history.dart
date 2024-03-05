@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../../utils/app_colors.dart';
+
 class BloodHistory extends StatelessWidget {
   const BloodHistory({super.key});
 
@@ -10,6 +12,7 @@ class BloodHistory extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: AppTheme.primary,
         appBar: AppBar(
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.redAccent,
@@ -20,7 +23,9 @@ class BloodHistory extends StatelessWidget {
           ),
           title: const Text("History"),
           titleSpacing: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.primary,
+          surfaceTintColor: Colors.transparent,
+          foregroundColor: AppTheme.textColorRed,
           elevation: 0,
           leading: InkWell(
             onTap: () => Get.back(),

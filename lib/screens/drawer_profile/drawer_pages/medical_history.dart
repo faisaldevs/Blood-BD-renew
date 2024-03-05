@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import '../../../global/app_routes.dart';
+import '../../../utils/app_colors.dart';
 
 class MedicalHistory extends StatelessWidget {
   MedicalHistory({super.key});
@@ -28,7 +29,7 @@ class MedicalHistory extends StatelessWidget {
       return formattedDate;
     }
 
-    return Scaffold(
+    return Scaffold(backgroundColor: AppTheme.primary,
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.redAccent,
@@ -37,13 +38,14 @@ class MedicalHistory extends StatelessWidget {
         ),
         title: const Text("Medical History"),
         titleSpacing: 0,
-        backgroundColor: Colors.white,
-        elevation: 0,
+        backgroundColor: AppTheme.primary,
+        surfaceTintColor: Colors.transparent,
+        foregroundColor: AppTheme.textColorRed,        elevation: 0,
         leading: InkWell(
           onTap: () => Get.back(),
           child: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
+            // color: Colors.black,
           ),
         ),
         actions: [
