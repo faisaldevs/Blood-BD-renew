@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../utils/app_colors.dart';
 
 class CustomTimePicker extends StatefulWidget {
@@ -14,26 +13,31 @@ class CustomTimePicker extends StatefulWidget {
 }
 
 class _CustomTimePickerState extends State<CustomTimePicker> {
+
+  Future<void> selectTime(BuildContext context) async {
+    TimeOfDay? selectedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+      builder: (BuildContext context, Widget? child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+          child: child!,
+        );
+      },
+
+    );
+
+    if (selectedTime != null) {
+      print('Selected time: ${selectedTime.format(context)}');
+      // You can do something with the selected time here
+      setState(() {
+        widget.controller.text = selectedTime.format(context).toString();
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-
-    TimeOfDay selectedTime = TimeOfDay.now();
-
-    void showBirthDate() async {
-      TimeOfDay? timeOfDay = await showTimePicker(
-        // barrierColor: ,
-        context: context,
-        initialTime: selectedTime,
-        initialEntryMode: TimePickerEntryMode.dial,
-      );
-
-      if (timeOfDay != null) {
-        setState(() {
-          widget.controller.text = timeOfDay.toString();
-        });
-      }
-    }
-
     return Expanded(
       child: TextFormField(
         readOnly: true,
@@ -54,7 +58,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
               borderRadius: BorderRadius.all(Radius.circular(15)),
               borderSide: BorderSide.none),
         ),
-        onTap: () => showBirthDate(),
+        onTap: () => selectTime(context),
       ),
     );
   }
