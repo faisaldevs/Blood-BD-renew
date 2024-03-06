@@ -36,13 +36,13 @@ class _SearchDonorState extends State<SearchDonor> {
         elevation: 0,
         backgroundColor: AppTheme.primary,
         surfaceTintColor: Colors.transparent,
+        foregroundColor: AppTheme.textColorRed,
         title: const Text("Search Donor"),
         titleSpacing: 0,
         leading: InkWell(
           onTap: () => Get.back(),
           child: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
           ),
         ),
       ),

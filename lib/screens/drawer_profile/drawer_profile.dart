@@ -58,13 +58,13 @@ class DrawerProfile extends StatelessWidget {
               Get.toNamed(history);
             },
           ),
-          CustomDrawerLinks(
-            title: 'My Search History',
-            icon: Icons.content_paste_search_outlined,
-            onTap: () {
-              Get.toNamed(mySearchHistory);
-            },
-          ),
+          // CustomDrawerLinks(
+          //   title: 'My Search History',
+          //   icon: Icons.content_paste_search_outlined,
+          //   onTap: () {
+          //     Get.toNamed(mySearchHistory);
+          //   },
+          // ),
           CustomDrawerLinks(
             title: 'Customer Support',
             icon: Icons.privacy_tip_outlined,

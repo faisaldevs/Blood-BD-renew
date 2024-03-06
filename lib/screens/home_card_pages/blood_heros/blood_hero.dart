@@ -1,10 +1,10 @@
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class BloodHeroList extends StatelessWidget {
   const BloodHeroList({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,11 @@ class BloodHeroList extends StatelessWidget {
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (context, index) => Container(
-      decoration: BoxDecoration(
-        color: Colors.grey[300],
-        borderRadius: BorderRadius.circular(16),),
-        margin: const EdgeInsets.only(left: 10,right: 10,top: 10,bottom: 0),
+        decoration: BoxDecoration(
+          color: AppTheme.textFieldColor,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        margin: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 0),
         padding: const EdgeInsets.only(left: 16, top: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -36,8 +37,7 @@ class BloodHeroList extends StatelessWidget {
               padding: const EdgeInsets.only(top: 4, bottom: 0),
               child: Text(
                 "contract :",
-                style:
-                TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
               ),
             ),
             Row(
@@ -62,8 +62,7 @@ class BloodHeroList extends StatelessWidget {
                             Text(
                               number1,
                               style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w400),
+                                  fontSize: 14.sp, fontWeight: FontWeight.w400),
                             ),
                           ],
                         ),
@@ -74,7 +73,7 @@ class BloodHeroList extends StatelessWidget {
                         },
                         style: const ButtonStyle(
                             padding:
-                            MaterialStatePropertyAll(EdgeInsets.all(0))),
+                                MaterialStatePropertyAll(EdgeInsets.all(0))),
                         icon: Row(
                           children: [
                             const Icon(
@@ -87,8 +86,7 @@ class BloodHeroList extends StatelessWidget {
                             Text(
                               number2,
                               style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w400),
+                                  fontSize: 14.sp, fontWeight: FontWeight.w400),
                             ),
                           ],
                         ),

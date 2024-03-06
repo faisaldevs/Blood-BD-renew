@@ -27,12 +27,12 @@ class BloodHeroes extends StatelessWidget {
         ),
         elevation: 0,
         title: const Text("Blood Heroes"),
+        foregroundColor: AppTheme.textColorRed,
         titleSpacing: 0,
         leading: InkWell(
           onTap: () => Get.back(),
           child: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
           ),
         ),
       ),

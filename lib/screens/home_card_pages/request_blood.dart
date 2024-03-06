@@ -19,7 +19,7 @@ class RequestBlood extends StatefulWidget {
 }
 
 class _RequestBloodState extends State<RequestBlood> {
-  RequestBloodController  rqBloodController = Get.put(RequestBloodController());
+  RequestBloodController rqBloodController = Get.put(RequestBloodController());
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +34,13 @@ class _RequestBloodState extends State<RequestBlood> {
         elevation: 0,
         backgroundColor: AppTheme.primary,
         surfaceTintColor: Colors.transparent,
+        foregroundColor: AppTheme.textColorRed,
         title: const Text("Request Blood"),
         titleSpacing: 0,
         leading: InkWell(
           onTap: () => Get.back(),
           child: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
           ),
         ),
       ),
@@ -239,10 +239,7 @@ class _RequestBloodState extends State<RequestBlood> {
                 ),
 
                 SizedBox(
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width,
+                  width: MediaQuery.of(context).size.width,
                   child: CustomButton(
                       onPressed: () {
                         rqBloodController.onSaveRqBlood();

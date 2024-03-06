@@ -39,21 +39,10 @@ class FeedPage extends StatelessWidget {
           leading: null,
         ),
         body: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(horizontal: 14,vertical: 10),
           child: Column(
             children: [
-              // Container(
-              //   color: Colors.red,
-              //   height: Get.height * .18,
-              //   width: Get.width,
-              //   child: Image.asset(
-              //     "assets/images/banner/1.png",
-              //     fit: BoxFit.cover,
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: Get.height * .01,
-              // ),
+
               Expanded(
                 child: Column(
                   children: [
@@ -80,58 +69,10 @@ class FeedPage extends StatelessWidget {
                     SizedBox(
                       height: Get.height * .01,
                     ),
-                     Expanded(
+                     const Expanded(
                       child: TabBarView(
                         children: [
-                          const DonorRequestFeed(),
-                          // dataList == []? const Column(
-                          //   mainAxisAlignment: MainAxisAlignment.center,
-                          //   crossAxisAlignment: CrossAxisAlignment.center,
-                          //   children: [
-                          //     Icon(
-                          //       Icons.search,
-                          //       size: 120,
-                          //       color: Colors.black26,
-                          //     ),
-                          //     Text(
-                          //       "No Notification Found!",
-                          //       style: TextStyle(
-                          //           fontSize: 24, color: Colors.black26),
-                          //     ),
-                          //   ],
-                          // ) :ListView.builder(
-                          //
-                          //   itemBuilder: (context, index) {
-                          //   return Container(child: Text(dataList[index]["Patient's Name"]),);
-                          // },
-                          // itemCount: dataList.length,
-                          // ),
-                          // Container(
-                          //   child: hasData
-                          //       ? ListView.builder(
-                          //           itemCount: 5,
-                          //           itemBuilder: (context, index) =>
-                          //               const FeedBody(),
-                          //         )
-                          //       : const Column(
-                          //           mainAxisAlignment: MainAxisAlignment.center,
-                          //           crossAxisAlignment:
-                          //               CrossAxisAlignment.center,
-                          //           children: [
-                          //             Icon(
-                          //               Icons.search,
-                          //               size: 120,
-                          //               color: Colors.black26,
-                          //             ),
-                          //             Text(
-                          //               "No Notification Found!",
-                          //               style: TextStyle(
-                          //                   fontSize: 24,
-                          //                   color: Colors.black26),
-                          //             ),
-                          //           ],
-                          //         ),
-                          // ),
+                          DonorRequestFeed(),
                           ReceiverRequestFeed(),
                         ],
                       ),

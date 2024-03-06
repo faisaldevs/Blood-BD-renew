@@ -15,11 +15,10 @@ class HealthPage extends StatelessWidget {
       backgroundColor: AppTheme.primary,
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
-        statusBarColor: Colors.redAccent,
-        statusBarIconBrightness: Brightness.dark,
-        statusBarBrightness: Brightness.light,
-      ),
-
+          statusBarColor: Colors.redAccent,
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.light,
+        ),
         title: const Text("Health Checkup"),
         backgroundColor: AppTheme.primaryRed,
         surfaceTintColor: Colors.transparent,
@@ -41,36 +40,38 @@ class HealthPage extends StatelessWidget {
             HealthBody(
               title: "Ponderal Index",
               subTitle: "An improved Version of BMI",
-              onTap: () {}, image: "assets/images/bmi.png",
+              onTap: () {},
+              image: "assets/images/bmi.png",
             ),
             HealthBody(
               title: "Body Fat Percentage",
-              subTitle:
-              "a measure of fitness level of an individual",
+              subTitle: "a measure of fitness level of an individual",
               onTap: () {},
               image: "assets/images/bmi.png",
             ),
             HealthBody(
               title: "Lean Body Mass",
               subTitle: "Calculate your fat free mass",
-              onTap: () {}, image: "assets/images/bmi.png",
+              onTap: () {},
+              image: "assets/images/bmi.png",
             ),
             HealthBody(
               title: "Blood Volume",
-              subTitle:
-              "Volume of blood of any individual",
+              subTitle: "Volume of blood of any individual",
               onTap: () {},
               image: "assets/images/bmi.png",
             ),
             HealthBody(
               title: "Body Water",
               subTitle: "Know your water volume in your body",
-              onTap: () {}, image: "assets/images/bmi.png",
+              onTap: () {},
+              image: "assets/images/bmi.png",
             ),
             HealthBody(
               title: "Heart Rate",
               subTitle: "know your heart rate",
-              onTap: () {}, image: "assets/images/bmi.png",
+              onTap: () {},
+              image: "assets/images/bmi.png",
             ),
           ],
         ),

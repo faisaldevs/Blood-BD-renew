@@ -40,21 +40,32 @@ class Calculator extends StatelessWidget {
                       width: Get.width * .7.w,
                       padding: const EdgeInsets.all(18),
                       decoration: BoxDecoration(
-                        border: Border.all(width: 1,color: Colors.black),
+                        border: Border.all(width: 1, color: Colors.black),
                       ),
                       child: const Column(
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("data",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,),),
-                              Text("data",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,),),
+                              Text(
+                                "data",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "data",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
                             ],
                           ),
-
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

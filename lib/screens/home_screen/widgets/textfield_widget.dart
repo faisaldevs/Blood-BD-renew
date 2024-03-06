@@ -48,7 +48,7 @@ class TextFieldWidget extends StatelessWidget {
               value: e,
               child: Text(
                 e,
-                style: const TextStyle(fontWeight: FontWeight.normal),
+                style: TextStyle(fontWeight: FontWeight.normal, color: AppTheme.textColorRed),
               ));
         }).toList(),
         onChanged: onChanged,
