@@ -15,28 +15,28 @@ class _FeedBodyState extends State<FeedBody> {
   final sdStorage = GetStorage();
 
   sdStorageClear() {
-    var patientName = sdStorage.remove("patientName");
-    var bloodType = sdStorage.remove("bloodType");
-    var bloodAmount = sdStorage.remove("bloodAmount");
-    var healthIssue = sdStorage.remove("healthIssue");
-    var date = sdStorage.remove("date");
-    var time = sdStorage.remove("time");
-    var contactParsonPhone = sdStorage.remove("contactParsonPhone");
-    var contactParsonName = sdStorage.remove("contactParsonName");
+    // var patientName = sdStorage.remove("patientName");
+    // var bloodType = sdStorage.remove("bloodType");
+    // var bloodAmount = sdStorage.remove("bloodAmount");
+    // var healthIssue = sdStorage.remove("healthIssue");
+    // var date = sdStorage.remove("date");
+    // var time = sdStorage.remove("time");
+    // var contactParsonPhone = sdStorage.remove("contactParsonPhone");
+    // var contactParsonName = sdStorage.remove("contactParsonName");
   }
 
   bool isVisible = false;
 
   @override
   Widget build(BuildContext context) {
-    var patientName = sdStorage.read("patientName");
-    var bloodType = sdStorage.read("bloodType");
-    var bloodAmount = sdStorage.read("bloodAmount");
-    var healthIssue = sdStorage.read("healthIssue");
-    var date = sdStorage.read("date");
-    var time = sdStorage.read("time");
-    var contactParsonPhone = sdStorage.read("contactParsonPhone");
-    var contactParsonName = sdStorage.read("contactParsonName");
+    // var patientName = sdStorage.read("patientName");
+    // var bloodType = sdStorage.read("bloodType");
+    // var bloodAmount = sdStorage.read("bloodAmount");
+    // var healthIssue = sdStorage.read("healthIssue");
+    // var date = sdStorage.read("date");
+    // var time = sdStorage.read("time");
+    // var contactParsonPhone = sdStorage.read("contactParsonPhone");
+    // var contactParsonName = sdStorage.read("contactParsonName");
 
     String showTime() {
       DateTime now;

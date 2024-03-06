@@ -219,6 +219,7 @@ class _RequestBloodState extends State<RequestBlood> {
                 CustomTextFormField(
                   controller: rqBloodController.numberController,
                   hintText: "",
+                  length: 11,
                   textInputType: TextInputType.number,
                   validate: (number) {
                     if (number!.isEmpty) {

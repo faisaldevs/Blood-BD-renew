@@ -123,7 +123,7 @@ class MedicalHistory extends StatelessWidget {
                                             mhList[index]["institutionName"]
                                                 .toString(),
                                             // "Dhaka Medical College",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 13,
                                                 fontWeight: FontWeight.bold)),
                                       ],

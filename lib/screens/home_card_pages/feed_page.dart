@@ -1,5 +1,6 @@
 import 'package:blood_bd/data_list/data_list.dart';
 import 'package:blood_bd/screens/home_card_pages/feed/feed_dropdown.dart';
+import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class FeedPage extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.primary,
         appBar: AppBar(
           
           systemOverlayStyle: const SystemUiOverlayStyle(
@@ -32,7 +33,8 @@ class FeedPage extends StatelessWidget {
           title: const Text("Blood Request",style: TextStyle(color: Colors.white),),
           centerTitle: true,
           titleSpacing: 0,
-          backgroundColor: Colors.redAccent,
+          backgroundColor: AppTheme.primaryRed,
+          surfaceTintColor: Colors.transparent,
           elevation: 0,
           leading: null,
         ),

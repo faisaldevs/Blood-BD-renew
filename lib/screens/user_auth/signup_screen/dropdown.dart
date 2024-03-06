@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../data_list/data_list.dart';
 
 class DropDownBtn extends StatelessWidget {
 
@@ -11,33 +10,31 @@ class DropDownBtn extends StatelessWidget {
    final List dropDownList;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: DropdownButtonFormField(
-        decoration: const InputDecoration(
-          // hintText: "hintText",
-          labelText: "label",
-          labelStyle: TextStyle(color: Colors.red),
-          contentPadding: EdgeInsets.only(left: 12),
-          counterStyle: TextStyle(fontWeight: FontWeight.bold),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.zero,
-            borderSide: BorderSide(color: Colors.black54, width: 1),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.zero,
-            borderSide: BorderSide(color: Colors.black54, width: 1),
-          ),
+    return DropdownButtonFormField(
+      decoration: const InputDecoration(
+        // hintText: "hintText",
+        labelText: "label",
+        labelStyle: TextStyle(color: Colors.red),
+        contentPadding: EdgeInsets.only(left: 12),
+        counterStyle: TextStyle(fontWeight: FontWeight.bold),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.zero,
+          borderSide: BorderSide(color: Colors.black54, width: 1),
         ),
-        items:  dropDownList.map((e) {
-          return DropdownMenuItem(
-              value: e,
-              child: Text(
-                e,
-                style: const TextStyle(fontWeight: FontWeight.normal),
-              ));
-        }).toList(),
-        onChanged: onChanged,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.zero,
+          borderSide: BorderSide(color: Colors.black54, width: 1),
+        ),
       ),
+      items:  dropDownList.map((e) {
+        return DropdownMenuItem(
+            value: e,
+            child: Text(
+              e,
+              style: const TextStyle(fontWeight: FontWeight.normal),
+            ));
+      }).toList(),
+      onChanged: onChanged,
     );
   }
 }

@@ -115,7 +115,7 @@ class _DrawerHeaderPageState extends State<DrawerHeaderPage> {
                 ),
                 Container(
                     decoration:  BoxDecoration(
-                      borderRadius: BorderRadius.all(const Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                        color: Colors.black.withOpacity(.3),
                     ),
                     padding:

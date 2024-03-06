@@ -21,7 +21,7 @@ class HealthBody extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20.0),
       child: Container(
-        margin: EdgeInsets.only(bottom: 10),
+        margin: const EdgeInsets.only(bottom: 10),
         width: Get.width.w,
         height: 90.h,
         decoration: BoxDecoration(

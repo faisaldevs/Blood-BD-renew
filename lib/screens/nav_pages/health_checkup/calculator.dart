@@ -9,10 +9,10 @@ class Calculator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("title"),
+        title: const Text("title"),
         centerTitle: true,
       ),
-      body: Container(
+      body: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Stack(
@@ -38,7 +38,7 @@ class Calculator extends StatelessWidget {
                     Container(),
                     Container(
                       width: Get.width * .7.w,
-                      padding: EdgeInsets.all(18),
+                      padding: const EdgeInsets.all(18),
                       decoration: BoxDecoration(
                         border: Border.all(width: 1,color: Colors.black),
                       ),

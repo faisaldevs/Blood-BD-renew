@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../utils/app_colors.dart';
@@ -13,13 +14,19 @@ class HealthPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppTheme.primary,
       appBar: AppBar(
+        systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarColor: Colors.redAccent,
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
+      ),
+
         title: const Text("Health Checkup"),
-        backgroundColor: AppTheme.primary,
+        backgroundColor: AppTheme.primaryRed,
         surfaceTintColor: Colors.transparent,
-        foregroundColor: AppTheme.textColorRed,
+        foregroundColor: AppTheme.textColorWhite,
       ),
       body: Container(
-        margin: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(16),
         child: ListView(
           children: [
             HealthBody(

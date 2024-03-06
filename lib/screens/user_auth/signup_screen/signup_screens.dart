@@ -206,6 +206,7 @@ class SignupScreen extends StatelessWidget {
                 CustomTextFormField(
                   controller: signupController.numberController,
                   hintText: "",
+                  length: 11,
                   textInputType: TextInputType.number,
                   validate: (number) {
                     if (number!.isEmpty) {

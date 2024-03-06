@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -72,7 +71,7 @@ class SignupController extends GetxController {
         print(response.statusCode);
 
         if (response.statusCode == 200) {
-          var data = jsonDecode(response.body.toString());
+          // var data = jsonDecode(response.body.toString());
           // var id = data["user"]["id"];
           // var name = data["user"]["name"].toString();
           // var phone = data["user"]["phone"].toString();

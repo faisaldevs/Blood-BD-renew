@@ -223,6 +223,7 @@ class _SearchDonorState extends State<SearchDonor> {
                 CustomTextFormField(
                   controller: sdController.numberController,
                   hintText: "",
+                  length: 11,
                   textInputType: TextInputType.number,
                   validate: (number) {
                     if (number.toString().isEmpty) {

@@ -73,6 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   CustomTextFormField(
                     controller: _loginController.numberController,
                     hintText: '',
+                    length: 11,
                     textInputType: TextInputType.text,
                     validate: (number) {
                       if (number!.isEmpty) {

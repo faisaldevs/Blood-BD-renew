@@ -7,13 +7,11 @@ import 'package:pinput/pinput.dart';
 import '../../global_widget/custom_button.dart';
 
 class ForgetPassOtpVerification extends StatelessWidget {
-   ForgetPassOtpVerification({super.key});
+  ForgetPassOtpVerification({super.key});
 
- final ForgetPassOTPController forgetPassOTPController = Get.put(ForgetPassOTPController());
+  final ForgetPassOTPController forgetPassOTPController =
+      Get.put(ForgetPassOTPController());
 
-
-
-  //  void otpValidation() async {
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
@@ -49,8 +47,14 @@ class ForgetPassOtpVerification extends StatelessWidget {
               SizedBox(
                 height: height * 0.14,
               ),
-              const Icon(Icons.check_circle,size: 90,color: Colors.red,),
-              SizedBox(height: height*0.04,),
+              const Icon(
+                Icons.check_circle,
+                size: 90,
+                color: Colors.red,
+              ),
+              SizedBox(
+                height: height * 0.04,
+              ),
               Text(
                 'OTP VERIFICATION',
                 style: GoogleFonts.urbanist(
@@ -59,7 +63,9 @@ class ForgetPassOtpVerification extends StatelessWidget {
                   fontSize: 24.0,
                 ),
               ),
-              SizedBox(height: height*0.04,),
+              SizedBox(
+                height: height * 0.04,
+              ),
 
               const Text("Enter the OTP Send To :+88"),
               SizedBox(
@@ -74,12 +80,12 @@ class ForgetPassOtpVerification extends StatelessWidget {
                   child: Pinput(
                       key: forgetPassOTPController.otpFormKey,
                       // senderPhoneNumber: "01903440069",
-                      controller: forgetPassOTPController.forgetPassOtpController,
+                      controller:
+                          forgetPassOTPController.forgetPassOtpController,
                       validator: (otp) {
                         if (otp!.isEmpty) {
                           // print(otp);
                           return "Enter OTP pin";
-
                         }
                         return null;
                       },
@@ -122,10 +128,14 @@ class ForgetPassOtpVerification extends StatelessWidget {
 
               /// Continue Button
               const Expanded(child: SizedBox()),
-              SizedBox(width: width,child: CustomButton(onPressed: (){
-                // otpValidation();
-                // Get.toNamed(home);
-              },child : const Text("Continue"))),
+              SizedBox(
+                  width: width,
+                  child: CustomButton(
+                      onPressed: () {
+                        // otpValidation();
+                        // Get.toNamed(home);
+                      },
+                      child: const Text("Continue"))),
               const SizedBox(
                 height: 16.0,
               ),

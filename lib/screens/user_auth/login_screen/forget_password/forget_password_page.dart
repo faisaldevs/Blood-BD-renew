@@ -73,6 +73,7 @@ class ForgetPasswordPage extends StatelessWidget {
                       if(value!.isEmpty){
                         return "faisal";
                       }
+                      return null;
                     },
                     hintText: "Confirm Password"),
 

@@ -19,7 +19,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.validate,
     required this.labelText,
     this.suffixFunction,
-    this.onTap,
+    this.onTap, this.length,
   });
 
   final TextEditingController? controller;
@@ -32,6 +32,7 @@ class CustomTextFormField extends StatelessWidget {
   final IconData? suffixIcon;
   final Color? borderColor;
   final int? designNumber;
+  final int? length;
   final bool? isEnabled;
   final Function(String)? onChanged;
   final String? Function(String?) validate;
@@ -41,6 +42,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: length,
       onTap: onTap,
       validator: validate,
       onChanged: onChanged,
