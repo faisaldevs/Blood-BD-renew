@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import '../global/app_routes.dart';
 
 class RequestBloodController extends GetxController {
-  GlobalKey<FormState> requestBloodKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController patientNameController = TextEditingController();
   late final String bloodType;
   late final String bloodAmount;
@@ -18,7 +18,7 @@ class RequestBloodController extends GetxController {
   List<Map<String, dynamic>> dataList = [];
 
   onSaveRqBlood() {
-    if (requestBloodKey.currentState!.validate()) {
+    if (formKey.currentState!.validate()) {
       print("validate");
 
       final data = {

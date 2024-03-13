@@ -75,7 +75,7 @@ class _SignupOTPVerificationState extends State<SignupOTPVerification> {
                 child: SizedBox(
                   width: width,
                   child: Pinput(
-                      key: signupOTPController.otpFormKey,
+                      key: signupOTPController.formKey,
                       // senderPhoneNumber: "01903440069",
                       controller: signupOTPController.signupOtpController,
                       validator: (otp) {

@@ -1,15 +1,20 @@
+import 'dart:convert';
+
+import 'package:blood_bd/models/DropdownModel.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import '../global/app_routes.dart';
+import '../models/division_model.dart';
 
 
 class SignupController extends GetxController {
    GetStorage getStorage = GetStorage();
 
-   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
+   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController nameController = TextEditingController();
    TextEditingController genderController = TextEditingController();
@@ -45,7 +50,7 @@ class SignupController extends GetxController {
     if (kDebugMode) {
       print("success");
     }
-    if (signupFormKey.currentState!.validate()) {
+    if (formKey.currentState!.validate()) {
       isSignup.value = true;
 
       try {
@@ -161,4 +166,39 @@ class SignupController extends GetxController {
 //
 //   throw Exception("");
 // }
+
+  RxList<DivisionModel> divisions = <DivisionModel>[].obs;
+
+Future<List<DivisionModel>> getDivision() async{
+
+    print("pressed.............");
+    try{
+      final response = await http.get(Uri.parse("https://starsoftjpn.xyz/api/v1/division"));
+
+      var jsonDataDecoded = json.decode(response.body);
+      var divisionList = jsonDataDecoded['data'] as List;
+      divisions.assignAll(divisionList as Iterable<DivisionModel>);
+
+
+
+      if(response.statusCode == 200){
+        print(divisions.toString());
+
+        // print("-------------------------------------------------------------------
+        // ------------------------------------------------------------------------------
+        // ------------------------------------------"+divisionList.toString());
+
+      }else{
+        print("failed code${response.statusCode}");
+      }
+
+
+
+    }catch(e){
+      print("field.....");
+    }
+    throw Exception("Loading failed !!!");
+
+}
+
 }

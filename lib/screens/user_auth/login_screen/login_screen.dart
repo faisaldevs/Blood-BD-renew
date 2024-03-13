@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: const EdgeInsets.all(16.0),
         child: SafeArea(
           child: Form(
-            key: _loginController.loginFormKey,
+            key: _loginController.formKey,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

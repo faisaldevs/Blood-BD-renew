@@ -78,31 +78,31 @@ class ForgetPassOtpVerification extends StatelessWidget {
                 child: SizedBox(
                   width: width,
                   child: Pinput(
-                      key: forgetPassOTPController.otpFormKey,
-                      // senderPhoneNumber: "01903440069",
-                      controller:
-                          forgetPassOTPController.forgetPassOtpController,
-                      validator: (otp) {
-                        if (otp!.isEmpty) {
-                          // print(otp);
-                          return "Enter OTP pin";
-                        }
-                        return null;
-                      },
-                      length: 4,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      defaultPinTheme: defaultPinTheme,
-                      focusedPinTheme: defaultPinTheme.copyWith(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: Colors.white,
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 1.0,
-                          ),
+                    key: forgetPassOTPController.formKey,
+                    // senderPhoneNumber: "01903440069",
+                    controller: forgetPassOTPController.forgetPassOtpController,
+                    validator: (otp) {
+                      if (otp!.isEmpty) {
+                        // print(otp);
+                        return "Enter OTP pin";
+                      }
+                      return null;
+                    },
+                    length: 4,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    defaultPinTheme: defaultPinTheme,
+                    focusedPinTheme: defaultPinTheme.copyWith(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 1.0,
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ),
               ),
 

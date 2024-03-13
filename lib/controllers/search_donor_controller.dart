@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 
 class SearchDonorController extends GetxController {
    GetStorage sdStorage = GetStorage();
-  GlobalKey<FormState> searchDonorKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController patientNameController = TextEditingController();
   late final String bloodType;
   late final String bloodAmount;
@@ -18,7 +18,7 @@ class SearchDonorController extends GetxController {
 
   searchDonor() {
     print("pressend");
-    if (searchDonorKey.currentState!.validate()) {
+    if (formKey.currentState!.validate()) {
       var patientName = patientNameController.text;
       var date = dateController.text;
       var time = timeController.text;

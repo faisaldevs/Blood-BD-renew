@@ -7,52 +7,43 @@ import 'package:http/http.dart';
 
 import '../global/app_routes.dart';
 
-class LoginController extends GetxController{
-   GetStorage getStorage = GetStorage();
+class LoginController extends GetxController {
+  GetStorage getStorage = GetStorage();
 
-   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-   TextEditingController numberController = TextEditingController();
-   TextEditingController passwordController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
+  RxBool isLogin = false.obs;
 
+  RxBool isVisible = true.obs;
 
- RxBool isLogin= false.obs;
+  visibility() {
+    isVisible.value = !isVisible.value;
+  }
 
- RxBool isVisible = true.obs;
-
-
-
- visibility(){
-
-   isVisible.value = !isVisible.value;
-
- }
   RxBool show = false.obs;
 
- showFunction(){
-   show.value = !show.value;
- }
+  showFunction() {
+    show.value = !show.value;
+  }
 
-
-
-  Future<Text> loginForm()async {
-
-    if(loginFormKey.currentState!.validate()){
-
-       isLogin.value = true;
-
+  Future<Text> loginForm() async {
+    if (formKey.currentState!.validate()) {
+      isLogin.value = true;
 
       if (kDebugMode) {
         print("validation success");
       }
 
-
       try {
-        var response = await post(Uri.parse("https://starsoftjpn.xyz/api/auth/login"), body: {
-          "phone": numberController.text,
-          "password": passwordController.text,
-        });
+        var response = await post(
+            Uri.parse("https://starsoftjpn.xyz/api/auth/login"),
+            body: {
+              "phone": numberController.text,
+              "password": passwordController.text,
+            });
 
         if (response.statusCode == 200) {
           var data = jsonDecode(response.body.toString());
@@ -79,7 +70,7 @@ class LoginController extends GetxController{
         } else {
           isLogin.value = false;
           Get.snackbar(
-            "Login failed${response.statusCode}"  ,
+            "Login failed${response.statusCode}",
             "Number or Password was wrong..",
           );
         }
@@ -89,19 +80,10 @@ class LoginController extends GetxController{
           print(e.toString());
         }
       }
-
     }
 
-  return const Text("data");
+    return const Text("data");
   }
 
-  forgetButton(){
-
-
-  }
-
-
-
-
-
+  forgetButton() {}
 }

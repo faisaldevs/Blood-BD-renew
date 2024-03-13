@@ -50,7 +50,7 @@ class SignupScreen extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.all(16),
         child: Form(
-          key: signupController.signupFormKey,
+          key: signupController.formKey,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -135,16 +135,34 @@ class SignupScreen extends StatelessWidget {
                 const SizedBox(height: 10),
 
                 //  -------Division District Field --------------
+
                 Row(
                   children: [
                     Expanded(
-                        child: CustomDropdown(
-                      dropDownList: DataList.divisionListData,
-                      label: 'Division',
-                      onChanged: (value) {
-                        signupController.division = value;
+                        child: FutureBuilder(
+                      future: signupController.getDivision(),
+                      builder: (context, snapshot) {
+                        return DropdownButton(
+                          items: signupController.divisions.map((division) {
+                            return DropdownMenuItem<String>(
+                              value: division.division,
+                              child: Text(division.division),
+                            );
+                          }).toList(),
+                          onChanged: (value) {},
+                        );
                       },
                     )),
+
+
+                    //     CustomDropdown(
+                    //   dropDownList: DataList.divisionListData,
+                    //   label: 'Division',
+                    //   onChanged: (value) {
+                    //     signupController.division = value;
+                    //   },
+                    // )
+
                     const SizedBox(
                       width: 10,
                     ),

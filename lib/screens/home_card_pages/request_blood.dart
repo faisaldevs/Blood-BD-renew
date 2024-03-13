@@ -47,7 +47,7 @@ class _RequestBloodState extends State<RequestBlood> {
       body: Container(
         margin: const EdgeInsets.all(16),
         child: Form(
-          key: rqBloodController.requestBloodKey,
+          key: rqBloodController.formKey,
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,

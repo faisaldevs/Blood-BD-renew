@@ -192,7 +192,7 @@ class HomePage extends StatelessWidget {
                                 const BorderRadius.all(Radius.circular(20)),
                           ),
                           child: Form(
-                            key: homeController.findDonorKey,
+                            key: homeController.formKey,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.center,

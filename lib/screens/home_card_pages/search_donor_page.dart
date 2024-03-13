@@ -49,7 +49,7 @@ class _SearchDonorState extends State<SearchDonor> {
       body: Container(
         margin: const EdgeInsets.all(16),
         child: Form(
-          key: sdController.searchDonorKey,
+          key: sdController.formKey,
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,

@@ -49,7 +49,7 @@ class NewReport extends StatelessWidget {
           height: Get.height,
           width: Get.width,
           child: Form(
-            key: medicalHistoryController.newReportKey,
+            key: medicalHistoryController.formKey,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
