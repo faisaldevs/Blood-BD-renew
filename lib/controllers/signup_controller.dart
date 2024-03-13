@@ -167,7 +167,7 @@ class SignupController extends GetxController {
 //   throw Exception("");
 // }
 
-  RxList<DivisionModel> divisions = <DivisionModel>[].obs;
+  RxList<Map<String,dynamic>> divisions = <Map<String,dynamic>>[].obs;
 
 Future<List<DivisionModel>> getDivision() async{
 
@@ -177,12 +177,17 @@ Future<List<DivisionModel>> getDivision() async{
 
       var jsonDataDecoded = json.decode(response.body);
       var divisionList = jsonDataDecoded['data'] as List;
-      divisions.assignAll(divisionList as Iterable<DivisionModel>);
+
+      // divisions.value = divisionList as List<Map<String,dynamic>>;
 
 
 
       if(response.statusCode == 200){
-        print(divisions.toString());
+        // print(divisions.toString());
+
+        // print(divisions.toString());
+        print("hoisa");
+        print(divisionList.toString());
 
         // print("-------------------------------------------------------------------
         // ------------------------------------------------------------------------------

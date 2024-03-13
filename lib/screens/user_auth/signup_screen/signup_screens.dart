@@ -144,9 +144,9 @@ class SignupScreen extends StatelessWidget {
                       builder: (context, snapshot) {
                         return DropdownButton(
                           items: signupController.divisions.map((division) {
-                            return DropdownMenuItem<String>(
-                              value: division.division,
-                              child: Text(division.division),
+                            return const DropdownMenuItem<String>(
+                              value: null,
+                              child: Text(""),
                             );
                           }).toList(),
                           onChanged: (value) {},
