@@ -55,3 +55,46 @@ class CustomDropdown extends StatelessWidget {
     );
   }
 }
+
+
+
+
+class ApiDropdown extends StatelessWidget {
+  ApiDropdown({super.key, required this.label, required this.dropDownList,    required this.onChanged,});
+  final String label;
+
+  final List<DropdownMenuItem<dynamic>> dropDownList;
+  var onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField(
+      icon: Icon(
+        Icons.arrow_drop_down,
+        color: AppTheme.textColorRed,
+      ),
+      decoration: InputDecoration(
+        hintText: label,
+        fillColor: AppTheme.textFieldColor,
+        filled: true,
+        contentPadding: const EdgeInsets.only(left: 12),
+        counterStyle: const TextStyle(fontWeight: FontWeight.bold),
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          borderSide: BorderSide.none,
+        ),
+        border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            borderSide: BorderSide.none),
+        labelStyle: TextStyle(
+          color: AppTheme.textColorRed,
+        ),
+        hintStyle: TextStyle(
+          color: AppTheme.textColorRed,
+        ),
+      ),
+      items: dropDownList,
+      onChanged: onChanged,
+    );
+  }
+}

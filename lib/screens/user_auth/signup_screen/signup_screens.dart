@@ -50,7 +50,7 @@ class SignupScreen extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.all(16),
         child: Form(
-          key: signupController.formKey,
+          key: signupController.signupFormKey,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -139,21 +139,43 @@ class SignupScreen extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                        child: FutureBuilder(
-                      future: signupController.getDivision(),
-                      builder: (context, snapshot) {
-                        return DropdownButton(
-                          items: signupController.divisions.map((division) {
-                            return const DropdownMenuItem<String>(
-                              value: null,
-                              child: Text(""),
+                      child: FutureBuilder(
+                        future: signupController.getDivision(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return ApiDropdown(
+                              dropDownList: snapshot.data!.map((e) {
+                                return DropdownMenuItem(value: e.id,child: Text(e.division.toString(), style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    color: AppTheme.textColorRed)),);
+                              }).toList(),
+                              label: 'Division',
+                              onChanged: (value) {
+                                // signupController.division = value;
+                                print(value.toString());
+                              },
                             );
-                          }).toList(),
-                          onChanged: (value) {},
-                        );
-                      },
-                    )),
+                          } else {
+                            return const Center(child: CircularProgressIndicator());
+                          }
+                        },
+                      ),
+                    ),
 
+                    //FutureBuilder(
+                    //                       future: signupController.getDivision(),
+                    //                       builder: (context, snapshot) {
+                    //                         return DropdownButton(
+                    //                           items: signupController.divisions.map((division) {
+                    //                             return const DropdownMenuItem<String>(
+                    //                               value: null,
+                    //                               child: Text(""),
+                    //                             );
+                    //                           }).toList(),
+                    //                           onChanged: (value) {},
+                    //                         );
+                    //                       },
+                    //                     )
 
                     //     CustomDropdown(
                     //   dropDownList: DataList.divisionListData,

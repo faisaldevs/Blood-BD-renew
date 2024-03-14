@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:blood_bd/models/DropdownModel.dart';
+import 'package:blood_bd/api/api_links.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,25 +10,24 @@ import 'package:http/http.dart';
 import '../global/app_routes.dart';
 import '../models/division_model.dart';
 
-
 class SignupController extends GetxController {
-   GetStorage getStorage = GetStorage();
+  GetStorage getStorage = GetStorage();
 
-   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
   TextEditingController nameController = TextEditingController();
-   TextEditingController genderController = TextEditingController();
-   TextEditingController dateController = TextEditingController();
-   TextEditingController passwordController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   late final String bloodType;
   late final String gender;
   late final String division;
   late final String district;
   late final String upazila;
   late final String union;
-   TextEditingController addressController = TextEditingController();
-   TextEditingController numberController = TextEditingController();
-   TextEditingController weightController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
 
   RxBool isVisible = true.obs;
 
@@ -50,7 +49,7 @@ class SignupController extends GetxController {
     if (kDebugMode) {
       print("success");
     }
-    if (formKey.currentState!.validate()) {
+    if (signupFormKey.currentState!.validate()) {
       isSignup.value = true;
 
       try {
@@ -167,43 +166,31 @@ class SignupController extends GetxController {
 //   throw Exception("");
 // }
 
-  RxList<Map<String,dynamic>> divisions = <Map<String,dynamic>>[].obs;
+  RxList<dynamic> divisions = [].obs;
 
-Future<List<DivisionModel>> getDivision() async{
-
+  Future<List<DivisionModel>> getDivision() async {
     print("pressed.............");
-    try{
-      final response = await http.get(Uri.parse("https://starsoftjpn.xyz/api/v1/division"));
+    try {
+      final response = await http.get(Uri.parse(ApiUrls.division));
 
       var jsonDataDecoded = json.decode(response.body);
       var divisionList = jsonDataDecoded['data'] as List;
 
-      // divisions.value = divisionList as List<Map<String,dynamic>>;
-
-
-
-      if(response.statusCode == 200){
-        // print(divisions.toString());
-
-        // print(divisions.toString());
-        print("hoisa");
-        print(divisionList.toString());
-
-        // print("-------------------------------------------------------------------
-        // ------------------------------------------------------------------------------
-        // ------------------------------------------"+divisionList.toString());
-
-      }else{
+      if (response.statusCode == 200) {
+        print("pressed.............");
+        return divisionList.map((e) {
+          final map = e as Map<String, dynamic>;
+          return DivisionModel(
+            id: map["id"],
+            division: map["division"],
+          );
+        }).toList();
+      } else {
         print("failed code${response.statusCode}");
       }
-
-
-
-    }catch(e){
+    } catch (e) {
       print("field.....");
     }
     throw Exception("Loading failed !!!");
-
-}
-
+  }
 }

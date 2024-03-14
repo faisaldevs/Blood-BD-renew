@@ -1,30 +1,4 @@
 class DivisionModel {
-  bool? success;
-  List<Data>? data;
-
-  DivisionModel({this.success, this.data});
-
-  DivisionModel.fromJson(Map<String, dynamic> json) {
-    success = json['success'];
-    if (json['data'] != null) {
-      data = <Data>[];
-      json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Data {
   int? id;
   String? countryId;
   String? division;
@@ -38,7 +12,7 @@ class Data {
   String? createdAt;
   String? updatedAt;
 
-  Data(
+  DivisionModel(
       {this.id,
         this.countryId,
         this.division,
@@ -52,7 +26,7 @@ class Data {
         this.createdAt,
         this.updatedAt});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  DivisionModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     countryId = json['country_id'];
     division = json['division'];

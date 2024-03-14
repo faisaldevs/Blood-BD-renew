@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'drawer_pages/change_password.dart';
+
 class DrawerProfile extends StatelessWidget {
   const DrawerProfile({super.key});
 
@@ -78,7 +80,9 @@ class DrawerProfile extends StatelessWidget {
           CustomDrawerLinks(
             title: 'FAQ',
             icon: Icons.support_agent_outlined,
-            onTap: () {},
+            onTap: () {
+              Get.to(ChangePassword());
+            },
           ),
           CustomDrawerLinks(
             title: 'Logout',
