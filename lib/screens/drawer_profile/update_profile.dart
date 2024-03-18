@@ -1,3 +1,4 @@
+import 'package:blood_bd/controllers/update_profile_controller.dart';
 import 'package:blood_bd/data_list/data_list.dart';
 import 'package:blood_bd/screens/global_widget/custom_birthDate.dart';
 import 'package:blood_bd/screens/global_widget/custom_dropdown.dart';
@@ -14,7 +15,7 @@ import '../global_widget/custom_button.dart';
 class EditProfile extends StatelessWidget {
   EditProfile({super.key});
 
-  final EditProfileController editController = Get.put(EditProfileController());
+  final UpdateProfileController controller = Get.put(UpdateProfileController());
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,7 @@ class EditProfile extends StatelessWidget {
         height: Get.height,
         margin: const EdgeInsets.only(left: 16, right: 16),
         child: Form(
-          key: editController.formKey,
+          key: controller.formKey,
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -95,7 +96,7 @@ class EditProfile extends StatelessWidget {
                 //-------Name Field --------------
 
                 CustomTextFormField(
-                  controller: editController.nameController,
+                  controller: controller.nameController,
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (name) {
@@ -117,7 +118,7 @@ class EditProfile extends StatelessWidget {
                         dropDownList: DataList.genderListData,
                         label: 'Gender',
                         onChanged: (value) {
-                          editController.gender = value.toString();
+                          controller.gender = value.toString();
                         },
                       ),
                     ),
@@ -125,7 +126,7 @@ class EditProfile extends StatelessWidget {
                       width: 10,
                     ),
                     CustomBirthdate(
-                      controller: editController.dateController,
+                      controller: controller.dateController,
                       label: 'Date of Birth',
                     ),
                   ],
@@ -140,13 +141,13 @@ class EditProfile extends StatelessWidget {
                       dropDownList: DataList.bloodListData,
                       label: 'Blood Type',
                       onChanged: (value) {
-                        editController.bloodType = value.toString();
+                        controller.bloodType = value.toString();
                       },
                     )),
                     const SizedBox(width: 10),
                     Expanded(
                       child: CustomTextFormField(
-                        controller: editController.weightController,
+                        controller: controller.weightController,
                         hintText: '',
                         textInputType: TextInputType.number,
                         validate: (weight) {
@@ -171,7 +172,7 @@ class EditProfile extends StatelessWidget {
                       dropDownList: DataList.divisionListData,
                       label: 'Division',
                       onChanged: (value) {
-                        editController.division = value;
+                        controller.division = value;
                       },
                     )),
                     const SizedBox(
@@ -182,7 +183,7 @@ class EditProfile extends StatelessWidget {
                       dropDownList: DataList.districtListData,
                       label: 'District',
                       onChanged: (value) {
-                        editController.district = value;
+                        controller.district = value;
                       },
                     )),
                   ],
@@ -196,7 +197,7 @@ class EditProfile extends StatelessWidget {
                       dropDownList: DataList.districtListData,
                       label: 'Upazila',
                       onChanged: (value) {
-                        editController.upazila = value;
+                        controller.upazila = value;
                       },
                     )),
                     const SizedBox(
@@ -207,7 +208,7 @@ class EditProfile extends StatelessWidget {
                       dropDownList: DataList.districtListData,
                       label: 'Union',
                       onChanged: (value) {
-                        editController.union = value;
+                        controller.union = value;
                       },
                     )),
                   ],
@@ -216,7 +217,7 @@ class EditProfile extends StatelessWidget {
                 //  ------- Address Field --------------
 
                 CustomTextFormField(
-                  controller: editController.addressController,
+                  controller: controller.addressController,
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (address) {
@@ -243,6 +244,7 @@ class EditProfile extends StatelessWidget {
                   child: CustomButton(
                     onPressed: () {
                       // print("pressed");
+                      controller.updateProfile();
                     },
                     child: Text(
                       'Save Change',

@@ -47,12 +47,18 @@ class LoginController extends GetxController {
 
         if (response.statusCode == 200) {
           var data = jsonDecode(response.body.toString());
+          var accessToken = data["access_token"];
+          var tokenType = data["token_type"];
+
+          String token = tokenType+accessToken.toString();
+
           var id = data["user"]["id"];
           var name = data["user"]["name"].toString();
           var phone = data["user"]["phone"].toString();
           var blood = data["user"]["blood"].toString();
           String message = data["message"].toString();
 
+          getStorage.write("token", token);
           getStorage.write("id", id);
           getStorage.write("name", name);
           getStorage.write("phone", phone);

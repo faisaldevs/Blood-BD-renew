@@ -2,6 +2,7 @@ import 'package:blood_bd/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../controllers/request_blood_controller.dart';
 import '../../data_list/data_list.dart';
@@ -19,7 +20,7 @@ class RequestBlood extends StatefulWidget {
 }
 
 class _RequestBloodState extends State<RequestBlood> {
-  RequestBloodController rqBloodController = Get.put(RequestBloodController());
+  RequestBloodController controller = Get.put(RequestBloodController());
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class _RequestBloodState extends State<RequestBlood> {
       body: Container(
         margin: const EdgeInsets.all(16),
         child: Form(
-          key: rqBloodController.formKey,
+          key: controller.formKey,
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -57,7 +58,7 @@ class _RequestBloodState extends State<RequestBlood> {
                 //-------Name Field --------------
 
                 CustomTextFormField(
-                  controller: rqBloodController.patientNameController,
+                  controller: controller.patientNameController,
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (name) {
@@ -81,7 +82,8 @@ class _RequestBloodState extends State<RequestBlood> {
                           dropDownList: DataList.bloodListData,
                           label: 'Blood Group',
                           onChanged: (value) {
-                            rqBloodController.bloodType = value.toString();
+                            controller.bloodType = value.toString();
+                            print(value);
                           },
                         )),
                     const SizedBox(
@@ -93,7 +95,7 @@ class _RequestBloodState extends State<RequestBlood> {
                           dropDownList: DataList.bloodAmount,
                           label: 'Amount',
                           onChanged: (value) {
-                            rqBloodController.bloodAmount = value.toString();
+                            controller.bloodAmount = value.toString();
                           },
                         )),
                   ],
@@ -104,14 +106,14 @@ class _RequestBloodState extends State<RequestBlood> {
                 Row(
                   children: [
                     CustomBirthdate(
-                      controller: rqBloodController.dateController,
+                      controller: controller.dateController,
                       label: 'Date',
                     ),
                     const SizedBox(
                       width: 10,
                     ),
                     CustomTimePicker(
-                      controller: rqBloodController.timeController,
+                      controller: controller.timeController,
                       label: 'time',
                     ),
                   ],
@@ -124,7 +126,7 @@ class _RequestBloodState extends State<RequestBlood> {
                   dropDownList: DataList.bloodAmount,
                   label: "Health Issue",
                   onChanged: (value) {
-                    rqBloodController.healthIssue = value.toString();
+                    controller.healthIssue = value.toString();
                   },
                 ),
 
@@ -182,7 +184,7 @@ class _RequestBloodState extends State<RequestBlood> {
                 //  ------- Address Field --------------
 
                 CustomTextFormField(
-                  controller: rqBloodController.addressController,
+                  controller: controller.addressController,
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (address) {
@@ -200,7 +202,7 @@ class _RequestBloodState extends State<RequestBlood> {
                 const SizedBox(height: 10),
 
                 CustomTextFormField(
-                  controller: rqBloodController.contactParsonNameController,
+                  controller: controller.contactParsonNameController,
                   hintText: "",
                   textInputType: TextInputType.text,
                   validate: (address) {
@@ -217,7 +219,7 @@ class _RequestBloodState extends State<RequestBlood> {
 
                 //  ------- Mobile Field --------------
                 CustomTextFormField(
-                  controller: rqBloodController.numberController,
+                  controller: controller.numberController,
                   hintText: "",
                   length: 11,
                   textInputType: TextInputType.number,
@@ -242,8 +244,8 @@ class _RequestBloodState extends State<RequestBlood> {
                   width: MediaQuery.of(context).size.width,
                   child: CustomButton(
                       onPressed: () {
-                        rqBloodController.onSaveRqBlood();
-                        // if(rqBloodController.requestBloodKey.currentState!.validate()){
+                        controller.onSaveRqBlood();
+                        // if(controller.requestBloodKey.currentState!.validate()){
                         //   print("validate??");
                         // }
                       },
