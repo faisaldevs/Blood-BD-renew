@@ -13,7 +13,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../global/app_routes.dart';
 import '../../utils/assets_links.dart';
-import '../drawer_profile/drawer_profile.dart';
 import '../home_card_pages/feed_page.dart';
 import '../nav_pages/health.dart';
 
@@ -22,8 +21,6 @@ class HomeScreen extends StatelessWidget {
 
   final getStorage = GetStorage();
   final HomeController homeController = Get.put(HomeController());
-
-  // var selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -371,7 +368,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      drawer: const DrawerProfile(),
+      // drawer: const DrawerProfile(),
     );
   }
 }
